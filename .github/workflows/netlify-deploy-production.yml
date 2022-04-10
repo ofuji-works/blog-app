@@ -63,12 +63,12 @@ jobs:
 
       - name: Build
         run: |
-          yarn run build
+          yarn build
 
       - name: Deploy
         uses: netlify/actions/cli@master
         with:
-          args: deploy --dir=.next --prod
+          args: deploy --dir=./out --prod
         env:
           NETLIFY_SITE_ID: ${{ secrets.PRODUCTION_NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.PRODUCTION_NETLIFY_AUTH_TOKEN }}
