@@ -1,0 +1,75 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: netlify CI/CD
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+    types: [ closed ]
+
+jobs:
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x, 16.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: main
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Create production env file
+        id: create-production-env
+        run: |
+          ls -al
+          touch .env.production.local
+          echo "NEXT_PUBLIC_GA_ID=${{ secrets.PRODUCTION_GA_ID }}" >> .env.production
+          echo "NEXT_PUBLIC_SENTRY_DSN=${{ secrets.PRODUCTION_SENTRY_DSN }}" >> .env.production
+
+      - name: Create .sentryclirc file
+        id: create-sentryclirc
+        run: |
+          ls -al
+          touch .sentryclirc
+          {
+            echo "[auth]"
+            echo "token=${{ secrets.PRODUCTION_SENTRY_TOKEN }}"
+          } >> .sentryclirc
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - run: yarn install --frozen-lockfile
+
+      - name: Build
+        run: |
+          yarn run build
+
+      - name: Deploy
+        uses: netlify/actions/cli@master
+        with:
+          args: deploy --dir=dist --prod
+        env:
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
