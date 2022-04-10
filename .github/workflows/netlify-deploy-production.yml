@@ -5,14 +5,13 @@ name: netlify CI/CD
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
-    types: [ closed ]
+    branches: [main]
+    types: [closed]
 
 jobs:
   deploy:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -71,5 +70,5 @@ jobs:
         with:
           args: deploy --dir=dist --prod
         env:
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.PRODUCTION_NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.PRODUCTION_NETLIFY_AUTH_TOKEN }}
