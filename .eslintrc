@@ -34,12 +34,34 @@
   },
   "overrides": [
     {
-      "files": ["**/*.stories.*", "src/pages/*.tsx", "src/pages/*/*.tsx"],
+      "files": ["src/**/*.{js,jsx.ts.tsx}"],
       "rules": {
         "no-restricted-imports": [
           "off",
           {
             "patterns": ["@/features/*/*"]
+          }
+        ],
+        "import/order": [
+          "error",
+          {
+            "groups": ["builtin", "external", "parent", "sibiling", "index", "object", "type"],
+            "pathGroups": [
+              {
+                "pattern": "react",
+                "group": "external",
+                "position": "before"
+              },
+              {
+                "pattern": "src",
+                "group": "external",
+                "position": "after"
+              }
+            ],
+            "alphabetize": {
+              "order": "asc"
+            },
+            "newlines-between": "always"
           }
         ]
       }
