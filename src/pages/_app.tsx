@@ -1,12 +1,10 @@
 import { ChakraProvider } from '@chakra-ui/react'
-import { extendTheme } from '@chakra-ui/react'
-import type { AppProps } from 'next/app'
 import { FC } from 'react'
 import { RecoilRoot } from 'recoil'
 
-// テーマカラー設定
-const colors = {}
-const theme = extendTheme({ colors })
+import type { AppProps } from 'next/app'
+
+import { theme } from '@/assets/index.styles'
 
 const RootProvider: FC = ({ children }) => {
   return (
