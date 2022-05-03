@@ -28,24 +28,20 @@
     "no-restricted-imports": [
       "error",
       {
-        "patterns": ["@/features/*/*", "./", "../"]
+        // features, ../のimport禁止
+        "patterns": ["../", "@/features/*/*"]
       }
     ]
   },
   "overrides": [
+    // import並び替えルールの設定
     {
-      "files": ["src/**/*.{js,jsx.ts.tsx}"],
+      "files": ["src/**/*.{js,jsx,ts,tsx}"],
       "rules": {
-        "no-restricted-imports": [
-          "off",
-          {
-            "patterns": ["@/features/*/*"]
-          }
-        ],
         "import/order": [
           "error",
           {
-            "groups": ["builtin", "external", "parent", "sibiling", "index", "object", "type"],
+            "groups": ["builtin", "external", "parent", "sibling", "index", "object", "type"],
             "pathGroups": [
               {
                 "pattern": "react",
@@ -58,10 +54,19 @@
                 "position": "after"
               }
             ],
-            "alphabetize": {
-              "order": "asc"
-            },
             "newlines-between": "always"
+          }
+        ]
+      }
+    },
+    // pages以下のみでfeaturesのimportを許可
+    {
+      "files": ["src/pages/*.stories.*", "src/pages/*/*.stories.*", "src/pages/*.tsx", "src/pages/*/*.tsx"],
+      "rules": {
+        "no-restricted-imports": [
+          "off",
+          {
+            "patterns": ["@/features/*/*"]
           }
         ]
       }
