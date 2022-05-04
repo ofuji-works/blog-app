@@ -1,3 +1,5 @@
+import { BREAK_POINTS } from '@/config/index'
+
 // テーマカラー設定
 export const colors = {
   /* colors */
@@ -44,8 +46,8 @@ export const typography = {
 export const breakpoints = {
   breakpoints: {
     /* breakpoints */
-    sm: '428px', // SP
-    md: '1024px', // タブレット
+    sm: BREAK_POINTS.sm, // SP
+    md: BREAK_POINTS.md, // タブレット
   },
 }
 
