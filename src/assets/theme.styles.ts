@@ -9,14 +9,15 @@ export const colors = {
   borderColor: {
     gray: '#D6D6D6',
   },
+  colors: {
+    black: '#000',
+    deepGray: '#979797',
+    white: '#FFF',
+  },
 }
 
 export const typography = {
   /* typography */
-  colors: {
-    black: '#000',
-    deepGray: '#979797',
-  },
   fonts: {},
   fontSizes: {
     xs: '0.75rem',
@@ -41,24 +42,31 @@ export const typography = {
 }
 
 export const breakpoints = {
-  /* breakpoints */
-  sm: '', // SP
-  md: '', // タブレット
+  breakpoints: {
+    /* breakpoints */
+    sm: '428px', // SP
+    md: '1024px', // タブレット
+  },
 }
 
 export const spacing = {
-  /* spacing */
-  0.375: '0.375rem',
-  0.5: '0.5rem',
-  1: '1rem',
-  1.5: '1.5rem',
-  2: '2rem',
-  3.5: '3.5rem',
-  4: '4rem',
-  7.5: '7.5rem',
+  space: {
+    /* spacing */
+    0.375: '0.375rem',
+    0.5: '0.5rem',
+    0.75: '0.75rem',
+    1: '1rem',
+    1.5: '1.5rem',
+    2: '2rem',
+    3.5: '3.5rem',
+    4: '4rem',
+    7.5: '7.5rem',
+  },
 }
 
 export const borderRadius = {
-  /* border-radius */
-  base: '0.375rem',
+  radii: {
+    /* border-radius */
+    base: '0.375rem',
+  },
 }
