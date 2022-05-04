@@ -1,6 +1,17 @@
 import { chakra, Icon as ChakraIcon } from '@chakra-ui/react'
+import { motion } from 'framer-motion'
 
-export const Button = chakra('button', {
+export const framerVariant = {
+  hover: {
+    boxShadow: '0 0.25rem 0.25rem rgba(0, 0, 0, 0.25)',
+  },
+  tap: {
+    scale: 0.95,
+    ease: 'in-out',
+  },
+}
+
+export const Button = chakra(motion.button, {
   baseStyle: {
     bg: 'black',
     padding: {
