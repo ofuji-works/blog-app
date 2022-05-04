@@ -23,6 +23,7 @@
   },
   "rules": {
     "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
     "sort-imports": 0,
     "import/order": [2, { "alphabetize": { "order": "asc" } }],
     "no-restricted-imports": [
