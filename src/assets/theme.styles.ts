@@ -68,5 +68,6 @@ export const borderRadius = {
   radii: {
     /* border-radius */
     base: '0.375rem',
+    half: '50%',
   },
 }
