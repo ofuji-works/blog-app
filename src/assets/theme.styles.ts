@@ -1,20 +1,17 @@
-import { BREAK_POINTS } from '@/config/index'
+import { BREAK_POINTS, COLORS } from '@/config/index'
 
 // テーマカラー設定
 export const colors = {
   /* colors */
-  backgroundColor: {
-    black: '#000',
-    deepGray: '#979797',
-    lightGray: '#FAFAFA',
-  },
-  borderColor: {
-    gray: '#D6D6D6',
-  },
   colors: {
-    black: '#000',
-    deepGray: '#979797',
-    white: '#FFF',
+    black: COLORS.black,
+    gray: {
+      50: COLORS.gray[50],
+      100: COLORS.gray[100],
+      150: COLORS.gray[150],
+      200: COLORS.gray[200],
+    },
+    white: COLORS.white,
   },
 }
 

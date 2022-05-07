@@ -8,3 +8,19 @@ export const BREAK_POINTS = {
   sm: '428px',
   md: '1024px',
 }
+
+/**
+ * colors
+ * @typedef {object}
+ * @property {string}
+ */
+export const COLORS = {
+  black: '#000',
+  gray: {
+    50: '#FAFAFA',
+    100: '#E5E5E5',
+    150: '#D6D6D6',
+    200: '#979797',
+  },
+  white: '#FFF',
+}
