@@ -7,13 +7,13 @@ export const framerVariant = {
   },
   tap: {
     scale: 0.95,
-    ease: 'in-out',
   },
 }
 
 export const Button = chakra(motion.button, {
   baseStyle: {
-    bg: 'black',
+    bgColor: 'black',
+    margin: 0,
     padding: {
       base: 0.75,
       sm: 0.75,
@@ -27,7 +27,7 @@ export const Button = chakra(motion.button, {
 
 export const IconBg = chakra('div', {
   baseStyle: {
-    bg: 'white',
+    bgColor: 'white',
     width: '1.5rem',
     height: '1.5rem',
     borderRadius: 'half',
