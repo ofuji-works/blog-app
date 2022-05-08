@@ -1,4 +1,4 @@
-import { VFC, useState } from 'react'
+import { FC, useState } from 'react'
 import { VStack } from '@chakra-ui/react'
 
 import { TagLink } from '../TagLink'
@@ -12,7 +12,7 @@ type Props = {
   tags: string[]
 }
 
-export const SearchTagLinks: VFC<Props> = ({ categories, tags }) => {
+export const SearchTagLinks: FC<Props> = ({ categories, tags }) => {
   const [filterStatus, setFilterStatus] = useState<string>('ALL')
   const { isTablet } = useBreakPoints()
   return (

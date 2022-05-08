@@ -1,4 +1,4 @@
-import { VFC, MouseEventHandler } from 'react'
+import { FC, MouseEventHandler } from 'react'
 import { MdCode } from 'react-icons/md'
 
 import { Button, Icon, IconBg, Span, framerVariant } from './TagLink.styles'
@@ -16,7 +16,7 @@ type Props = {
   onClick: MouseEventHandler<HTMLButtonElement>
 }
 
-export const TagLink: VFC<Props> = ({ label, onClick }) => {
+export const TagLink: FC<Props> = ({ label, onClick }) => {
   const { isTablet } = useBreakPoints()
   return (
     <Button

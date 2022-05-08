@@ -1,4 +1,4 @@
-import { VFC } from 'react'
+import { FC } from 'react'
 import NextLink from 'next/link'
 
 import { Card, Title, Body, Tags, Datetime, Link } from './Blog.styles'
@@ -14,7 +14,7 @@ type Props = {
   href: string
 }
 
-export const Blog: VFC<Props> = ({ title, body, tags, datetime, href }) => {
+export const Blog: FC<Props> = ({ title, body, tags, datetime, href }) => {
   const { isSP } = useBreakPoints()
   return (
     <Card align="left">

@@ -1,12 +1,16 @@
 import { ChakraProvider } from '@chakra-ui/react'
-import { FC } from 'react'
+import { FC, ReactNode } from 'react'
 import { RecoilRoot } from 'recoil'
 
 import type { AppProps } from 'next/app'
 
 import { theme } from '@/assets/index.styles'
 
-const RootProvider: FC = ({ children }) => {
+type Props = {
+  children: ReactNode
+}
+
+const RootProvider: FC<Props> = ({ children }) => {
   return (
     <RecoilRoot>
       <ChakraProvider theme={theme}>{children}</ChakraProvider>
