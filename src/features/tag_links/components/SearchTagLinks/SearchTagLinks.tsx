@@ -7,17 +7,19 @@ import { Bg, FilterButton, FilterBox, framerVariant, TagBox } from './SearchTagL
 
 import { useBreakPoints } from '@/hooks/index'
 
-const filterElement: string[] = ['ALL', 'React', 'TypeScript', 'ReactNative', 'WebGL', 'Angular']
-const tags: string[] = ['React', 'TypeScript', 'ReactNative', 'WebGL', 'Angular']
+type Props = {
+  categories: string[]
+  tags: string[]
+}
 
-export const SearchTagLinks: VFC = () => {
+export const SearchTagLinks: VFC<Props> = ({ categories, tags }) => {
   const [filterStatus, setFilterStatus] = useState<string>('ALL')
   const { isTablet } = useBreakPoints()
   return (
     <Bg>
       <VStack mb={4}>
         <FilterBox>
-          {filterElement.map((filter) => (
+          {categories.map((filter) => (
             <FilterButton
               key={`btn-${filter}`}
               variants={framerVariant}
