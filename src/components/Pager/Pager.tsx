@@ -2,7 +2,9 @@ import type { FC } from 'react'
 
 import { Fragment, memo, useMemo, useState, useCallback } from 'react'
 
-import { BtnArea, PageBtn, framerVariant } from './Pager.styles'
+import { BtnArea, PageBtn, PageBtnSP, framerVariant } from './Pager.styles'
+
+import { useBreakPoints } from '@/hooks/index'
 
 /**
  * @typedef {object}
@@ -28,6 +30,7 @@ function itemHOC<T>(Component: FC<T>, props: T): FC<T> {
 
 /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
 export const Pager: FC<Props<{ [key: string]: any }>> = memo(function Pager({ items, component }) {
+  const { isTablet } = useBreakPoints()
   /**
    * 表示ページ
    * @type {number} page
@@ -73,27 +76,60 @@ export const Pager: FC<Props<{ [key: string]: any }>> = memo(function Pager({ it
       }
       {/* pager */}
       <BtnArea>
-        {[...Array(maxPage)].map((_, index) => {
-          const page = index + 1
-          return (
-            <PageBtn
-              key={`page-${page}`}
-              data-active={currentPage === page ? 'true' : undefined}
-              _active={{
-                backgroundColor: 'black',
-                color: 'white',
-                border: 'none',
-              }}
+        {isTablet ? (
+          <>
+            <PageBtnSP
               variants={framerVariant}
-              whileHover="hover"
+              whileTap={isTablet && currentPage !== 1 ? 'tap' : undefined}
+              disabled={currentPage === 1}
+              aria-disabled={currentPage === 1 ? 'true' : undefined}
+              _disabled={{
+                opacity: 0.5,
+              }}
               onClick={() => {
-                pagingHandler(page)
+                pagingHandler(currentPage - 1)
               }}
             >
-              {page}
-            </PageBtn>
-          )
-        })}
+              Prev
+            </PageBtnSP>
+            <PageBtnSP
+              variants={framerVariant}
+              whileTap={isTablet && currentPage !== maxPage ? 'tap' : undefined}
+              disabled={currentPage === maxPage}
+              aria-disabled={currentPage === maxPage ? 'true' : undefined}
+              _disabled={{
+                opacity: 0.5,
+              }}
+              onClick={() => {
+                pagingHandler(currentPage + 1)
+              }}
+            >
+              Next
+            </PageBtnSP>
+          </>
+        ) : (
+          [...Array(maxPage)].map((_, index) => {
+            const page = index + 1
+            return (
+              <PageBtn
+                key={`page-${page}`}
+                data-active={currentPage === page ? 'true' : undefined}
+                _active={{
+                  backgroundColor: 'black',
+                  color: 'white',
+                  border: 'none',
+                }}
+                variants={framerVariant}
+                whileHover="hover"
+                onClick={() => {
+                  pagingHandler(page)
+                }}
+              >
+                {page}
+              </PageBtn>
+            )
+          })
+        )}
       </BtnArea>
     </>
   )

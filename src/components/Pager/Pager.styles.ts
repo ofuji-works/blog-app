@@ -7,6 +7,9 @@ export const framerVariant = {
     color: '#FFF',
     borderColor: '#000',
   },
+  tap: {
+    scale: 0.95,
+  },
 }
 
 export const BtnArea = chakra('div', {
@@ -25,5 +28,16 @@ export const PageBtn = chakra(motion.button, {
     borderColor: 'gray.150',
     width: '1.5rem',
     height: '1.5rem',
+  },
+})
+
+export const PageBtnSP = chakra(motion.button, {
+  baseStyle: {
+    width: '100%',
+    fontSize: 'md',
+    color: 'white',
+    bgColor: 'black',
+    paddingY: 0.75,
+    borderRadius: 'base',
   },
 })
