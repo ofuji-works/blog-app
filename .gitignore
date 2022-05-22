@@ -39,3 +39,6 @@ yarn-error.log*
 
 # eslint
 .eslintcache
+
+# chromatic
+build-storybook.log
