@@ -3,7 +3,7 @@ import { Pager } from './Pager'
 import type { ComponentStory, ComponentMeta } from '@storybook/react'
 
 const meta: ComponentMeta<typeof Pager> = {
-  title: 'Pager',
+  title: 'Components/Pager',
   component: Pager,
 }
 
