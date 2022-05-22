@@ -11,3 +11,8 @@
 - Contentful
 - Google Analytics
 - Sentry
+
+## Testing
+
+- **Visual Regression Testing**
+  https://www.chromatic.com/

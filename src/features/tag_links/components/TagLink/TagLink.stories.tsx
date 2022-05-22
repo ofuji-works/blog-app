@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { TagLink } from './TagLink'
 
 const meta: ComponentMeta<typeof TagLink> = {
-  title: 'TagLink',
+  title: 'TagLinks/TagLink',
   component: TagLink,
 }
 
