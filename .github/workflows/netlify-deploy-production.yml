@@ -61,7 +61,7 @@ jobs:
       - run: yarn install --frozen-lockfile
 
       - name: Regression Testing
-      - run: yarn chromatic -token=${{ secrets.PRODUCTION_CHROMATIC_TOKEN }}
+      - run: npm run chromatic --token=${{ secrets.PRODUCTION_CHROMATIC_TOKEN }}
 
       - name: Build
         run: |
