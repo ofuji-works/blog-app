@@ -18,7 +18,7 @@
     "storybook": "start-storybook -p 6006 -s ./public",
     "build-storybook": "build-storybook -s public",
     "prepare": "husky install",
-    "chromatic": "npx chromatic --project-token=$npm_config_token"
+    "chromatic": "npx chromatic --exit-zero-on-changes"
   },
   "dependencies": {
     "@chakra-ui/react": "^1.8.8",
