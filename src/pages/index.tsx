@@ -1,7 +1,14 @@
 import type { NextPage } from 'next'
 
+import {} from '@/features/blogs'
+import { Profile } from '@/features/profile'
+import { SearchTagLinks } from '@/features/tag_links'
+
+const categories = ['react']
+const tags = ['react']
+
 const Home: NextPage = () => {
-  return <h1>Hello World</h1>
+  return <SearchTagLinks categories={categories} tags={tags} />
 }
 
 export default Home

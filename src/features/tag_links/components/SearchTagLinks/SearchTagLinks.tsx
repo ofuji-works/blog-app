@@ -16,12 +16,14 @@ export const SearchTagLinks: FC<Props> = ({ categories, tags }) => {
   const [filterStatus, setFilterStatus] = useState<string>('ALL')
   const { isTablet } = useBreakPoints()
   return (
-    <Bg>
+    <Bg id="search-tag-links">
       <VStack mb={4}>
         <FilterBox>
           {categories.map((filter) => (
             <FilterButton
               key={`btn-${filter}`}
+              role="button"
+              aria-label={filter}
               variants={framerVariant}
               data-active={filter === filterStatus ? 'true' : undefined}
               _active={{
