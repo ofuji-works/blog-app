@@ -17,12 +17,11 @@ export const SearchTagLinks: FC<Props> = ({ categories, tags }) => {
   const { isTablet } = useBreakPoints()
   return (
     <Bg id="search-tag-links">
-      <VStack mb={4}>
+      <VStack mb={4} id="category-filters">
         <FilterBox>
           {categories.map((filter) => (
             <FilterButton
               key={`btn-${filter}`}
-              role="button"
               aria-label={filter}
               variants={framerVariant}
               data-active={filter === filterStatus ? 'true' : undefined}
@@ -40,7 +39,7 @@ export const SearchTagLinks: FC<Props> = ({ categories, tags }) => {
           ))}
         </FilterBox>
       </VStack>
-      <TagBox>
+      <TagBox id="tag-links">
         {tags.map((tag) => (
           <TagLink key={`tag-${tag}`} label={tag} onClick={() => console.log(tag)} />
         ))}
