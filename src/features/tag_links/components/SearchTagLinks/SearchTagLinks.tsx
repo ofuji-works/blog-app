@@ -5,7 +5,7 @@ import { TagLink } from '../TagLink'
 
 import { Bg, FilterButton, FilterBox, framerVariant, TagBox } from './SearchTagLinks.styles'
 
-import { useBreakPoints } from '@/hooks/index'
+import { useBreakPoints } from '@/hooks'
 
 type Props = {
   categories: string[]

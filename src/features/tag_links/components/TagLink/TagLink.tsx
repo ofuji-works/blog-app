@@ -3,7 +3,7 @@ import { MdCode } from 'react-icons/md'
 
 import { Button, Icon, IconBg, Span, framerVariant } from './TagLink.styles'
 
-import { useBreakPoints } from '@/hooks/index'
+import { useBreakPoints } from '@/hooks'
 
 type Props = {
   /**

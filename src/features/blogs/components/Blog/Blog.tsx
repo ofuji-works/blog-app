@@ -3,8 +3,8 @@ import NextLink from 'next/link'
 
 import { Card, Title, Body, Tags, Datetime, Link } from './Blog.styles'
 
-import { useBreakPoints } from '@/hooks/useBreakPoints'
-import { Tag } from '@/components/Tag/index'
+import { useBreakPoints } from '@/hooks'
+import { Tag } from '@/components'
 
 type Props = {
   title: string
