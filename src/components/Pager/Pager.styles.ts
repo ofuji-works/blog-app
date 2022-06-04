@@ -12,6 +12,17 @@ export const framerVariant = {
   },
 }
 
+export const ListWrapper = chakra('div', {
+  baseStyle: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: {
+      base: 1,
+      sm: 1.5,
+    },
+  },
+})
+
 export const BtnArea = chakra('div', {
   baseStyle: {
     marginTop: 4,

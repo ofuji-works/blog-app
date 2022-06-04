@@ -2,7 +2,7 @@ import type { FC } from 'react'
 
 import { Fragment, memo, useMemo, useState, useCallback } from 'react'
 
-import { BtnArea, PageBtn, PageBtnSP, framerVariant } from './Pager.styles'
+import { BtnArea, PageBtn, PageBtnSP, framerVariant, ListWrapper } from './Pager.styles'
 
 import { useBreakPoints } from '@/hooks'
 
@@ -63,17 +63,17 @@ export const Pager: FC<Props<any>> = memo(function Pager({ items, component }) {
 
   return (
     <>
-      {
-        /* item list */
-        rows.map((row, index) => {
+      {/* item list */}
+      <ListWrapper>
+        {rows.map((row, index) => {
           const Row = itemHOC<typeof row>(component, row)
           return (
             <Fragment key={`key-${index}`}>
               <Row />
             </Fragment>
           )
-        })
-      }
+        })}
+      </ListWrapper>
       {/* pager */}
       <BtnArea>
         {isTablet ? (
