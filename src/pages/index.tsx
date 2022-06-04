@@ -1,14 +1,19 @@
 import type { NextPage } from 'next'
 
-import {} from '@/features/blogs'
-import { Profile } from '@/features/profile'
-import { SearchTagLinks } from '@/features/tag_links'
+import { BlogList, SearchTagLinks, Profile } from '@/features'
+import { TwoColumnContainer } from '@/components'
 
 const categories = ['React']
 const tags = ['React']
+const items = ['React']
 
 const Home: NextPage = () => {
-  return <SearchTagLinks categories={categories} tags={tags} />
+  return (
+    <>
+      <TwoColumnContainer LeftComponent={() => <BlogList items={items} />} RightComponent={() => <Profile />} />
+      <SearchTagLinks categories={categories} tags={tags} />
+    </>
+  )
 }
 
 export default Home
