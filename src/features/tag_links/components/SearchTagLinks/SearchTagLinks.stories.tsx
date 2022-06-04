@@ -10,12 +10,12 @@ const meta: ComponentMeta<typeof SearchTagLinks> = {
 
 const Template: ComponentStory<typeof SearchTagLinks> = (args) => <SearchTagLinks {...args} />
 
-export const Primary = Template.bind({})
+export const Default = Template.bind({})
 
 const categories: string[] = ['ALL', 'React', 'TypeScript', 'ReactNative', 'WebGL', 'Angular']
 const tags: string[] = ['React', 'TypeScript', 'ReactNative', 'WebGL', 'Angular']
 
-Primary.args = {
+Default.args = {
   categories,
   tags,
 }
