@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { TwoColumnContainer } from './TwoColumnContainer'
 
 const meta: ComponentMeta<typeof TwoColumnContainer> = {
-  title: 'component/TwoColumnContainer',
+  title: 'components/TwoColumnContainer',
   component: TwoColumnContainer,
 }
 
