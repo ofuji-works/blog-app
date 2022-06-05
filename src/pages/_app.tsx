@@ -5,6 +5,7 @@ import { RecoilRoot } from 'recoil'
 import type { AppProps } from 'next/app'
 
 import { theme } from '@/assets/index.styles'
+import { Container } from '@/components'
 
 type Props = {
   children: ReactNode
@@ -21,7 +22,9 @@ const RootProvider: FC<Props> = ({ children }) => {
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <RootProvider>
-      <Component {...pageProps} />
+      <Container>
+        <Component {...pageProps} />
+      </Container>
     </RootProvider>
   )
 }
