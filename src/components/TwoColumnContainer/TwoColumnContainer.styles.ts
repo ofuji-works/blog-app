@@ -2,13 +2,14 @@ import { chakra, Box } from '@chakra-ui/react'
 
 export const TwoColumnWrapper = chakra(Box, {
   baseStyle: {
-    margin: '0 auto',
-    display: {
-      default: 'block',
-      sm: 'flex',
+    display: 'flex',
+    flexDirection: {
+      base: 'column',
+      sm: 'row',
     },
+    justifyContent: 'center',
     gap: {
-      default: 'unset',
+      base: 4,
       sm: 2.5,
     },
   },
@@ -17,7 +18,7 @@ export const TwoColumnWrapper = chakra(Box, {
 export const LeftComponentWrapper = chakra(Box, {
   baseStyle: {
     width: {
-      default: '100%',
+      base: '100%',
       sm: '790px',
     },
   },
@@ -26,7 +27,7 @@ export const LeftComponentWrapper = chakra(Box, {
 export const RightComponentWrapper = chakra(Box, {
   baseStyle: {
     width: {
-      default: '100%',
+      base: '100%',
       sm: '360px',
     },
   },
