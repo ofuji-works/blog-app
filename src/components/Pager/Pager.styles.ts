@@ -25,7 +25,7 @@ export const ListWrapper = chakra('div', {
 
 export const BtnArea = chakra('div', {
   baseStyle: {
-    marginTop: 4,
+    marginTop: 1,
     display: 'flex',
     gap: 0.5,
   },
