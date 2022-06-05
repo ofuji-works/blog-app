@@ -2,9 +2,9 @@ import type { FC } from 'react'
 
 import { Fragment, memo, useMemo, useState, useCallback } from 'react'
 
-import { BtnArea, PageBtn, PageBtnSP, framerVariant } from './Pager.styles'
+import { BtnArea, PageBtn, PageBtnSP, framerVariant, ListWrapper } from './Pager.styles'
 
-import { useBreakPoints } from '@/hooks/index'
+import { useBreakPoints } from '@/hooks'
 
 /**
  * @typedef {object}
@@ -29,7 +29,7 @@ function itemHOC<T>(Component: FC<T>, props: T): FC<T> {
 }
 
 /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
-export const Pager: FC<Props<{ [key: string]: any }>> = memo(function Pager({ items, component }) {
+export const Pager: FC<Props<any>> = memo(function Pager({ items, component }) {
   const { isTablet } = useBreakPoints()
   /**
    * 表示ページ
@@ -63,17 +63,17 @@ export const Pager: FC<Props<{ [key: string]: any }>> = memo(function Pager({ it
 
   return (
     <>
-      {
-        /* item list */
-        rows.map((row, index) => {
-          const Row = itemHOC(component, row)
+      {/* item list */}
+      <ListWrapper>
+        {rows.map((row, index) => {
+          const Row = itemHOC<typeof row>(component, row)
           return (
             <Fragment key={`key-${index}`}>
               <Row />
             </Fragment>
           )
-        })
-      }
+        })}
+      </ListWrapper>
       {/* pager */}
       <BtnArea>
         {isTablet ? (

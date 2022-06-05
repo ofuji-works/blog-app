@@ -1,10 +1,10 @@
 import { FC } from 'react'
 import NextLink from 'next/link'
 
-import { Card, Title, Body, Tags, Datetime, Link } from './Blog.styles'
+import { Card, Title, Body, Tags, Datetime, Link, framerVariant } from './Blog.styles'
 
-import { useBreakPoints } from '@/hooks/useBreakPoints'
-import { Tag } from '@/components/Tag/index'
+import { useBreakPoints } from '@/hooks'
+import { Tag } from '@/components'
 
 type Props = {
   title: string
@@ -17,7 +17,7 @@ type Props = {
 export const Blog: FC<Props> = ({ title, body, tags, datetime, href }) => {
   const { isSP } = useBreakPoints()
   return (
-    <Card align="left">
+    <Card variants={framerVariant} whileHover="hover">
       <Title>{title}</Title>
       {!isSP && <Body>{body}</Body>}
       <Tags gap={'4px'}>{tags && tags.map((tag) => <Tag key={`tag-${tag}`} label={tag} />)}</Tags>

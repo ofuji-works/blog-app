@@ -10,9 +10,9 @@ const meta: ComponentMeta<typeof TagLink> = {
 
 const Template: ComponentStory<typeof TagLink> = (args) => <TagLink {...args} />
 
-export const Primary = Template.bind({})
+export const Default = Template.bind({})
 
-Primary.args = {
+Default.args = {
   label: 'React',
 }
 

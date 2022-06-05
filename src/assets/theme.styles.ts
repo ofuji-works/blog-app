@@ -1,4 +1,4 @@
-import { BREAK_POINTS, COLORS } from '@/config/index'
+import { BREAK_POINTS, COLORS } from '@/config'
 
 // テーマカラー設定
 export const colors = {

@@ -10,9 +10,9 @@ const meta: ComponentMeta<typeof Blog> = {
 
 const Template: ComponentStory<typeof Blog> = (args) => <Blog {...args} />
 
-export const Primary = Template.bind({})
+export const Default = Template.bind({})
 
-Primary.args = {
+Default.args = {
   title: 'カスタムフックの活用事例について',
   body: 'みなさんはReact Hooksをカスタムで作成したことはありますでしょうか？私のかんがえるよく使うカスタムフックの事例をまとめてみました。ぜひ参考にしてみてください。',
   tags: ['React', 'React Native', 'React Testing Library', 'Redux', 'Recoil', 'React Hooks'],

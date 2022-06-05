@@ -1,9 +1,12 @@
 import { chakra, Container, Box } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 
+import { COLORS } from '@/config'
+
 export const framerVariant = {
   hover: {
-    scale: 1.1,
+    borderColor: COLORS.gray[200],
+    borderWidth: '1px',
   },
   tap: {
     scale: 0.95,
@@ -44,6 +47,8 @@ export const FilterButton = chakra(motion.button, {
   baseStyle: {
     bgColor: 'gray.50',
     borderRadius: 'base',
+    borderWidth: '1px',
+    borderColor: 'gray.50',
     paddingX: 0.75,
     paddingY: 0.5,
   },

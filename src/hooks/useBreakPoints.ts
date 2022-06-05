@@ -1,6 +1,6 @@
 import { useMediaQuery } from '@chakra-ui/react'
 
-import { BREAK_POINTS } from '@/config/index'
+import { BREAK_POINTS } from '@/config'
 
 /**
  * 現在の表示デバイスの判断 by breakpoints

@@ -1,6 +1,13 @@
 import { chakra, Box } from '@chakra-ui/react'
+import { motion } from 'framer-motion'
 
-export const Card = chakra(Box, {
+export const framerVariant = {
+  hover: {
+    boxShadow: '0 0.25rem 0.25rem rgba(0, 0, 0, 0.25)',
+  },
+}
+
+export const Card = chakra(motion.div, {
   baseStyle: {
     borderStyle: 'solid',
     borderWidth: 1,
@@ -17,6 +24,7 @@ export const Card = chakra(Box, {
     position: 'relative',
     display: 'flex',
     flexDirection: 'column',
+    alignItems: 'left',
   },
 })
 

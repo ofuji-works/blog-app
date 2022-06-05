@@ -30,7 +30,7 @@
       "error",
       {
         // features, ../のimport禁止
-        "patterns": ["../../", "../../../", "@/features/*/*"]
+        "patterns": ["../../", "../../../", "@/features/*/*", "@/features"]
       }
     ]
   },
@@ -67,7 +67,7 @@
         "no-restricted-imports": [
           "off",
           {
-            "patterns": ["@/features/*/*"]
+            "patterns": ["@/features"]
           }
         ]
       }

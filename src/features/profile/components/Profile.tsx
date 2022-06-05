@@ -3,7 +3,7 @@ import { FaGithub, FaTwitter } from 'react-icons/fa'
 
 import { Avatar, Card, Name, Description, Role, SNS, SNSArea } from './Profile.styles'
 
-import { useBreakPoints } from '@/hooks/index'
+import { useBreakPoints } from '@/hooks'
 
 /**
  * @typedef {object} SNS
