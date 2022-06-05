@@ -5,6 +5,7 @@
       "@/components": ["components"],
       "@/features": ["features"],
       "@/assets": ["assets"],
+      "@/assets/*": ["assets/*"],
       "@/config": ["config"],
       "@/hooks": ["hooks"]
     },
