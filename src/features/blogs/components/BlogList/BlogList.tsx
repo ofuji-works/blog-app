@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import { Blog } from '../Blog'
+import { BlogListItem } from '../BlogListItem'
 
 import { Pager } from '@/components'
 
@@ -9,5 +9,5 @@ type Props = {
 }
 
 export const BlogList: FC<Props> = ({ items }) => {
-  return <Pager items={items} component={Blog} />
+  return <Pager items={items} component={BlogListItem} />
 }
