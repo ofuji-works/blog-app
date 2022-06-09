@@ -6,6 +6,8 @@ import { BtnArea, PageBtn, PageBtnSP, framerVariant, ListWrapper } from './Pager
 
 import { useBreakPoints } from '@/hooks'
 
+const genericMemo: <T>(component: T) => T = memo
+
 /**
  * @typedef {object}
  * @property {{[key: string]}[]} items 表示アイテム
@@ -22,14 +24,13 @@ type Props<T> = {
  * @param {T} props
  * @return {FC}
  */
-function itemHOC<T>(Component: FC<T>, props: T): FC<T> {
-  return function HocComponent() {
+function itemHOC<T>(Component: FC<T>, props: T): FC {
+  return () => {
     return <Component {...props} />
   }
 }
 
-/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
-export const Pager: FC<Props<any>> = memo(function Pager({ items, component }) {
+function PagerComponent<T>({ items, component }: Props<T>) {
   const { isTablet } = useBreakPoints()
   /**
    * 表示ページ
@@ -130,4 +131,6 @@ export const Pager: FC<Props<any>> = memo(function Pager({ items, component }) {
       </BtnArea>
     </>
   )
-})
+}
+
+export const Pager = genericMemo(PagerComponent)
