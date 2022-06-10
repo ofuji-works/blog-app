@@ -9,11 +9,11 @@ import type { Document } from '@contentful/rich-text-types'
 import { useBreakPoints } from '@/hooks'
 import { Tag } from '@/components'
 
-export interface Props extends Blog.BlogListItem {
+export interface BlogListItemProps extends Blog.BlogListItem {
   body: Document
 }
 
-export const BlogListItem: FC<Props> = ({ title, body, tags, datetime, href }) => {
+export const BlogListItem: FC<BlogListItemProps> = ({ title, body, tags, datetime, href }) => {
   const { isSP } = useBreakPoints()
   return (
     <Card variants={framerVariant} whileHover="hover">

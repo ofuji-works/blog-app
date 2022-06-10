@@ -1,13 +1,13 @@
 import { FC } from 'react'
 
-import { BlogListItem, Props as BlogListItemProps } from '../BlogListItem'
+import { BlogListItem, BlogListItemProps } from '../BlogListItem'
 
 import { Pager } from '@/components'
 
-type Props = {
+export type BlogListProps = {
   items: BlogListItemProps[]
 }
 
-export const BlogList: FC<Props> = ({ items }) => {
+export const BlogList: FC<BlogListProps> = ({ items }) => {
   return <Pager<BlogListItemProps> items={items} component={BlogListItem} />
 }
