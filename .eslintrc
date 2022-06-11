@@ -31,7 +31,7 @@
       "error",
       {
         // features, ../のimport禁止
-        "patterns": ["../../", "../../../", "@/features/*/*", "@/features"]
+        "patterns": ["@/features/*/*", "@/features"]
       }
     ]
   },
