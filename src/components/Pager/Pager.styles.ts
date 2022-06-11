@@ -1,4 +1,4 @@
-import { chakra } from '@chakra-ui/react'
+import { chakra, List } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 
 export const framerVariant = {
@@ -12,7 +12,7 @@ export const framerVariant = {
   },
 }
 
-export const ListWrapper = chakra('div', {
+export const ListWrapper = chakra(List, {
   baseStyle: {
     display: 'flex',
     flexDirection: 'column',

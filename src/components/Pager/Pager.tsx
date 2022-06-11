@@ -1,5 +1,4 @@
-import type { FC } from 'react'
-
+import { FC } from 'react'
 import { Fragment, memo, useMemo, useState, useCallback } from 'react'
 
 import { BtnArea, PageBtn, PageBtnSP, framerVariant, ListWrapper } from './Pager.styles'
@@ -24,6 +23,8 @@ type Props<T> = {
  */
 function itemHOC<T>(Component: FC<T>, props: T): FC {
   return () => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     return <Component {...props} />
   }
 }
