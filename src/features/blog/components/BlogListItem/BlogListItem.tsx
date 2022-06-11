@@ -6,21 +6,25 @@ import { Card, Title, Body, Tags, Datetime, Link, framerVariant } from './BlogLi
 
 import type { Document } from '@contentful/rich-text-types'
 
-import { useBreakPoints } from '@/hooks'
 import { Tag } from '@/components'
+import { getDayjs } from 'libs'
 
-export interface BlogListItemProps extends Blog.BlogListItem {
-  body: Document
+export interface BlogListItemProps {
+  title: string
+  json: Document
+  tags?: string[]
+  datetime: string
+  href: string
 }
 
-export const BlogListItem: FC<BlogListItemProps> = ({ title, body, tags, datetime, href }) => {
-  const { isSP } = useBreakPoints()
+export const BlogListItem: FC<BlogListItemProps> = ({ title, json, tags, datetime, href }) => {
+  const dayjs = getDayjs()
   return (
     <Card variants={framerVariant} whileHover="hover">
       <Title>{title}</Title>
-      {!isSP && <Body>{documentToPlainTextString(body)}</Body>}
+      <Body>{documentToPlainTextString(json)}</Body>
       <Tags gap={'4px'}>{tags && tags.map((tag) => <Tag key={`tag-${tag}`} label={tag} />)}</Tags>
-      <Datetime>{datetime}</Datetime>
+      <Datetime>{dayjs(datetime).format('YYYY.MM.DD')}</Datetime>
       <NextLink href={href} passHref>
         <Link />
       </NextLink>
