@@ -3,8 +3,6 @@ import { FaGithub, FaTwitter } from 'react-icons/fa'
 
 import { Avatar, Card, Name, Description, Role, SNS, SNSArea } from './Profile.styles'
 
-import { useBreakPoints } from '@/hooks'
-
 /**
  * @typedef {object} SNS
  * @property {string} icon icon font
@@ -32,14 +30,12 @@ type Props = {
 }
 
 export const Profile: FC<Props> = ({ src, name, role, description, sns }) => {
-  const { isSP } = useBreakPoints()
-
   const snsLinkHandler = () => {
     console.log('profile')
   }
 
   return (
-    <Card maxW={isSP ? '100%' : '22.5rem'} src={src}>
+    <Card src={src}>
       <Avatar size="xl" name={name} />
       <Name>{name}</Name>
       <Role>{role}</Role>

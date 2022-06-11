@@ -4,8 +4,6 @@ import { Fragment, memo, useMemo, useState, useCallback } from 'react'
 
 import { BtnArea, PageBtn, PageBtnSP, framerVariant, ListWrapper } from './Pager.styles'
 
-import { useBreakPoints } from '@/hooks'
-
 const genericMemo: <T>(component: T) => T = memo
 
 /**
@@ -31,7 +29,6 @@ function itemHOC<T>(Component: FC<T>, props: T): FC {
 }
 
 function PagerComponent<T>({ items, component }: Props<T>) {
-  const { isTablet } = useBreakPoints()
   /**
    * 表示ページ
    * @type {number} page
@@ -80,7 +77,7 @@ function PagerComponent<T>({ items, component }: Props<T>) {
         <>
           <PageBtnSP
             variants={framerVariant}
-            whileTap={isTablet && currentPage !== 1 ? 'tap' : undefined}
+            whileTap={currentPage !== 1 ? 'tap' : undefined}
             disabled={currentPage === 1}
             aria-disabled={currentPage === 1 ? 'true' : undefined}
             _disabled={{
@@ -94,7 +91,7 @@ function PagerComponent<T>({ items, component }: Props<T>) {
           </PageBtnSP>
           <PageBtnSP
             variants={framerVariant}
-            whileTap={isTablet && currentPage !== maxPage ? 'tap' : undefined}
+            whileTap={currentPage !== maxPage ? 'tap' : undefined}
             disabled={currentPage === maxPage}
             aria-disabled={currentPage === maxPage ? 'true' : undefined}
             _disabled={{
