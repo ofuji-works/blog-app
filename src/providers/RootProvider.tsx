@@ -15,7 +15,9 @@ export const RootProvider: FC<Props> = ({ children, pageProps }) => {
   return (
     <RecoilRoot>
       <ApolloProvider pageProps={pageProps}>
-        <ChakraProvider theme={theme}>{children}</ChakraProvider>
+        <ChakraProvider resetCSS theme={theme}>
+          {children}
+        </ChakraProvider>
       </ApolloProvider>
     </RecoilRoot>
   )
