@@ -9,5 +9,8 @@ export type BlogListProps = {
 }
 
 export const BlogList: FC<BlogListProps> = ({ items }) => {
+  if (items.length === 0) {
+    return <p>no data</p>
+  }
   return <Pager<BlogListItemProps> items={items} component={BlogListItem} />
 }

@@ -7,6 +7,7 @@ export interface BlogsQuery {
     items: {
       sys: {
         id: string
+        publishedAt: string
       }
       title: string
       body: {
@@ -22,6 +23,7 @@ export const GET_BLOGS_QUERY = gql`
       items {
         sys {
           id
+          publishedAt
         }
         title
         body {
