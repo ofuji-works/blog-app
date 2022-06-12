@@ -1,7 +1,8 @@
 import { NextPage, GetStaticProps, GetStaticPaths } from 'next'
 
 import { initializeApollo, addApolloState } from '@/libs'
-import { GET_BLOG_QUERY, GET_BLOGS_QUERY, BlogQuery, BlogsQuery } from 'features'
+import { GET_BLOG_QUERY, GET_BLOGS_QUERY, BlogQuery, BlogsQuery, Profile, BlogTitle } from 'features'
+import { TwoColumnContainer, KeyVisual } from '@/components'
 import { Blog } from 'features'
 
 type Props = {
@@ -9,7 +10,16 @@ type Props = {
 }
 
 const Page: NextPage<Props> = ({ data }) => {
-  return <Blog document={data.blog.body.json} />
+  return (
+    <>
+      <KeyVisual />
+      <BlogTitle title={data.blog.title} date={data.blog.sys.publishedAt} />
+      <TwoColumnContainer
+        LeftComponent={() => <Blog document={data.blog.body.json} links={data.blog.body.links} />}
+        RightComponent={() => <Profile />}
+      />
+    </>
+  )
 }
 
 export const getStaticProps: GetStaticProps<Props, { id: string }> = async ({ params }) => {
@@ -26,7 +36,6 @@ export const getStaticProps: GetStaticProps<Props, { id: string }> = async ({ pa
       preview: false,
     },
   })
-  console.log(data)
   if (!data) {
     return {
       notFound: true,
