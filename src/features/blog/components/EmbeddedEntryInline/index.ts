@@ -1,0 +1,1 @@
+export { EmbeddedEntryInline } from './EmbeddedEntryInline'
