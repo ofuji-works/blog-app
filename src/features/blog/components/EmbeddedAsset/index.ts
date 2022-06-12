@@ -1,0 +1,1 @@
+export { EmbeddedAsset } from './EmbeddedAsset'
