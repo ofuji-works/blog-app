@@ -12,6 +12,7 @@ export const colors = {
       200: COLORS.gray[200],
     },
     white: COLORS.white,
+    code: COLORS.code,
   },
 }
 
@@ -25,6 +26,10 @@ export const typography = {
     lg: '1.25rem',
     xl: '1.5rem',
     '2xl': '2rem',
+    /* blog style */
+    h1: '1.75rem',
+    h2: '1.5rem',
+    p: '1rem',
   },
   fontWeight: {
     bold: '700',
@@ -33,6 +38,10 @@ export const typography = {
     normal: 'normal',
     none: 1,
     base: '1.25rem',
+    /* blog style */
+    h1: '2rem',
+    h2: '1.8rem',
+    p: '1.20rem',
   },
   letterSpacing: {
     normal: '0',

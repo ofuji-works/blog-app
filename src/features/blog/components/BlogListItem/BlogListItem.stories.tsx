@@ -1,14 +1,14 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { Blog } from './Blog'
+import { BlogListItem } from './BlogListItem'
 
-const meta: ComponentMeta<typeof Blog> = {
+const meta: ComponentMeta<typeof BlogListItem> = {
   title: 'Blogs/Blog',
-  component: Blog,
+  component: BlogListItem,
 }
 
-const Template: ComponentStory<typeof Blog> = (args) => <Blog {...args} />
+const Template: ComponentStory<typeof BlogListItem> = (args) => <BlogListItem {...args} />
 
 export const Default = Template.bind({})
 

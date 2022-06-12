@@ -1,4 +1,4 @@
-import { chakra, Box } from '@chakra-ui/react'
+import { chakra, List } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 
 export const framerVariant = {
@@ -7,7 +7,7 @@ export const framerVariant = {
   },
 }
 
-export const Card = chakra(motion.div, {
+export const Card = chakra(motion.li, {
   baseStyle: {
     borderStyle: 'solid',
     borderWidth: 1,
@@ -43,6 +43,10 @@ export const Title = chakra('h2', {
 
 export const Body = chakra('p', {
   baseStyle: {
+    display: {
+      base: 'none',
+      sm: 'unset',
+    },
     fontSize: 'md',
     color: 'gray.200',
     margin: 0,
@@ -51,7 +55,7 @@ export const Body = chakra('p', {
   },
 })
 
-export const Tags = chakra(Box, {
+export const Tags = chakra(List, {
   baseStyle: {
     display: 'flex',
     flexWrap: 'wrap',

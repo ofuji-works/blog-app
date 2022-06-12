@@ -25,13 +25,17 @@
     "e2e:headless": "start-server-and-test dev http://localhost:3000 cypress:headless"
   },
   "dependencies": {
+    "@apollo/client": "^3.6.6",
     "@chakra-ui/react": "2.0.0-next.3",
+    "@contentful/rich-text-plain-text-renderer": "^15.12.1",
+    "@contentful/rich-text-react-renderer": "^15.12.1",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "@sentry/nextjs": "^6.19.6",
     "clsx": "^1.1.1",
     "dayjs": "^1.11.0",
     "framer-motion": "^6",
+    "graphql": "^16.5.0",
     "lodash": "^4.17.21",
     "next": "^12.1.6",
     "react": "18.0.0",

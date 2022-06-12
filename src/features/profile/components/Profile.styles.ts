@@ -2,6 +2,10 @@ import { Avatar as ChakraAvatar, chakra, Box, Heading, Text, IconButton } from '
 
 export const Card = chakra(Box, {
   baseStyle: {
+    maxW: {
+      base: '100%',
+      sm: '22.5rem',
+    },
     borderStyle: 'solid',
     borderWidth: 1,
     borderColor: 'gray.150',

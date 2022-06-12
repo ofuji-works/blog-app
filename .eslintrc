@@ -24,13 +24,14 @@
   "rules": {
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
+    "react/display-name": "off",
     "sort-imports": 0,
     "import/order": [2, { "alphabetize": { "order": "asc" } }],
     "no-restricted-imports": [
       "error",
       {
         // features, ../のimport禁止
-        "patterns": ["../../", "../../../", "@/features/*/*", "@/features"]
+        "patterns": ["@/features/*/*", "@/features"]
       }
     ]
   },

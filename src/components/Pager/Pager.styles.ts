@@ -1,4 +1,4 @@
-import { chakra } from '@chakra-ui/react'
+import { chakra, List } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 
 export const framerVariant = {
@@ -12,7 +12,7 @@ export const framerVariant = {
   },
 }
 
-export const ListWrapper = chakra('div', {
+export const ListWrapper = chakra(List, {
   baseStyle: {
     display: 'flex',
     flexDirection: 'column',
@@ -33,6 +33,10 @@ export const BtnArea = chakra('div', {
 
 export const PageBtn = chakra(motion.button, {
   baseStyle: {
+    display: {
+      base: 'none',
+      sm: 'block',
+    },
     fontSize: 'lg',
     borderStyle: 'solid',
     borderWidth: 1,
@@ -44,6 +48,10 @@ export const PageBtn = chakra(motion.button, {
 
 export const PageBtnSP = chakra(motion.button, {
   baseStyle: {
+    display: {
+      base: 'block',
+      sm: 'none',
+    },
     width: '100%',
     fontSize: 'md',
     color: 'white',

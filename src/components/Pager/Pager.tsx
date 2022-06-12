@@ -1,10 +1,9 @@
-import type { FC } from 'react'
-
+import { FC } from 'react'
 import { Fragment, memo, useMemo, useState, useCallback } from 'react'
 
 import { BtnArea, PageBtn, PageBtnSP, framerVariant, ListWrapper } from './Pager.styles'
 
-import { useBreakPoints } from '@/hooks'
+const genericMemo: <T>(component: T) => T = memo
 
 /**
  * @typedef {object}
@@ -22,15 +21,15 @@ type Props<T> = {
  * @param {T} props
  * @return {FC}
  */
-function itemHOC<T>(Component: FC<T>, props: T): FC<T> {
-  return function HocComponent() {
+function itemHOC<T>(Component: FC<T>, props: T): FC {
+  return () => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     return <Component {...props} />
   }
 }
 
-/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
-export const Pager: FC<Props<any>> = memo(function Pager({ items, component }) {
-  const { isTablet } = useBreakPoints()
+function PagerComponent<T>({ items, component }: Props<T>) {
   /**
    * 表示ページ
    * @type {number} page
@@ -76,39 +75,36 @@ export const Pager: FC<Props<any>> = memo(function Pager({ items, component }) {
       </ListWrapper>
       {/* pager */}
       <BtnArea>
-        {isTablet ? (
-          <>
-            <PageBtnSP
-              variants={framerVariant}
-              whileTap={isTablet && currentPage !== 1 ? 'tap' : undefined}
-              disabled={currentPage === 1}
-              aria-disabled={currentPage === 1 ? 'true' : undefined}
-              _disabled={{
-                opacity: 0.5,
-              }}
-              onClick={() => {
-                pagingHandler(currentPage - 1)
-              }}
-            >
-              Prev
-            </PageBtnSP>
-            <PageBtnSP
-              variants={framerVariant}
-              whileTap={isTablet && currentPage !== maxPage ? 'tap' : undefined}
-              disabled={currentPage === maxPage}
-              aria-disabled={currentPage === maxPage ? 'true' : undefined}
-              _disabled={{
-                opacity: 0.5,
-              }}
-              onClick={() => {
-                pagingHandler(currentPage + 1)
-              }}
-            >
-              Next
-            </PageBtnSP>
-          </>
-        ) : (
-          [...Array(maxPage)].map((_, index) => {
+        <>
+          <PageBtnSP
+            variants={framerVariant}
+            whileTap={currentPage !== 1 ? 'tap' : undefined}
+            disabled={currentPage === 1}
+            aria-disabled={currentPage === 1 ? 'true' : undefined}
+            _disabled={{
+              opacity: 0.5,
+            }}
+            onClick={() => {
+              pagingHandler(currentPage - 1)
+            }}
+          >
+            Prev
+          </PageBtnSP>
+          <PageBtnSP
+            variants={framerVariant}
+            whileTap={currentPage !== maxPage ? 'tap' : undefined}
+            disabled={currentPage === maxPage}
+            aria-disabled={currentPage === maxPage ? 'true' : undefined}
+            _disabled={{
+              opacity: 0.5,
+            }}
+            onClick={() => {
+              pagingHandler(currentPage + 1)
+            }}
+          >
+            Next
+          </PageBtnSP>
+          {[...Array(maxPage)].map((_, index) => {
             const page = index + 1
             return (
               <PageBtn
@@ -128,9 +124,11 @@ export const Pager: FC<Props<any>> = memo(function Pager({ items, component }) {
                 {page}
               </PageBtn>
             )
-          })
-        )}
+          })}
+        </>
       </BtnArea>
     </>
   )
-})
+}
+
+export const Pager = genericMemo(PagerComponent)

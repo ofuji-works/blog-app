@@ -1,4 +1,9 @@
 /**
+ * app url
+ */
+export const APP_URL = process.env.NEXT_PUBLIC_APP_DOMAIN
+
+/**
  * breakpoint
  * @typedef {object}
  * @property {string} sm SP
@@ -23,4 +28,6 @@ export const COLORS = {
     200: '#979797',
   },
   white: '#FFF',
+  /* blog style */
+  code: '#1D1F21',
 }

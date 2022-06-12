@@ -7,7 +7,9 @@
       "@/assets": ["assets"],
       "@/assets/*": ["assets/*"],
       "@/config": ["config"],
-      "@/hooks": ["hooks"]
+      "@/hooks": ["hooks"],
+      "@/providers": ["providers"],
+      "@/libs": ["libs"]
     },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
