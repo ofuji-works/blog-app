@@ -23,4 +23,6 @@ export const COLORS = {
     200: '#979797',
   },
   white: '#FFF',
+  /* blog style */
+  code: '#1D1F21',
 }
