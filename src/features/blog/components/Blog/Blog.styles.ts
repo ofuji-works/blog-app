@@ -1,7 +1,9 @@
 import { Container, chakra, Divider, Heading, Text, UnorderedList, OrderedList } from '@chakra-ui/react'
 
 export const BlogArea = chakra(Container, {
-  baseStyle: {},
+  baseStyle: {
+    maxWidth: '100%',
+  },
 })
 
 export const H1 = chakra(Heading, {
