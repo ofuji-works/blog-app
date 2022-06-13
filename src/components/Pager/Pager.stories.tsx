@@ -19,13 +19,13 @@ Empty.args = {
 export const SampleLists = Template.bind({})
 const List = ({ index }: { index: number }) => <p>{`・${index}-list`}</p>
 SampleLists.args = {
-  items: [...Array(99)].map((_, index) => {
+  items: [...Array(99)].map((_: number, index) => {
     return {
       index: index + 1,
     }
   }),
-  component: (_) => {
-    return <List index={_.index} />
+  component: (props) => {
+    return <List index={(props as unknown as { index: number }).index} />
   },
 }
 

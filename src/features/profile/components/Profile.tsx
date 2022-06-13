@@ -36,7 +36,7 @@ export const Profile: FC<Props> = ({ src, name, role, description, sns }) => {
 
   return (
     <Card src={src}>
-      <Avatar size="xl" name={name} />
+      <Avatar size="xl" name={''} />
       <Name>{name}</Name>
       <Role>{role}</Role>
       <Description>{description}</Description>
@@ -56,4 +56,22 @@ export const Profile: FC<Props> = ({ src, name, role, description, sns }) => {
       </SNSArea>
     </Card>
   )
+}
+
+Profile.defaultProps = {
+  src: undefined,
+  name: 'Yuta Okafuji',
+  role: 'Frontend developer',
+  description: `神戸Sier会社勤務。フロントエンド領域を中心に活動しています。
+    React / React Native / Vue / TypeScript / PHP`,
+  sns: [
+    {
+      icon: 'twitter',
+      url: '',
+    },
+    {
+      icon: 'github',
+      url: 'https://github.com/ofuji-works',
+    },
+  ],
 }

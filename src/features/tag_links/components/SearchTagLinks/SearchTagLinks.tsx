@@ -13,30 +13,48 @@ type Props = {
 }
 
 export const SearchTagLinks: FC<Props> = ({ categories, tags }) => {
-  const [filterStatus, setFilterStatus] = useState<string>('ALL')
+  const [filterStatus, setFilterStatus] = useState<string>('All')
   const { isTablet } = useBreakPoints()
   return (
     <Bg id="search-tag-links">
       <VStack mb={4} id="category-filters">
         <FilterBox>
-          {categories.map((filter) => (
+          <>
             <FilterButton
-              key={`btn-${filter}`}
-              aria-label={filter}
+              key="btn-all"
+              aria-label="btn-all"
               variants={framerVariant}
-              data-active={filter === filterStatus ? 'true' : undefined}
+              data-active={'All' === filterStatus ? 'true' : undefined}
               _active={{
                 bgColor: 'gray.100',
               }}
               whileHover={!isTablet ? 'hover' : undefined}
               whileTap={isTablet ? 'tap' : undefined}
               onClick={() => {
-                setFilterStatus(filter)
+                setFilterStatus('All')
               }}
             >
-              {filter}
+              All
             </FilterButton>
-          ))}
+            {categories.map((filter) => (
+              <FilterButton
+                key={`btn-${filter}`}
+                aria-label={filter}
+                variants={framerVariant}
+                data-active={filter === filterStatus ? 'true' : undefined}
+                _active={{
+                  bgColor: 'gray.100',
+                }}
+                whileHover={!isTablet ? 'hover' : undefined}
+                whileTap={isTablet ? 'tap' : undefined}
+                onClick={() => {
+                  setFilterStatus(filter)
+                }}
+              >
+                {filter}
+              </FilterButton>
+            ))}
+          </>
         </FilterBox>
       </VStack>
       <TagBox id="tag-links">

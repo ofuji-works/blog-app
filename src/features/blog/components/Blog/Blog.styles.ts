@@ -3,6 +3,7 @@ import { Container, chakra, Divider, Heading, Text, UnorderedList, OrderedList }
 export const BlogArea = chakra(Container, {
   baseStyle: {
     maxWidth: '100%',
+    padding: 0,
   },
 })
 
