@@ -28,6 +28,7 @@ export const BtnArea = chakra('div', {
     marginTop: 1,
     display: 'flex',
     gap: 0.5,
+    justifyContent: 'center',
   },
 })
 
