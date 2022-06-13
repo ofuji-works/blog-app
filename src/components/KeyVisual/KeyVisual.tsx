@@ -1,7 +1,11 @@
 import type { FC } from 'react'
 
-import NextImage from 'next/image'
-
+import { PCImage, SPImage } from './KeyVisual.styles'
 export const KeyVisual: FC = () => {
-  return <NextImage src="/main-visual.png" alt="ofuji-works" layout="fixed" width="100%" height={200} priority />
+  return (
+    <>
+      <PCImage src="/main-visual.png" alt="ofuji-works" />
+      <SPImage src="/main-visual-sp.png" alt="ofuji-works" />
+    </>
+  )
 }
