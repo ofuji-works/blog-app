@@ -31,6 +31,11 @@ jobs:
           touch .env.production.local
           echo "NEXT_PUBLIC_GA_ID=${{ secrets.PRODUCTION_GA_ID }}" >> .env.production
           echo "NEXT_PUBLIC_SENTRY_DSN=${{ secrets.PRODUCTION_SENTRY_DSN }}" >> .env.production
+          echo "NEXT_PUBLIC_APP_DOMAIN=${{ secrets.NEXT_PUBLIC_APP_DOMAIN }}" >> .env.production
+          echo "NEXT_PUBLIC_API_BASE_URL=${{ secrets.NEXT_PUBLIC_API_BASE_URL }}" >> .env.production
+          echo "NEXT_PUBLIC_API_SPACE_ID=${{ secrets.NEXT_PUBLIC_API_SPACE_ID }}" >> .env.production
+          echo "NEXT_PUBLIC_API_TOKEN=${{ secrets.NEXT_PUBLIC_API_TOKEN }}" >> .env.production
+          echo "NEXT_PUBLIC_API_TOKEN_FOR_PREVIEW=${{ secrets.NEXT_PUBLIC_API_TOKEN_FOR_PREVIEW }}" >> .env.production
 
       - name: Create .sentryclirc file
         id: create-sentryclirc
