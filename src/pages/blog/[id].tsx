@@ -1,7 +1,7 @@
 import { NextPage, GetStaticProps, GetStaticPaths } from 'next'
 
 import { initializeApollo, addApolloState } from '@/libs'
-import { GET_BLOG_QUERY, GET_BLOGS_QUERY, BlogQuery, BlogsQuery, Profile, BlogTitle, Blog } from 'features'
+import { GET_BLOG_QUERY, GET_BLOGS_QUERY, BlogQuery, BlogsQuery, BlogTitle, Blog } from 'features'
 import { Container, KeyVisual } from '@/components'
 
 type Props = {
