@@ -42,6 +42,15 @@ export interface BlogQuery {
     sys: {
       publishedAt: string
     }
+    contentfulMetadata: {
+      tags: {
+        id: string
+      }[]
+    }
+    thumnail: {
+      title: string
+      url: string
+    }
     title: string
     body: {
       json: Document
@@ -55,6 +64,15 @@ export const GET_BLOG_QUERY = gql`
     blog(id: $id, preview: $preview) {
       sys {
         publishedAt
+      }
+      contentfulMetadata {
+        tags {
+          id
+        }
+      }
+      thumnail {
+        title
+        url
       }
       title
       body {
