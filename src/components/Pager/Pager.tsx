@@ -1,5 +1,4 @@
-import { FC } from 'react'
-import { Fragment, memo, useMemo, useState, useCallback } from 'react'
+import { FC, Fragment, memo, useMemo, useState, useCallback } from 'react'
 
 import { BtnArea, PageBtn, PageBtnSP, framerVariant, ListWrapper } from './Pager.styles'
 
@@ -74,59 +73,61 @@ function PagerComponent<T>({ items, component }: Props<T>) {
         })}
       </ListWrapper>
       {/* pager */}
-      <BtnArea>
-        <>
-          <PageBtnSP
-            variants={framerVariant}
-            whileTap={currentPage !== 1 ? 'tap' : undefined}
-            disabled={currentPage === 1}
-            aria-disabled={currentPage === 1 ? 'true' : undefined}
-            _disabled={{
-              opacity: 0.5,
-            }}
-            onClick={() => {
-              pagingHandler(currentPage - 1)
-            }}
-          >
-            Prev
-          </PageBtnSP>
-          <PageBtnSP
-            variants={framerVariant}
-            whileTap={currentPage !== maxPage ? 'tap' : undefined}
-            disabled={currentPage === maxPage}
-            aria-disabled={currentPage === maxPage ? 'true' : undefined}
-            _disabled={{
-              opacity: 0.5,
-            }}
-            onClick={() => {
-              pagingHandler(currentPage + 1)
-            }}
-          >
-            Next
-          </PageBtnSP>
-          {[...Array(maxPage)].map((_, index) => {
-            const page = index + 1
-            return (
-              <PageBtn
-                key={`page-${page}`}
-                data-active={currentPage === page ? 'true' : undefined}
-                _active={{
-                  backgroundColor: 'black',
-                  color: 'white',
-                  border: 'none',
-                }}
-                variants={framerVariant}
-                whileHover="hover"
-                onClick={() => {
-                  pagingHandler(page)
-                }}
-              >
-                {page}
-              </PageBtn>
-            )
-          })}
-        </>
-      </BtnArea>
+      {maxPage > 1 && (
+        <BtnArea>
+          <>
+            <PageBtnSP
+              variants={framerVariant}
+              whileTap={currentPage !== 1 ? 'tap' : undefined}
+              disabled={currentPage === 1}
+              aria-disabled={currentPage === 1 ? 'true' : undefined}
+              _disabled={{
+                opacity: 0.5,
+              }}
+              onClick={() => {
+                pagingHandler(currentPage - 1)
+              }}
+            >
+              Prev
+            </PageBtnSP>
+            <PageBtnSP
+              variants={framerVariant}
+              whileTap={currentPage !== maxPage ? 'tap' : undefined}
+              disabled={currentPage === maxPage}
+              aria-disabled={currentPage === maxPage ? 'true' : undefined}
+              _disabled={{
+                opacity: 0.5,
+              }}
+              onClick={() => {
+                pagingHandler(currentPage + 1)
+              }}
+            >
+              Next
+            </PageBtnSP>
+            {[...Array(maxPage)].map((_, index) => {
+              const page = index + 1
+              return (
+                <PageBtn
+                  key={`page-${page}`}
+                  data-active={currentPage === page ? 'true' : undefined}
+                  _active={{
+                    backgroundColor: 'black',
+                    color: 'white',
+                    border: 'none',
+                  }}
+                  variants={framerVariant}
+                  whileHover="hover"
+                  onClick={() => {
+                    pagingHandler(page)
+                  }}
+                >
+                  {page}
+                </PageBtn>
+              )
+            })}
+          </>
+        </BtnArea>
+      )}
     </>
   )
 }
