@@ -17,7 +17,7 @@ export const SearchTagLinks: FC<Props> = ({ categories, tags }) => {
   const { isTablet } = useBreakPoints()
   return (
     <Bg id="search-tag-links">
-      <VStack mb={4} id="category-filters">
+      <VStack mb={{ base: 2, sm: 4 }} id="category-filters">
         <FilterBox>
           <>
             <FilterButton

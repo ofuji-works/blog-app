@@ -1,4 +1,4 @@
-import { chakra, List } from '@chakra-ui/react'
+import { chakra, Box, List, Image as ChakraImage } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 
 export const framerVariant = {
@@ -13,28 +13,73 @@ export const Card = chakra(motion.li, {
     borderWidth: 1,
     borderColor: 'gray.150',
     borderRadius: 'base',
+    position: 'relative',
+    display: 'flex',
+    flexDirection: {
+      base: 'column',
+      sm: 'row',
+    },
+    alignItems: 'left',
+  },
+})
+
+export const ContentContainer = chakra(Box, {
+  baseStyle: {
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'left',
     paddingX: {
       base: 0.75,
-      sm: 2.5,
+      sm: 1.25,
     },
     paddingY: {
       base: 0.75,
       sm: 1.25,
     },
-    position: 'relative',
+  },
+})
+
+export const Figure = chakra('figure', {
+  baseStyle: {
+    background: 'radial-gradient(#DDDDDD, #ffffff)',
+    borderRadius: 'base',
+    minWidth: '20%',
+    width: {
+      base: '100%',
+      sm: '20%',
+    },
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'left',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: {
+      base: 'unset',
+      sm: 0.5,
+    },
+  },
+})
+
+export const Image = chakra(ChakraImage, {
+  baseStyle: {
+    width: '100%',
+    aspectRatio: '4 / 3',
+    boxShadow: {
+      base: 'unset',
+      sm: '0 0.15rem 0.075rem rgba(0, 0, 0, 0.25)',
+    },
+    borderTopRadius: 'base',
+    borderBottomRadius: {
+      base: 'unset',
+      sm: 'base',
+    },
   },
 })
 
 export const Title = chakra('h2', {
   baseStyle: {
-    fontWeight: 'bold',
-    fontSize: {
-      base: 'md',
-      sm: 'lg',
-    },
+    fontWeight: 600,
+    fontSize: 'md',
     textAlign: 'left',
     marginBottom: 1,
     lineHeight: '1.25em',
@@ -45,8 +90,11 @@ export const Body = chakra('p', {
   baseStyle: {
     display: {
       base: 'none',
-      sm: 'unset',
+      sm: '-webkit-box',
     },
+    WebkitLineClamp: 2,
+    WebkitBoxOrient: 'vertical',
+    overflow: 'hidden',
     fontSize: 'md',
     color: 'gray.200',
     margin: 0,

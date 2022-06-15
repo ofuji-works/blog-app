@@ -10,7 +10,7 @@ type Props = {
 export const TwoColumnContainer: FC<Props> = ({ LeftComponent, RightComponent }) => {
   return (
     <TwoColumnWrapper>
-      <LeftComponentWrapper>
+      <LeftComponentWrapper as="main">
         <LeftComponent />
       </LeftComponentWrapper>
       <RightComponentWrapper>

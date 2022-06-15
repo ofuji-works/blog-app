@@ -19,7 +19,7 @@ export const LeftComponentWrapper = chakra(Box, {
   baseStyle: {
     width: {
       base: '100%',
-      sm: '790px',
+      sm: 'calc(100% - 360px)',
     },
   },
 })

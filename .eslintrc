@@ -34,7 +34,8 @@
         // features, ../のimport禁止
         "patterns": ["@/features/*/*", "@/features"]
       }
-    ]
+    ],
+    "import/no-duplicates": "error"
   },
   "overrides": [
     // import並び替えルールの設定
