@@ -22,6 +22,7 @@ export const Button = chakra(motion.button, {
     borderRadius: 'base',
     display: 'flex',
     alignItems: 'center',
+    WebkitTapHighlightColor: 'transparent',
   },
 })
 

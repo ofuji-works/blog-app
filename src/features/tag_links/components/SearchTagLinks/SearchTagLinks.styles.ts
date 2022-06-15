@@ -51,6 +51,7 @@ export const FilterButton = chakra(motion.button, {
     borderColor: 'gray.50',
     paddingX: 0.75,
     paddingY: 0.5,
+    WebkitTapHighlightColor: 'transparent',
   },
 })
 
