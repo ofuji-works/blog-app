@@ -54,7 +54,7 @@ export const Figure = chakra('figure', {
     justifyContent: 'center',
     alignItems: 'center',
     padding: {
-      base: 'unset',
+      base: 1,
       sm: 0.5,
     },
   },
@@ -65,14 +65,11 @@ export const Image = chakra(ChakraImage, {
     width: '100%',
     aspectRatio: '4 / 3',
     boxShadow: {
-      base: 'unset',
+      base: '0 0.05rem 0.075rem rgba(0, 0, 0, 0.25)',
       sm: '0 0.15rem 0.075rem rgba(0, 0, 0, 0.25)',
     },
     borderTopRadius: 'base',
-    borderBottomRadius: {
-      base: 'unset',
-      sm: 'base',
-    },
+    borderBottomRadius: 'base',
   },
 })
 
@@ -95,7 +92,7 @@ export const Body = chakra('p', {
     WebkitLineClamp: 2,
     WebkitBoxOrient: 'vertical',
     overflow: 'hidden',
-    fontSize: 'md',
+    fontSize: 'sm',
     color: 'gray.200',
     margin: 0,
     marginBottom: 0.75,
