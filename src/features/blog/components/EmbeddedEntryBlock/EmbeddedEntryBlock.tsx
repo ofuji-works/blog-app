@@ -4,9 +4,7 @@ import NextLink from 'next/link'
 
 import { EmbeddedEntryBlock as Entries } from '../../queries'
 
-import { Card, Description, Domain, framerVariant, Link, Title } from './EmbeddedEntryBlock.styles'
-
-import { APP_URL } from '@/config'
+import { Card, Description, framerVariant, Link, Title } from './EmbeddedEntryBlock.styles'
 
 type Props = {
   id: string
@@ -19,8 +17,7 @@ export const EmbeddedEntryBlock: FC<Props> = ({ id, entries }) => {
     <Card variants={framerVariant} whileHover="hover">
       <Title as="h2">{entry?.title}</Title>
       {entry?.body.json && <Description>{documentToPlainTextString(entry?.body.json)}</Description>}
-      <Domain>{APP_URL}</Domain>
-      <NextLink href={`${APP_URL}/blog/${id}`} passHref>
+      <NextLink href={`/blog/${id}`} passHref>
         <Link />
       </NextLink>
     </Card>

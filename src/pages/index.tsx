@@ -3,7 +3,6 @@ import type { NextPage } from 'next'
 import { initializeApollo, addApolloState } from '@/libs'
 import { BlogList, SearchTagLinks, Profile, BlogListItemProps, GET_BLOGS_QUERY, BlogsQuery } from '@/features'
 import { Container, TwoColumnContainer, KeyVisual, Layout } from '@/components'
-import { APP_URL } from '@/config'
 
 const categories = ['React']
 const tags = ['React']
@@ -39,7 +38,7 @@ export const getStaticProps = async () => {
       json: item.body.json,
       tags: item.contentfulMetadata.tags,
       datetime: item.sys.publishedAt,
-      href: `${APP_URL}/blog/${item.sys.id}`,
+      href: `/blog/${item.sys.id}`,
     }
   })
   return addApolloState(client, {
