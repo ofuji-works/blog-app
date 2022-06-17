@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 
 import { initializeApollo, addApolloState } from '@/libs'
 import { BlogList, SearchTagLinks, Profile, BlogListItemProps, GET_BLOGS_QUERY, BlogsQuery } from '@/features'
-import { Container, TwoColumnContainer, KeyVisual } from '@/components'
+import { Container, TwoColumnContainer, KeyVisual, Layout } from '@/components'
 import { APP_URL } from '@/config'
 
 const categories = ['React']
@@ -14,13 +14,13 @@ type Props = {
 
 const Home: NextPage<Props> = ({ items }) => {
   return (
-    <>
+    <Layout title="top">
       <KeyVisual />
       <Container>
         <TwoColumnContainer LeftComponent={() => <BlogList items={items} />} RightComponent={() => <Profile />} />
       </Container>
       <SearchTagLinks categories={categories} tags={tags} />
-    </>
+    </Layout>
   )
 }
 
