@@ -6,8 +6,9 @@ import { ArticleTextLinks } from '../../queries'
 import { EmbeddedAsset } from '../EmbeddedAsset'
 import { EmbeddedEntryBlock } from '../EmbeddedEntryBlock'
 import { EmbeddedEntryInline } from '../EmbeddedEntryInline'
+import { Code } from '../Code'
 
-import { BlogArea, Bold, BlockQuote, Code, Hr, H1, H2, Italic, P, Pre, Ul, Underline, Ol } from './Blog.styles'
+import { BlogArea, Bold, BlockQuote, Hr, H1, H2, Italic, P, Pre, Ul, Underline, Ol } from './Blog.styles'
 
 import type { Document } from '@contentful/rich-text-types'
 
@@ -26,21 +27,17 @@ export const Blog: FC<Props> = ({ document, links }) => {
       [MARKS.BOLD]: (text) => <Bold>{text}</Bold>,
       [MARKS.ITALIC]: (text) => <Italic>{text}</Italic>,
       [MARKS.UNDERLINE]: (text) => <Underline>{text}</Underline>,
-      [MARKS.CODE]: (text) => <Code>{text}</Code>,
+      [MARKS.CODE]: (text) => <Code code={text} />,
     },
     renderNode: {
       [BLOCKS.HEADING_1]: (_, children) => <H1 as="h1">{children}</H1>,
       [BLOCKS.HEADING_2]: (_, children) => <H2 as="h2">{children}</H2>,
       [BLOCKS.PARAGRAPH]: (node, children) => {
         if (
-          node.content.length === 1 &&
+          node.content.length > 0 &&
           (node.content[0] as { marks: { type: string }[] }).marks.find((x) => x.type === 'code')
         ) {
-          return (
-            <div>
-              <Pre>{children}</Pre>
-            </div>
-          )
+          return <div>{children}</div>
         }
         return <P>{children}</P>
       },

@@ -16,7 +16,7 @@ export const H1 = chakra(Heading, {
     borderBottomWidth: 1,
     borderBottomColor: 'gray.150',
     marginTop: 4,
-    marginBottom: 1,
+    marginBottom: 2,
   },
 })
 
@@ -27,7 +27,7 @@ export const H2 = chakra(Heading, {
     fontWeight: 700,
     lineHeight: 'h2',
     marginTop: 3.5,
-    marginBottom: 0.5,
+    marginBottom: 1,
   },
 })
 
@@ -78,6 +78,7 @@ export const P = chakra(Text, {
     marginTop: 0.5,
     marginBottom: 0.5,
     letterSpacing: 'wide',
+    minHeight: '1rem',
   },
 })
 
@@ -107,6 +108,8 @@ export const BlockQuote = chakra('blockquote', {
     borderColor: 'gray.150',
     borderRadius: 'base',
     padding: 1,
+    marginTop: 1,
+    marginBottom: 1,
   },
 })
 

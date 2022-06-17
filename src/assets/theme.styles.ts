@@ -39,9 +39,9 @@ export const typography = {
     none: 1,
     base: '1.25rem',
     /* blog style */
-    h1: '2rem',
+    h1: '2em',
     h2: '1.8rem',
-    p: '1.20rem',
+    p: '1.50rem',
   },
   letterSpacing: {
     normal: '0',
