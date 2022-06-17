@@ -1,9 +1,4 @@
 /**
- * app url
- */
-export const APP_URL = process.env.NEXT_PUBLIC_APP_DOMAIN
-
-/**
  * breakpoint
  * @typedef {object}
  * @property {string} sm SP
