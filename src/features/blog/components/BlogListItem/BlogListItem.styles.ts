@@ -42,7 +42,7 @@ export const ContentContainer = chakra(Box, {
 
 export const Figure = chakra('figure', {
   baseStyle: {
-    background: 'radial-gradient(#DDDDDD, #ffffff)',
+    background: 'thumnail',
     borderRadius: 'base',
     minWidth: '20%',
     width: {

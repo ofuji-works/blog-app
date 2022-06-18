@@ -11,9 +11,9 @@ type Props = {
   items: BlogListItemProps[]
 }
 
-const Home: NextPage<Props> = ({ items }) => {
+const Page: NextPage<Props> = ({ items }) => {
   return (
-    <Layout title="blog">
+    <Layout title="blog" mainMargin={'4rem 0 0 0'}>
       <Container>
         <BlogList items={items} />
       </Container>
@@ -47,4 +47,4 @@ export const getStaticProps = async () => {
   })
 }
 
-export default Home
+export default Page

@@ -25,4 +25,5 @@ export const COLORS = {
   white: '#FFF',
   /* blog style */
   code: '#1D1F21',
+  thumnail: 'radial-gradient(#DDDDDD, #ffffff)',
 }
