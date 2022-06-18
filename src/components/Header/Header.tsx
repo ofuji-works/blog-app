@@ -25,7 +25,7 @@ export const Header: FC = () => {
 
   return (
     <Container animate={controls} ref={header}>
-      <Title>Portfolio</Title>
+      <Title>Ofuji Portfolio</Title>
     </Container>
   )
 }
