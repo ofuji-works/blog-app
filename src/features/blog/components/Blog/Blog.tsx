@@ -8,7 +8,7 @@ import { EmbeddedEntryBlock } from '../EmbeddedEntryBlock'
 import { EmbeddedEntryInline } from '../EmbeddedEntryInline'
 import { Code } from '../Code'
 
-import { BlogArea, Bold, BlockQuote, Hr, H1, H2, Italic, P, Pre, Ul, Underline, Ol } from './Blog.styles'
+import { BlogArea, Bold, BlockQuote, Hr, H1, H2, Italic, P, Ul, Underline, Ol } from './Blog.styles'
 
 import type { Document } from '@contentful/rich-text-types'
 

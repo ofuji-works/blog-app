@@ -7,7 +7,7 @@ const { withSentryConfig } = require('@sentry/nextjs')
 
 const moduleExports = {
   // Your existing module.exports
-  reactStrictMode: false,
+  reactStrictMode: true,
 }
 
 const sentryWebpackPluginOptions = {

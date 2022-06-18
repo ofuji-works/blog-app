@@ -17,9 +17,7 @@ export const Header: FC = () => {
   }, [])
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      window.addEventListener('scroll', animateHander)
-    }
+    window.addEventListener('scroll', animateHander)
     return () => {
       window.removeEventListener('scroll', animateHander)
     }
