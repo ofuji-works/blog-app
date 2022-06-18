@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 
 import { initializeApollo, addApolloState } from '@/libs'
 import { BlogList, SearchTagLinks, BlogListItemProps, GET_BLOGS_QUERY, GET_TAGS_QUERY } from '@/features'
-import { Breadcrumb, Container, Layout } from '@/components'
+import { Container, Layout } from '@/components'
 
 const categories = ['React']
 const tags = ['React']
