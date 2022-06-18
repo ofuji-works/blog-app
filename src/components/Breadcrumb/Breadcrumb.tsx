@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { useRouter } from 'next/router'
 
-import { Ul, Li, Span } from './Breadcrumb.styles'
+import { Ul, Li, Link, Span } from './Breadcrumb.styles'
 
 type Props = {
   currentPageTitle?: string
@@ -34,8 +34,12 @@ export const Breadcrumb: FC<Props> = ({ currentPageTitle }) => {
         }
         return (
           <Li key={path}>
-            {index != 0 && <Span>/</Span>}
-            {mapToPageTitle(path)}
+            <Link href={`/${path}`} passHref>
+              <a href={`/${path}`}>
+                {index != 0 && <Span>/</Span>}
+                {mapToPageTitle(path)}
+              </a>
+            </Link>
           </Li>
         )
       })}
