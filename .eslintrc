@@ -25,9 +25,8 @@
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
     "react/display-name": "off",
-    "@next/next/no-img-element": "off",
-    "sort-imports": 0,
     "import/order": [2, { "alphabetize": { "order": "asc" } }],
+    "sort-imports": "off",
     "no-restricted-imports": [
       "error",
       {
