@@ -1,7 +1,7 @@
 import { FC, ReactNode } from 'react'
 import Head from 'next/head'
 
-import { Header, VStackContainer } from '@/components'
+import { Footer, Header, VStackContainer } from '@/components'
 
 type Props = {
   children: ReactNode
@@ -20,6 +20,7 @@ export const Layout: FC<Props> = ({ children, title, mainMargin }) => {
       <VStackContainer as="main" margin={mainMargin}>
         {children}
       </VStackContainer>
+      <Footer />
     </>
   )
 }
