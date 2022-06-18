@@ -1,0 +1,1 @@
+export { BlogTitleBlock } from './BlogTitleBlock'

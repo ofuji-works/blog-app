@@ -6,7 +6,7 @@ export const ContainerComponent = chakra(Box, {
     display: 'flex',
     flexDirection: 'column',
     maxWidth: {
-      base: 'unset',
+      base: '100%',
       sm: '960px',
     },
     gap: {

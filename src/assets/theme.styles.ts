@@ -13,6 +13,7 @@ export const colors = {
     },
     white: COLORS.white,
     code: COLORS.code,
+    thumnail: COLORS.thumnail,
   },
 }
 
@@ -71,6 +72,9 @@ export const spacing = {
     2.5: '2.5rem',
     3.5: '3.5rem',
     4: '4rem',
+    4.5: '4.5rem',
+    5.5: '5.5rem',
+    6.5: '6.5rem',
     7.5: '7.5rem',
   },
 }
