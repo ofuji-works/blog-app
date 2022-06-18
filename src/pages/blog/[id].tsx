@@ -1,14 +1,29 @@
 import { NextPage, GetStaticProps, GetStaticPaths } from 'next'
+import { useQuery } from '@apollo/client'
 
 import { initializeApollo, addApolloState } from '@/libs'
 import { GET_BLOG_QUERY, GET_BLOGS_QUERY, BlogQuery, BlogsQuery, BlogTitleBlock, Blog } from 'features'
 import { Breadcrumb, Container, Layout } from '@/components'
 
 type Props = {
-  data: BlogQuery
+  id: string
 }
 
-const Page: NextPage<Props> = ({ data }) => {
+const Page: NextPage<Props> = ({ id }) => {
+  const { data, loading, error } = useQuery<BlogQuery>(GET_BLOG_QUERY, {
+    variables: {
+      id,
+    },
+  })
+
+  if (loading) {
+    return <p>...loading</p>
+  }
+
+  if (!data || error) {
+    throw new Error()
+  }
+
   return (
     <Layout title={data.blog.title} mainMargin="-4.5rem 0 0 0">
       <BlogTitleBlock title={data.blog.title} date={data.blog.sys.publishedAt} thumnail={data.blog.thumnail} />
@@ -27,21 +42,16 @@ export const getStaticProps: GetStaticProps<Props, { id: string }> = async ({ pa
     }
   }
   const client = initializeApollo()
-  const { data } = await client.query<BlogQuery>({
+  await client.query({
     query: GET_BLOG_QUERY,
     variables: {
       id: params.id,
       preview: false,
     },
   })
-  if (!data) {
-    return {
-      notFound: true,
-    }
-  }
   return addApolloState(client, {
     props: {
-      data,
+      id: params.id,
     },
   })
 }
