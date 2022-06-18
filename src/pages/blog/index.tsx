@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 
 import { initializeApollo, addApolloState } from '@/libs'
 import { BlogList, SearchTagLinks, BlogListItemProps, GET_BLOGS_QUERY, BlogsQuery } from '@/features'
-import { Container, Layout } from '@/components'
+import { Breadcrumb, Container, Layout } from '@/components'
 
 const categories = ['React']
 const tags = ['React']
@@ -15,6 +15,7 @@ const Page: NextPage<Props> = ({ items }) => {
   return (
     <Layout title="blog" mainMargin={'4rem 0 0 0'}>
       <Container>
+        <Breadcrumb />
         <BlogList items={items} />
       </Container>
       <SearchTagLinks categories={categories} tags={tags} />

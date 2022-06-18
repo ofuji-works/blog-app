@@ -2,7 +2,7 @@ import { NextPage, GetStaticProps, GetStaticPaths } from 'next'
 
 import { initializeApollo, addApolloState } from '@/libs'
 import { GET_BLOG_QUERY, GET_BLOGS_QUERY, BlogQuery, BlogsQuery, BlogTitleBlock, Blog } from 'features'
-import { Container, Layout } from '@/components'
+import { Breadcrumb, Container, Layout } from '@/components'
 
 type Props = {
   data: BlogQuery
@@ -13,6 +13,7 @@ const Page: NextPage<Props> = ({ data }) => {
     <Layout title={data.blog.title} mainMargin="-4.5rem 0 0 0">
       <BlogTitleBlock title={data.blog.title} date={data.blog.sys.publishedAt} thumnail={data.blog.thumnail} />
       <Container>
+        <Breadcrumb />
         <Blog document={data.blog.body.json} links={data.blog.body.links} />
       </Container>
     </Layout>

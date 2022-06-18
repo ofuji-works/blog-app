@@ -1,3 +1,4 @@
+export * from './Breadcrumb'
 export * from './VStackContainer'
 export * from './Pager'
 export * from './Tag'
