@@ -1,7 +1,9 @@
 import { FC, useState } from 'react'
 import { VStack } from '@chakra-ui/react'
+import { useQuery } from '@apollo/client'
 
 import { TagLink } from '../TagLink'
+import { GET_TAGS_QUERY, TagsQuery } from '../../queries'
 
 import { Bg, FilterButton, FilterBox, framerVariant, TagBox } from './SearchTagLinks.styles'
 
@@ -12,9 +14,19 @@ type Props = {
   tags: string[]
 }
 
-export const SearchTagLinks: FC<Props> = ({ categories, tags }) => {
+export const SearchTagLinks: FC<Props> = ({ categories }) => {
   const [filterStatus, setFilterStatus] = useState<string>('All')
   const { isTablet } = useBreakPoints()
+  const { data, loading } = useQuery<TagsQuery>(GET_TAGS_QUERY, {
+    variables: {
+      preview: false,
+    },
+  })
+
+  if (loading) {
+    return <p>...loading</p>
+  }
+
   return (
     <Bg id="search-tag-links">
       <VStack mb={{ base: 2, sm: 4 }} id="category-filters">
@@ -58,9 +70,10 @@ export const SearchTagLinks: FC<Props> = ({ categories, tags }) => {
         </FilterBox>
       </VStack>
       <TagBox id="tag-links">
-        {tags.map((tag) => (
-          <TagLink key={`tag-${tag}`} label={tag} onClick={() => console.log(tag)} />
-        ))}
+        {data &&
+          data.tagCollection.items[0].contentfulMetadata.tags.map((tag) => (
+            <TagLink key={`tag-${tag.id}`} label={tag.name} onClick={() => console.log(tag.id)} />
+          ))}
       </TagBox>
     </Bg>
   )
