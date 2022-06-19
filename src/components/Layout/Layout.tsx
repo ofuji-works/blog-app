@@ -27,6 +27,9 @@ export const Layout: FC<Props> = ({ children, title, mainMargin, og }) => {
           <>
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:site" content={TWITTER_ID} />
+            <meta name="twitter:title" content={title} />
+            <meta name="twitter:description" content="" />
+            <meta name="twitter:image" content={og.imgUrl} />
             <meta property="og:image" content={og.imgUrl} />
             <meta property="og:image:width" content={String(og.imgWidth)} />
             <meta property="og:image:height" content={String(og.imgHeight)} />
