@@ -24,8 +24,14 @@ const Page: NextPage<Props> = ({ id }) => {
     throw new Error()
   }
 
+  const og = {
+    imgUrl: data.blog.thumnail.url,
+    imgWidth: 800,
+    imgHeight: 600,
+  }
+
   return (
-    <Layout title={data.blog.title} mainMargin="-4.5rem 0 0 0">
+    <Layout title={data.blog.title} og={og} mainMargin="-4.5rem 0 0 0">
       <BlogTitleBlock title={data.blog.title} date={data.blog.sys.publishedAt} thumnail={data.blog.thumnail} />
       <Container>
         <Breadcrumb />
