@@ -2,6 +2,7 @@ import { FC, ReactNode } from 'react'
 import Head from 'next/head'
 
 import { Footer, Header, VStackContainer } from '@/components'
+import { TWITTER_ID } from 'config'
 
 type Props = {
   children: ReactNode
@@ -24,6 +25,8 @@ export const Layout: FC<Props> = ({ children, title, mainMargin, og }) => {
         <meta property="og:type" content="website" />
         {og && (
           <>
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:site" content={TWITTER_ID} />
             <meta property="og:image" content={og.imgUrl} />
             <meta property="og:image:width" content={String(og.imgWidth)} />
             <meta property="og:image:height" content={String(og.imgHeight)} />
