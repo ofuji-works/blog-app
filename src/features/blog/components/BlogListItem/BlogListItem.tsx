@@ -35,7 +35,7 @@ export interface BlogListItemProps {
 export const BlogListItem: FC<BlogListItemProps> = ({ title, json, datetime, href, thumnail, tags }) => {
   const dayjs = getDayjs()
   return (
-    <Card variants={framerVariant} whileHover="hover">
+    <Card variants={framerVariant} whileHover="hover" role="link">
       <Figure>
         <Image src={thumnail.url} alt={thumnail.title} />
       </Figure>

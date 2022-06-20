@@ -24,7 +24,7 @@ export const Header: FC = () => {
   }, [animateHander])
 
   return (
-    <Container animate={controls} ref={header}>
+    <Container animate={controls} ref={header} as="header">
       <Title>Ofuji Portfolio</Title>
     </Container>
   )
