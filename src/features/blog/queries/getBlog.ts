@@ -24,6 +24,10 @@ export interface EmbeddedEntryBlock {
   sys: {
     id: string
   }
+  thumnail: {
+    title: string
+    url: string
+  }
   title: string
   body: {
     json: Document
@@ -94,6 +98,10 @@ export const GET_BLOG_QUERY = gql`
                 id
               }
               ... on Blog {
+                thumnail {
+                  title
+                  url
+                }
                 title
                 body {
                   json
