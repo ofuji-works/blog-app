@@ -64,7 +64,7 @@ export interface BlogQuery {
 }
 
 export const GET_BLOG_QUERY = gql`
-  query ($id: String!, $preview: Boolean = false) {
+  query GetBlog($id: String!, $preview: Boolean = false) {
     blog(id: $id, preview: $preview) {
       sys {
         publishedAt
@@ -72,6 +72,7 @@ export const GET_BLOG_QUERY = gql`
       contentfulMetadata {
         tags {
           id
+          name
         }
       }
       thumnail {

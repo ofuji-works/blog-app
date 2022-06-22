@@ -12,6 +12,7 @@ export interface BlogsQuery {
       contentfulMetadata: {
         tags: {
           id: string
+          name: string
         }[]
       }
       thumnail: {
@@ -27,7 +28,7 @@ export interface BlogsQuery {
 }
 
 export const GET_BLOGS_QUERY = gql`
-  query ($preview: Boolean) {
+  query GetBlogs($preview: Boolean) {
     blogCollection(preview: $preview) {
       items {
         sys {
@@ -37,6 +38,7 @@ export const GET_BLOGS_QUERY = gql`
         contentfulMetadata {
           tags {
             id
+            name
           }
         }
         thumnail {
