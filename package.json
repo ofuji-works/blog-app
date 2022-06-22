@@ -90,5 +90,8 @@
       "eslint --cache --fix",
       "prettier --write"
     ]
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }
