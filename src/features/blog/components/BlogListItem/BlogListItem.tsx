@@ -27,7 +27,7 @@ export interface BlogListItemProps {
   }
   title: string
   json: Document
-  tags?: { id: string }[]
+  tags?: { id: string; name: string }[]
   datetime: string
   href: string
 }
@@ -42,7 +42,7 @@ export const BlogListItem: FC<BlogListItemProps> = ({ title, json, datetime, hre
       <ContentContainer>
         <Title>{title}</Title>
         <Body>{documentToPlainTextString(json)}</Body>
-        <Tags gap={'4px'}>{tags && tags.map((tag) => <Tag key={`tag-${tag.id}`} label={tag.id} />)}</Tags>
+        <Tags gap={'4px'}>{tags && tags.map((tag) => <Tag key={`tag-${tag.id}`} label={tag.name} />)}</Tags>
         <Datetime>{dayjs(datetime).format('YYYY.MM.DD')}</Datetime>
       </ContentContainer>
       <NextLink href={href} passHref>
