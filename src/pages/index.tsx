@@ -4,9 +4,6 @@ import { initializeApollo, addApolloState } from '@/libs'
 import { BlogList, SearchTagLinks, BlogListItemProps, GET_BLOGS_QUERY, GET_TAGS_QUERY } from '@/features'
 import { Container, Layout } from '@/components'
 
-const categories = ['React']
-const tags = ['React']
-
 type Props = {
   items: BlogListItemProps[]
 }
@@ -17,7 +14,7 @@ const Page: NextPage<Props> = () => {
       <Container>
         <BlogList />
       </Container>
-      <SearchTagLinks categories={categories} tags={tags} />
+      <SearchTagLinks />
     </Layout>
   )
 }
