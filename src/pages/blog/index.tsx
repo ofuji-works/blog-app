@@ -1,24 +1,17 @@
 import type { NextPage } from 'next'
 
 import { initializeApollo, addApolloState } from '@/libs'
-import { BlogList, SearchTagLinks, BlogListItemProps, GET_BLOGS_QUERY, GET_TAGS_QUERY } from '@/features'
+import { BlogList, SearchTagLinks, GET_BLOGS_QUERY, GET_TAGS_QUERY } from '@/features'
 import { Breadcrumb, Container, Layout } from '@/components'
 
-const categories = ['React']
-const tags = ['React']
-
-type Props = {
-  items: BlogListItemProps[]
-}
-
-const Page: NextPage<Props> = () => {
+const Page: NextPage = () => {
   return (
     <Layout title="blog" mainMargin={'4rem 0 0 0'}>
       <Container>
         <Breadcrumb />
         <BlogList />
       </Container>
-      <SearchTagLinks categories={categories} tags={tags} />
+      <SearchTagLinks />
     </Layout>
   )
 }

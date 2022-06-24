@@ -9,15 +9,11 @@ import { Bg, FilterButton, FilterBox, framerVariant, TagBox } from './SearchTagL
 
 import { useBreakPoints } from '@/hooks'
 
-type Props = {
-  categories: string[]
-  tags: string[]
-}
-
-export const SearchTagLinks: FC<Props> = ({ categories }) => {
+export const SearchTagLinks: FC = () => {
   const [filterStatus, setFilterStatus] = useState<string>('All')
+  const categories = ['React']
   const { isTablet } = useBreakPoints()
-  const { data, loading } = useQuery<TagsQuery>(GET_TAGS_QUERY, {
+  const { data, loading, refetch } = useQuery<TagsQuery>(GET_TAGS_QUERY, {
     variables: {
       preview: false,
     },
@@ -72,7 +68,7 @@ export const SearchTagLinks: FC<Props> = ({ categories }) => {
       <TagBox id="tag-links">
         {data &&
           data.tagCollection.items[0].contentfulMetadata.tags.map((tag) => (
-            <TagLink key={`tag-${tag.id}`} label={tag.name} onClick={() => console.log(tag.id)} />
+            <TagLink key={`tag-${tag.id}`} label={tag.name} onClick={() => refetch()} />
           ))}
       </TagBox>
     </Bg>
