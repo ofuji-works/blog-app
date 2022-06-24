@@ -64,7 +64,14 @@
     },
     // pages以下のみでfeaturesのimportを許可
     {
-      "files": ["src/pages/*.stories.*", "src/pages/*/*.stories.*", "src/pages/*.tsx", "src/pages/*/*.tsx"],
+      "files": [
+        "src/mock/*.ts",
+        "src/mock/*/*.ts",
+        "src/pages/*.stories.*",
+        "src/pages/*/*.stories.*",
+        "src/pages/*.tsx",
+        "src/pages/*/*.tsx"
+      ],
       "rules": {
         "no-restricted-imports": [
           "off",
