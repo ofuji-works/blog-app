@@ -1,14 +1,10 @@
 import type { NextPage } from 'next'
 
 import { initializeApollo, addApolloState } from '@/libs'
-import { BlogList, SearchTagLinks, BlogListItemProps, GET_BLOGS_QUERY, GET_TAGS_QUERY } from '@/features'
+import { BlogList, SearchTagLinks, GET_BLOGS_QUERY, GET_TAGS_QUERY } from '@/features'
 import { Container, Layout } from '@/components'
 
-type Props = {
-  items: BlogListItemProps[]
-}
-
-const Page: NextPage<Props> = () => {
+const Page: NextPage = () => {
   return (
     <Layout title="home" mainMargin={'4rem 0 0 0'}>
       <Container>

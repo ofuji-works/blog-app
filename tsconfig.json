@@ -10,8 +10,7 @@
       "@/config": ["config"],
       "@/hooks": ["hooks"],
       "@/providers": ["providers"],
-      "@/libs": ["libs"],
-      "@/mock": ["mock"]
+      "@/libs": ["libs"]
     },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],

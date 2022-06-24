@@ -1,7 +1,7 @@
 import { BLOCKS } from '@contentful/rich-text-types'
 
-import type { BlogType, BlogQuery, ArticleTextAsset, ArticleTextLinks } from '@/features'
 import type { Document } from '@contentful/rich-text-types'
+import type { BlogType, BlogQuery, ArticleTextAsset, ArticleTextLinks } from '@/features'
 
 export const documentMock: Document = {
   nodeType: BLOCKS.DOCUMENT,

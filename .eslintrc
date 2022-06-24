@@ -65,8 +65,8 @@
     // pages以下のみでfeaturesのimportを許可
     {
       "files": [
-        "src/mock/*.ts",
-        "src/mock/*/*.ts",
+        "__tests__/*",
+        "__tests__/*/*",
         "src/pages/*.stories.*",
         "src/pages/*/*.stories.*",
         "src/pages/*.tsx",
