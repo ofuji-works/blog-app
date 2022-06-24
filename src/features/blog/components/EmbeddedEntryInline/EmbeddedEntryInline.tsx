@@ -1,10 +1,10 @@
 import { FC } from 'react'
 
-import { EmbeddedEntryInline as Entries } from '../../queries'
+import { BlogType } from '../../queries'
 
 type Props = {
   id: string
-  entries: Entries[]
+  entries: BlogType[]
 }
 
 export const EmbeddedEntryInline: FC<Props> = ({ id, entries }) => {

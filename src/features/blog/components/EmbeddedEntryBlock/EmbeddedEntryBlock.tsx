@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
 import NextLink from 'next/link'
 
-import { EmbeddedEntryBlock as Entries } from '../../queries'
+import { BlogType } from '../../queries'
 
 import {
   Card,
@@ -17,7 +17,7 @@ import {
 
 type Props = {
   id: string
-  entries: Entries[]
+  entries: BlogType[]
 }
 
 export const EmbeddedEntryBlock: FC<Props> = ({ id, entries }) => {

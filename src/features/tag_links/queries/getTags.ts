@@ -1,18 +1,5 @@
 import { gql } from '@apollo/client'
 
-export type TagsQuery = {
-  tagCollection: {
-    items: {
-      contentfulMetadata: {
-        tags: {
-          id: string
-          name: string
-        }[]
-      }
-    }[]
-  }
-}
-
 export const GET_TAGS_QUERY = gql`
   query GetTags($preview: Boolean) {
     tagCollection(preview: $preview) {
