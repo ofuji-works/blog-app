@@ -18,7 +18,7 @@ import {
 import type { Document } from '@contentful/rich-text-types'
 
 import { Tag } from '@/components'
-import { getDayjs } from 'libs'
+import { getDayjs } from '@/libs'
 
 export interface BlogListItemProps {
   thumnail: {

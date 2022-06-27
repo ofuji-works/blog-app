@@ -1,0 +1,5 @@
+jest.config.js
+jest.setup.js
+sentry.server.config.js
+sentry.client.config.js
+next.config.js

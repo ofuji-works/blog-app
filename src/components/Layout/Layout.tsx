@@ -2,7 +2,7 @@ import { FC, ReactNode } from 'react'
 import Head from 'next/head'
 
 import { Footer, Header, VStackContainer } from '@/components'
-import { TWITTER_ID } from 'config'
+import { TWITTER_ID } from '@/config'
 
 type Props = {
   children: ReactNode

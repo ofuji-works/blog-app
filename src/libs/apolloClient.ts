@@ -8,8 +8,10 @@ import { onError } from '@apollo/client/link/error'
 import { concatPagination } from '@apollo/client/utilities'
 import merge from 'deepmerge'
 import isEqual from 'lodash/isEqual'
+import fetch from 'cross-fetch'
 
 export const APOLLO_STATE_PROP_NAME = '__APOLLO_STATE__'
+export type PageProps = { __APOLLO_STATE__: any } & { [key: string]: any }
 
 let apolloClient: ApolloClient<NormalizedCacheObject>
 
@@ -35,6 +37,7 @@ const httpLink = new HttpLink({
   headers: {
     Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
   },
+  fetch,
 })
 
 /**

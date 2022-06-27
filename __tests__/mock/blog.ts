@@ -43,7 +43,11 @@ export const documentMock: Document = {
         },
       ],
     },
-    { nodeType: BLOCKS.EMBEDDED_ENTRY, data: [{}], content: [] },
+    {
+      nodeType: BLOCKS.EMBEDDED_ENTRY,
+      data: { target: { sys: { id: '6ThQWAH7g829u0zgEHfJRT', type: 'Link', linkType: 'Entry' } } },
+      content: [],
+    },
     {
       nodeType: BLOCKS.UL_LIST,
       data: {},

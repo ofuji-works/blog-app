@@ -62,11 +62,11 @@
         ]
       }
     },
-    // pages以下のみでfeaturesのimportを許可
+    // pages、__tests__以下のみでfeaturesのimportを許可
     {
       "files": [
         "__tests__/*",
-        "__tests__/*/*",
+        "__tests__/**/*",
         "src/pages/*.stories.*",
         "src/pages/*/*.stories.*",
         "src/pages/*.tsx",
