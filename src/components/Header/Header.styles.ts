@@ -1,4 +1,4 @@
-import { chakra, Text as ChakraText } from '@chakra-ui/react'
+import { chakra } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 
 export const framerVariants = {
@@ -31,7 +31,7 @@ export const Header = chakra(motion.header, {
   },
 })
 
-export const Title = chakra(ChakraText, {
+export const Title = chakra('a', {
   baseStyle: {
     fontSize: '2xl',
     fontWeight: 700,

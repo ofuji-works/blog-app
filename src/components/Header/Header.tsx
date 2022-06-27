@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { FC, useEffect, useRef, useCallback } from 'react'
 import { useAnimation } from 'framer-motion'
 
@@ -25,7 +26,11 @@ export const Header: FC = () => {
 
   return (
     <Container animate={controls} ref={header}>
-      <Title>Ofuji Portfolio</Title>
+      <h1>
+        <Link href="/" passHref>
+          <Title>Ofuji Portfolio</Title>
+        </Link>
+      </h1>
     </Container>
   )
 }
