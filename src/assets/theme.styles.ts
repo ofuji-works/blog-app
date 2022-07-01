@@ -14,6 +14,9 @@ export const colors = {
     white: COLORS.white,
     code: COLORS.code,
     thumnail: COLORS.thumnail,
+    green: COLORS.green,
+    orange: COLORS.orange,
+    red: COLORS.red,
   },
 }
 
@@ -27,6 +30,7 @@ export const typography = {
     lg: '1.25rem',
     xl: '1.5rem',
     '2xl': '2rem',
+    '4xl': '4rem',
     /* blog style */
     h1: '1.75rem',
     h2: '1.5rem',
