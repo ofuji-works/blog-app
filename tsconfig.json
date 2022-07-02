@@ -5,6 +5,7 @@
       "@/pages/*": ["pages/*"],
       "@/components": ["components"],
       "@/features": ["features"],
+      "@/features/*": ["features/*"],
       "@/assets": ["assets"],
       "@/assets/*": ["assets/*"],
       "@/config": ["config"],

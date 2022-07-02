@@ -1,15 +1,22 @@
+import dynamic from 'next/dynamic'
+import { Suspense } from 'react'
+
 import type { NextPage } from 'next'
 
 import { initializeApollo, addApolloState } from '@/libs'
-import { BlogList, SearchTagLinks, GET_BLOGS_QUERY, GET_TAGS_QUERY } from '@/features'
+import { SearchTagLinks, GET_BLOGS_QUERY, GET_TAGS_QUERY } from '@/features'
 import { Breadcrumb, Container, Layout } from '@/components'
+
+const BlogList = dynamic(() => import('@/features/blog/BlogList'))
 
 const Page: NextPage = () => {
   return (
     <Layout title="blog" mainMargin={'4rem 0 0 0'}>
       <Container>
         <Breadcrumb />
-        <BlogList />
+        <Suspense fallback={<div>...loading</div>}>
+          <BlogList />
+        </Suspense>
       </Container>
       <SearchTagLinks />
     </Layout>
