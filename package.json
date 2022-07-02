@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "analyze": "ANALYZE=true next build",
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
@@ -29,6 +30,7 @@
     "@contentful/rich-text-react-renderer": "^15.12.1",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
+    "@next/bundle-analyzer": "^12.2.0",
     "@sentry/nextjs": "^6.19.6",
     "clsx": "^1.1.1",
     "cross-fetch": "^3.1.5",
@@ -38,6 +40,7 @@
     "lodash": "^4.17.21",
     "msw": "^0.42.1",
     "next": "^12.1.6",
+    "next-compose-plugins": "^2.2.1",
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "react-hook-form": "^7.29.0",
