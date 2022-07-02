@@ -1,5 +1,6 @@
-import { chakra, Box, List, Image as ChakraImage } from '@chakra-ui/react'
+import { chakra, Box, List } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
+import NextImage from 'next/image'
 
 export const framerVariant = {
   hover: {
@@ -40,7 +41,7 @@ export const ContentContainer = chakra(Box, {
   },
 })
 
-export const Figure = chakra('figure', {
+export const ImageWrapper = chakra(Box, {
   baseStyle: {
     background: 'thumnail',
     borderRadius: 'base',
@@ -60,16 +61,21 @@ export const Figure = chakra('figure', {
   },
 })
 
-export const Image = chakra(ChakraImage, {
+export const Figure = chakra('figure', {
   baseStyle: {
+    position: 'relative',
     width: '100%',
     aspectRatio: '4 / 3',
     boxShadow: {
       base: '0 0.05rem 0.075rem rgba(0, 0, 0, 0.25)',
       sm: '0 0.15rem 0.075rem rgba(0, 0, 0, 0.25)',
     },
-    borderTopRadius: 'base',
-    borderBottomRadius: 'base',
+  },
+})
+
+export const Image = chakra(NextImage, {
+  baseStyle: {
+    borderRadius: 'base',
   },
 })
 

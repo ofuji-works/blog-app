@@ -20,7 +20,14 @@ export const BlogTitleBlock: FC<Props> = ({ title, date, thumnail }) => {
   return (
     <Stack>
       <Figure>
-        <Image src={thumnail.url} alt={thumnail.title} />
+        <Image
+          src={thumnail.url}
+          alt={thumnail.title}
+          layout="fill"
+          objectFit="contain"
+          placeholder="blur"
+          blurDataURL={`${thumnail.url}?q=1`}
+        />
       </Figure>
       <Title>{title}</Title>
       <Date>{`${dayjs(date).format('YYYY.MM.DD')} 公開`}</Date>

@@ -1,4 +1,5 @@
-import { chakra, Heading, VStack, Image as ChakraImage } from '@chakra-ui/react'
+import { chakra, Heading, VStack } from '@chakra-ui/react'
+import NextImage from 'next/image'
 
 export const Stack = chakra(VStack, {
   baseStyle: {
@@ -18,18 +19,12 @@ export const Stack = chakra(VStack, {
 
 export const Figure = chakra('figure', {
   baseStyle: {
+    position: 'relative',
     width: {
       base: '80%',
       sm: '20%',
     },
     aspectRatio: '4 / 3',
-  },
-})
-
-export const Image = chakra(ChakraImage, {
-  baseStyle: {
-    width: '100%',
-    height: '100%',
     boxShadow: {
       base: '0 0.05rem 0.075rem rgba(0, 0, 0, 0.25)',
       sm: '0 0.15rem 0.075rem rgba(0, 0, 0, 0.25)',
@@ -38,9 +33,18 @@ export const Image = chakra(ChakraImage, {
   },
 })
 
+export const Image = chakra(NextImage, {
+  baseStyle: {
+    borderRadius: 'base',
+  },
+})
+
 export const Title = chakra(Heading, {
   baseStyle: {
-    fontSize: 'xl',
+    fontSize: {
+      base: 'xl',
+      sm: 'xl',
+    },
     fontWeight: 700,
     color: 'black',
   },

@@ -6,13 +6,14 @@ import {
   Card,
   ContentContainer,
   Figure,
-  Image,
   Title,
   Body,
   Tags,
   Datetime,
   Link,
   framerVariant,
+  Image,
+  ImageWrapper,
 } from './BlogListItem.styles'
 
 import type { Document } from '@contentful/rich-text-types'
@@ -36,9 +37,18 @@ export const BlogListItem: FC<BlogListItemProps> = ({ title, json, datetime, hre
   const dayjs = getDayjs()
   return (
     <Card variants={framerVariant} whileHover="hover" role="link">
-      <Figure>
-        <Image src={thumnail.url} alt={thumnail.title} />
-      </Figure>
+      <ImageWrapper>
+        <Figure>
+          <Image
+            src={thumnail.url}
+            alt={thumnail.title}
+            placeholder="blur"
+            blurDataURL={`${thumnail.url}?q=1`}
+            layout="fill"
+            objectFit="contain"
+          />
+        </Figure>
+      </ImageWrapper>
       <ContentContainer>
         <Title>{title}</Title>
         <Body>{documentToPlainTextString(json)}</Body>
