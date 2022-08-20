@@ -7,15 +7,15 @@ import { initializeApollo, addApolloState } from '@/libs'
 import { SearchTagLinks, GET_BLOGS_QUERY, GET_TAGS_QUERY } from '@/features'
 import { Breadcrumb, Container, Layout } from '@/components'
 
-const BlogList = dynamic(() => import('@/features/blog/BlogList'))
+const BlogList = dynamic<{ tag: string }>(() => import('@/features/blog/BlogList'))
 
-const Page: NextPage = () => {
+const Page: NextPage<{ tag: string }> = ({ tag }) => {
   return (
     <Layout title="blog" mainMargin={'4rem 0 0 0'}>
       <Container>
         <Breadcrumb />
         <Suspense fallback={<div>...loading</div>}>
-          <BlogList />
+          <BlogList tag={tag} />
         </Suspense>
       </Container>
       <SearchTagLinks />
@@ -23,7 +23,7 @@ const Page: NextPage = () => {
   )
 }
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async ({ query }: { query: { tag: string } }) => {
   const client = initializeApollo()
   await client.query({
     query: GET_TAGS_QUERY,
@@ -31,11 +31,13 @@ export const getStaticProps = async () => {
   await client.query({
     query: GET_BLOGS_QUERY,
     variables: {
-      preview: false,
+      tags: [query.tag],
     },
   })
   return addApolloState(client, {
-    props: {},
+    props: {
+      tag: query.tag,
+    },
   })
 }
 

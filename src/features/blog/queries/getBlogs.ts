@@ -28,8 +28,8 @@ export interface BlogsQuery {
 }
 
 export const GET_BLOGS_QUERY = gql`
-  query GetBlogs($preview: Boolean) {
-    blogCollection(preview: $preview) {
+  query GetBlogs($tags: [String!]) {
+    blogCollection(where: { contentfulMetadata: { tags_exists: true, tags: { id_contains_some: $tags } } }) {
       items {
         sys {
           id

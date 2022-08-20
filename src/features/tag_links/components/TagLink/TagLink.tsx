@@ -1,34 +1,34 @@
-import { FC, MouseEventHandler } from 'react'
+import { FC } from 'react'
 import { MdCode } from 'react-icons/md'
+
+import { Tag } from '../../types'
 
 import { Button, Icon, IconBg, Span, framerVariant } from './TagLink.styles'
 
 import { useBreakPoints } from '@/hooks'
 
 type Props = {
-  /**
-   * @type {string} label
-   */
-  label: string
-  /**
-   * @type {MouseEventHandler<HTMLButtonElement>}
-   */
-  onClick: MouseEventHandler<HTMLButtonElement>
-}
+  onClick: (tagId: string) => void
+} & Tag
 
-export const TagLink: FC<Props> = ({ label, onClick }) => {
+export const TagLink: FC<Props> = ({ id, name, onClick }) => {
   const { isTablet } = useBreakPoints()
+
+  const clickHandler = () => {
+    onClick(id)
+  }
+
   return (
     <Button
       variants={framerVariant}
       whileHover={!isTablet ? 'hover' : undefined}
       whileTap={isTablet ? 'tap' : undefined}
-      onClick={onClick}
+      onClick={clickHandler}
     >
       <IconBg>
         <Icon as={MdCode} />
       </IconBg>
-      <Span>{label}</Span>
+      <Span>{name}</Span>
     </Button>
   )
 }

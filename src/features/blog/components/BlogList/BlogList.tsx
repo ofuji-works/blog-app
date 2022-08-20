@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import { useRouter } from 'next/router'
 import { useQuery } from '@apollo/client'
 
 import { BlogListItem, BlogListItemProps } from '../BlogListItem'
@@ -6,10 +7,15 @@ import { GET_BLOGS_QUERY, BlogsQuery } from '../../queries/getBlogs'
 
 import { Pager } from '@/components'
 
-export const BlogList: FC = () => {
+type Props = {
+  tag?: string
+}
+
+export const BlogList: FC<Props> = (props) => {
+  const { query } = useRouter()
   const { data, loading, error } = useQuery<BlogsQuery>(GET_BLOGS_QUERY, {
     variables: {
-      preview: false,
+      tags: query.tag ? [query.tag] : [],
     },
   })
 
