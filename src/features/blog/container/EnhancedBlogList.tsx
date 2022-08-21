@@ -1,5 +1,4 @@
 import { FC } from 'react'
-import { useRouter } from 'next/router'
 import { useQuery } from '@apollo/client'
 
 import { BlogList, BlogListItemProps } from '../components'
@@ -10,10 +9,9 @@ type Props = {
 }
 
 export const EnhancedBlogList: FC<Props> = ({ tag }) => {
-  const { query } = useRouter()
   const { data, loading, error } = useQuery<BlogsQuery>(GET_BLOGS_QUERY, {
     variables: {
-      tags: query.tag ? [query.tag] : [],
+      tags: tag ? [tag] : [],
     },
   })
 

@@ -1,7 +1,9 @@
-import { FC } from 'react'
+import { ComponentProps, FC } from 'react'
 
-import { BlogList as Component } from './components'
+import { EnhancedBlogList } from './container'
 
-const BlogList: FC = () => <Component />
+type Props = ComponentProps<typeof EnhancedBlogList>
+
+const BlogList: FC<Props> = (props) => <EnhancedBlogList {...props} />
 
 export default BlogList
