@@ -12,7 +12,7 @@ import { useBreakPoints } from '@/hooks'
 
 export const SearchTagLinks: FC = () => {
   const [filterStatus, setFilterStatus] = useState<string>('All')
-  const categories = ['React']
+  const categories: string[] = []
   const { push } = useRouter()
   const { isTablet } = useBreakPoints()
   const { data, loading } = useQuery<TagsQuery>(GET_TAGS_QUERY, {
