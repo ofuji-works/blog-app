@@ -14,7 +14,7 @@ import {
   framerVariant,
   Image,
   ImageWrapper,
-} from './BlogListItem.styles'
+} from './styles'
 
 import type { Document } from '@contentful/rich-text-types'
 

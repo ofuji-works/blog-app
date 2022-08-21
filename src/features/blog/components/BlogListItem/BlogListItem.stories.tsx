@@ -1,7 +1,7 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { BlogListItem } from './BlogListItem'
+import { BlogListItem } from '.'
 
 const meta: ComponentMeta<typeof BlogListItem> = {
   title: 'Blogs/Blog',

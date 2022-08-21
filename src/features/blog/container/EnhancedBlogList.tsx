@@ -2,26 +2,20 @@ import { FC } from 'react'
 import { useRouter } from 'next/router'
 import { useQuery } from '@apollo/client'
 
-import { BlogListItem, BlogListItemProps } from '../BlogListItem'
-import { GET_BLOGS_QUERY, BlogsQuery } from '../../queries/getBlogs'
-
-import { Pager } from '@/components'
+import { BlogList, BlogListItemProps } from '../components'
+import { GET_BLOGS_QUERY, BlogsQuery } from '../queries'
 
 type Props = {
   tag?: string
 }
 
-export const BlogList: FC<Props> = (props) => {
+export const EnhancedBlogList: FC<Props> = ({ tag }) => {
   const { query } = useRouter()
   const { data, loading, error } = useQuery<BlogsQuery>(GET_BLOGS_QUERY, {
     variables: {
       tags: query.tag ? [query.tag] : [],
     },
   })
-
-  if (loading) {
-    return <p>...loading</p>
-  }
 
   if (!data || error) {
     return <p>no data</p>
@@ -38,5 +32,5 @@ export const BlogList: FC<Props> = (props) => {
     }
   })
 
-  return <Pager<BlogListItemProps> items={items} component={BlogListItem} />
+  return <BlogList items={items} loading={loading} />
 }

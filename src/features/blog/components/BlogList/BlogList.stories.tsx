@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import { BlogList } from './BlogList'
+import { BlogList } from './index'
 
 const meta: ComponentMeta<typeof BlogList> = {
   title: 'blogs/BlogList',
