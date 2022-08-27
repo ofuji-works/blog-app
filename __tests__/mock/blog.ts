@@ -145,9 +145,9 @@ export const blogListItemMock = {
     title: 'Sample URL',
     url: '/mock.jpg',
   },
-  title: '',
+  title: 'モック記事',
   json: documentMock,
   tags: [{ id: 'mock', name: 'Mock' }],
   datetime: '2022.08.22',
-  href: '',
+  href: '#',
 }
