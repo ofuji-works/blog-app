@@ -1,32 +1,26 @@
 import { FC, useState } from 'react'
-import { useRouter } from 'next/router'
 import { VStack } from '@chakra-ui/react'
-import { useQuery } from '@apollo/client'
 
 import { TagLink } from '../TagLink'
-import { GET_TAGS_QUERY, TagsQuery } from '../../queries'
+import { TagsQuery } from '../../queries'
 
 import { Bg, FilterButton, FilterBox, framerVariant, TagBox } from './SearchTagLinks.styles'
 
 import { useBreakPoints } from '@/hooks'
 
-export const SearchTagLinks: FC = () => {
+type Props = {
+  loading: boolean
+  categories: string[]
+  tags?: TagsQuery
+  onClick: (tagId: string) => void
+}
+
+export const SearchTagLinks: FC<Props> = ({ loading, categories, tags, onClick }) => {
   const [filterStatus, setFilterStatus] = useState<string>('All')
-  const categories: string[] = []
-  const { push } = useRouter()
   const { isTablet } = useBreakPoints()
-  const { data, loading } = useQuery<TagsQuery>(GET_TAGS_QUERY, {
-    variables: {
-      preview: false,
-    },
-  })
 
   if (loading) {
     return <p>...loading</p>
-  }
-
-  const clickHandler = (tagId: string) => {
-    push(`/blog?tag=${tagId}`)
   }
 
   return (
@@ -72,9 +66,9 @@ export const SearchTagLinks: FC = () => {
         </FilterBox>
       </VStack>
       <TagBox id="tag-links">
-        {data &&
-          data.tagCollection.items[0].contentfulMetadata.tags.map((tag) => (
-            <TagLink key={`tag-${tag.id}`} {...tag} onClick={clickHandler} />
+        {tags &&
+          tags.tagCollection.items[0].contentfulMetadata.tags.map((tag) => (
+            <TagLink key={`tag-${tag.id}`} {...tag} onClick={onClick} />
           ))}
       </TagBox>
     </Bg>
