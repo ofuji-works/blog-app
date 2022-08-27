@@ -14,8 +14,8 @@
     "test": "jest",
     "cy:run:chrome": "cypress run --browser chrome",
     "cy:run:firefox": "cypress run --browser firefox",
-    "storybook": "start-storybook -p 6006 -s ./public",
-    "build-storybook": "build-storybook -s public",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
     "prepare": "husky install",
     "chromatic": "npx chromatic --exit-zero-on-changes",
     "cypress": "cypress open",
@@ -88,6 +88,7 @@
     "jest-environment-jsdom": "^28.1.1",
     "lint-staged": ">=10",
     "start-server-and-test": "^1.14.0",
+    "storybook-addon-next": "^1.6.7",
     "typescript": "4.6.3"
   },
   "lint-staged": {
