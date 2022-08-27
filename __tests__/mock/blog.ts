@@ -139,3 +139,15 @@ export const blogMock: BlogType = {
 export const blogQueryMock: BlogQuery = {
   blog: blogMock,
 }
+
+export const blogListItem = {
+  thumnail: {
+    title: 'Sample URL',
+    url: '/mock.jpg',
+  },
+  title: '',
+  json: documentMock,
+  tags: [{ id: 'mock', name: 'Mock' }],
+  datetime: '2022.08.22',
+  href: '',
+}
