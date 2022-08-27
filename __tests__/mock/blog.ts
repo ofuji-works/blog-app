@@ -127,7 +127,7 @@ export const blogMock: BlogType = {
   },
   thumnail: {
     title: 'mock',
-    url: '/mock.png',
+    url: '/mock.jpg',
   },
   title: 'モック記事',
   body: {
