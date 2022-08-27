@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import { BlogList } from '.'
 
-import { blogListItem } from '@/mock/blog'
+import { blogListItemMock } from '@/mock/blog'
 
 const meta: ComponentMeta<typeof BlogList> = {
   title: 'Blogs/BlogList',
@@ -14,7 +14,7 @@ const Template: ComponentStory<typeof BlogList> = (args) => <BlogList {...args} 
 export const Default = Template.bind({})
 
 Default.args = {
-  items: [blogListItem],
+  items: new Array(3).fill(blogListItemMock),
   loading: false,
 }
 

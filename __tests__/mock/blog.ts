@@ -140,7 +140,7 @@ export const blogQueryMock: BlogQuery = {
   blog: blogMock,
 }
 
-export const blogListItem = {
+export const blogListItemMock = {
   thumnail: {
     title: 'Sample URL',
     url: '/mock.jpg',
