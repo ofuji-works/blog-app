@@ -2,6 +2,8 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import { EmbeddedEntryBlock } from './EmbeddedEntryBlock'
 
+import { blogMock } from '@/mock/blog'
+
 const meta: ComponentMeta<typeof EmbeddedEntryBlock> = {
   title: 'blogs/EmbeddedEntryBlock',
   component: EmbeddedEntryBlock,
@@ -11,6 +13,9 @@ const Template: ComponentStory<typeof EmbeddedEntryBlock> = (args) => <EmbeddedE
 
 export const Default = Template.bind({})
 
-Default.args = {}
+Default.args = {
+  id: blogMock.sys.id,
+  entries: new Array(1).fill(blogMock),
+}
 
 export default meta
