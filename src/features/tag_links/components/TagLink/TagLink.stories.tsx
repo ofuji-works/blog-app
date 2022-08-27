@@ -12,8 +12,14 @@ const Template: ComponentStory<typeof TagLink> = (args) => <TagLink {...args} />
 
 export const Default = Template.bind({})
 
+const clickHandlerMock = (tagId: string) => {
+  alert(`clicked tag:${tagId}`)
+}
+
 Default.args = {
-  label: 'React',
+  name: 'React',
+  id: 'react',
+  onClick: clickHandlerMock,
 }
 
 export default meta
