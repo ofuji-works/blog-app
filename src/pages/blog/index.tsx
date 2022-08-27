@@ -4,10 +4,11 @@ import { Suspense } from 'react'
 import type { NextPage } from 'next'
 
 import { initializeApollo, addApolloState } from '@/libs'
-import { SearchTagLinks, GET_BLOGS_QUERY, GET_TAGS_QUERY } from '@/features'
+import { GET_BLOGS_QUERY, GET_TAGS_QUERY } from '@/features'
 import { Breadcrumb, Container, Layout } from '@/components'
 
-const BlogList = dynamic<{ tag: string }>(() => import('@/features/blog/BlogList'))
+const BlogList = dynamic(() => import('@/features/blog/BlogList'))
+const TagLinks = dynamic(() => import('@/features/tag_links/TagLinks'))
 
 const Page: NextPage<{ tag: string }> = ({ tag }) => {
   return (
@@ -18,7 +19,7 @@ const Page: NextPage<{ tag: string }> = ({ tag }) => {
           <BlogList tag={tag} />
         </Suspense>
       </Container>
-      <SearchTagLinks />
+      <TagLinks />
     </Layout>
   )
 }
