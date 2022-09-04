@@ -6,7 +6,7 @@ import { BlogListItem } from '.'
 import { blogListItemMock } from '@/mock/blog'
 
 const meta: ComponentMeta<typeof BlogListItem> = {
-  title: 'Blogs/BlogListItem',
+  title: 'features/Blogs/BlogListItem',
   component: BlogListItem,
 }
 

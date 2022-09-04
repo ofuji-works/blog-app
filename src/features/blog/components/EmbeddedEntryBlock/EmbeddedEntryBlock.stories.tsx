@@ -5,7 +5,7 @@ import { EmbeddedEntryBlock } from './EmbeddedEntryBlock'
 import { blogMock } from '@/mock/blog'
 
 const meta: ComponentMeta<typeof EmbeddedEntryBlock> = {
-  title: 'blogs/EmbeddedEntryBlock',
+  title: 'features/blogs/EmbeddedEntryBlock',
   component: EmbeddedEntryBlock,
 }
 

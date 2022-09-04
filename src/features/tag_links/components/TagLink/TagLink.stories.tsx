@@ -6,7 +6,7 @@ import { expect, jest } from '@storybook/jest'
 import { TagLink } from './TagLink'
 
 const meta: ComponentMeta<typeof TagLink> = {
-  title: 'TagLinks/TagLink',
+  title: 'features/tag_links/TagLink',
   component: TagLink,
   decorators: [
     (Story) => (

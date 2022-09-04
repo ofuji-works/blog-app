@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { Code } from './Code'
 
 const meta: ComponentMeta<typeof Code> = {
-  title: 'Blogs/Code',
+  title: 'features/Blogs/Code',
   component: Code,
 }
 

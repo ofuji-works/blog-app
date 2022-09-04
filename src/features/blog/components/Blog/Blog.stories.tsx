@@ -5,7 +5,7 @@ import { Blog } from '.'
 import { documentMock, articleTextLinksMock } from '@/mock/blog'
 
 const meta: ComponentMeta<typeof Blog> = {
-  title: 'Blogs/Blog',
+  title: 'features/Blogs/Blog',
   component: Blog,
 }
 

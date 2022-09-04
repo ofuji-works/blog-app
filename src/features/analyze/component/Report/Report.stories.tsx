@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { Report } from './Report'
 
 const meta: ComponentMeta<typeof Report> = {
-  title: 'analyze/Report',
+  title: 'features/analyze/Report',
   component: Report,
 }
 

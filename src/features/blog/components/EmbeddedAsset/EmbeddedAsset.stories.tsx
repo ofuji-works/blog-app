@@ -5,7 +5,7 @@ import { EmbeddedAsset } from './EmbeddedAsset'
 import { articleTextAssetMock } from '@/mock/blog'
 
 const meta: ComponentMeta<typeof EmbeddedAsset> = {
-  title: 'blogs/EmbeddedAsset',
+  title: 'features/blogs/EmbeddedAsset',
   component: EmbeddedAsset,
 }
 

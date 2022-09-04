@@ -6,7 +6,7 @@ import { BlogTitleBlock } from './BlogTitleBlock'
 import { blogMock } from '@/mock/blog'
 
 const meta: ComponentMeta<typeof BlogTitleBlock> = {
-  title: 'Blogs/BlogTitleBlock',
+  title: 'features/Blogs/BlogTitleBlock',
   component: BlogTitleBlock,
 }
 

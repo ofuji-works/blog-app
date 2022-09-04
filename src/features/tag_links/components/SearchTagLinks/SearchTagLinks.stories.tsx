@@ -6,7 +6,7 @@ import { SearchTagLinks } from './SearchTagLinks'
 import { tagsQueryMock } from '@/mock/tag'
 
 const meta: ComponentMeta<typeof SearchTagLinks> = {
-  title: 'TagLinks/SearchTagLinks',
+  title: 'features/tag_links/SearchTagLinks',
   component: SearchTagLinks,
 }
 
