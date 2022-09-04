@@ -31,7 +31,9 @@ Default.args = {
   onClick: clickHandlerMock,
 }
 
-Default.play = async () => {
+export const Clicked = { ...Default }
+
+Clicked.play = async () => {
   const tagLink = screen.getByRole('button')
   await userEvent.click(tagLink)
   await expect(clickHandlerMock.call.length).toBe(1)
