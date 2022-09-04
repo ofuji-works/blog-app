@@ -1,5 +1,5 @@
 import { FC, useState } from 'react'
-import { VStack } from '@chakra-ui/react'
+import { VStack, Skeleton } from '@chakra-ui/react'
 
 import { TagLink } from '../TagLink'
 import { TagsQuery } from '../../queries'
@@ -20,7 +20,7 @@ export const SearchTagLinks: FC<Props> = ({ loading, categories, tags, onClick }
   const { isTablet } = useBreakPoints()
 
   if (loading) {
-    return <p>...loading</p>
+    return <Skeleton height={250} />
   }
 
   return (
