@@ -15,23 +15,35 @@ const meta: ComponentMeta<typeof TagLink> = {
       </div>
     ),
   ],
+  argTypes: {
+    onClick: {
+      action: 'clicked',
+    },
+  },
 }
-
 const Template: ComponentStory<typeof TagLink> = (args) => <TagLink {...args} />
 
+/**
+ * @summary デフォルト
+ */
 export const Default = Template.bind({})
+Default.args = {
+  name: 'React',
+  id: 'react',
+}
 
+/**
+ * @summary Clickインタラクション
+ */
+export const Clicked = Template.bind({})
 const clickHandlerMock = jest.fn((tagId: string) => {
   console.log(`clicked tag:${tagId}`)
 })
-
-Default.args = {
+Clicked.args = {
   name: 'React',
   id: 'react',
   onClick: clickHandlerMock,
 }
-
-export const Clicked = { ...Default }
 
 Clicked.play = async () => {
   const tagLink = screen.getByRole('button')
