@@ -42,7 +42,7 @@ export const SearchTagLinks: FC<Props> = ({ loading, categories, tags, onClick }
                 setFilterStatus('All')
               }}
             >
-              All
+              ALL
             </FilterButton>
             {categories.map((filter) => (
               <FilterButton
@@ -67,8 +67,8 @@ export const SearchTagLinks: FC<Props> = ({ loading, categories, tags, onClick }
       </VStack>
       <TagBox id="tag-links">
         {tags &&
-          tags.tagCollection.items[0].contentfulMetadata.tags.map((tag) => (
-            <TagLink key={`tag-${tag.id}`} {...tag} onClick={onClick} />
+          tags.tagCollection.items[0].contentfulMetadata.tags.map((tag, index) => (
+            <TagLink key={`tag-${tag.id}-${index}`} {...tag} onClick={onClick} />
           ))}
       </TagBox>
     </Bg>
