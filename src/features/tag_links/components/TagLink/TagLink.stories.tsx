@@ -1,6 +1,6 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { userEvent, screen } from '@storybook/testing-library'
+import { userEvent, within } from '@storybook/testing-library'
 import { expect, jest } from '@storybook/jest'
 
 import { TagLink } from './TagLink'
@@ -44,9 +44,9 @@ Clicked.args = {
   id: 'react',
   onClick: clickHandlerMock,
 }
-
-Clicked.play = async () => {
-  const tagLink = screen.getByRole('button')
+Clicked.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const tagLink = canvas.getByRole('button', { name: 'React' })
   await userEvent.click(tagLink)
   await expect(clickHandlerMock.call.length).toBe(1)
 }
