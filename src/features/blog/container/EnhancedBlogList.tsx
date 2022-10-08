@@ -11,7 +11,7 @@ type Props = {
 export const EnhancedBlogList: FC<Props> = ({ tag }) => {
   const { data, loading, error } = useQuery<BlogsQuery>(GET_BLOGS_QUERY, {
     variables: {
-      tags: tag ? [tag] : [],
+      tags: tag ? [tag] : undefined,
     },
   })
 

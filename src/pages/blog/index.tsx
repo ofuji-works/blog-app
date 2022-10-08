@@ -24,7 +24,7 @@ const Page: NextPage<{ tag: string }> = ({ tag }) => {
   )
 }
 
-export const getServerSideProps = async ({ query }: { query: { tag: string } }) => {
+export const getServerSideProps = async (ctx: { query: { tag: string } }) => {
   const client = initializeApollo()
   await client.query({
     query: GET_TAGS_QUERY,
@@ -32,12 +32,13 @@ export const getServerSideProps = async ({ query }: { query: { tag: string } }) 
   await client.query({
     query: GET_BLOGS_QUERY,
     variables: {
-      tags: [query.tag],
+      tags: ctx.query.tag ? [ctx.query.tag] : undefined,
+      tags_exists: !!ctx.query.tag,
     },
   })
   return addApolloState(client, {
     props: {
-      tag: query.tag,
+      tag: ctx.query.tag ?? '',
     },
   })
 }
