@@ -34,7 +34,7 @@ const Page: NextPage<Props> = ({ id }) => {
     <Layout title={data.blog.title} og={og} mainMargin="-4.5rem 0 0 0">
       <BlogTitleBlock title={data.blog.title} date={data.blog.sys.publishedAt} thumnail={data.blog.thumnail} />
       <Container>
-        <Breadcrumb />
+        <Breadcrumb currentPageTitle={data.blog.title} />
         <Blog document={data.blog.body.json} links={data.blog.body.links} />
       </Container>
     </Layout>

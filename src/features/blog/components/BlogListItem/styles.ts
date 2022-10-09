@@ -102,7 +102,8 @@ export const Body = chakra('p', {
     color: 'gray.200',
     margin: 0,
     marginBottom: 0.75,
-    lineHeight: 1.25,
+    lineHeight: 1.5,
+    letterSpacing: 0.75,
   },
 })
 

@@ -17,7 +17,6 @@ export const Bg = chakra(Container, {
   baseStyle: {
     bgColor: 'gray.50',
     minWidth: '100%',
-    minHeight: '80vh',
     paddingX: 0,
     paddingY: 2,
   },

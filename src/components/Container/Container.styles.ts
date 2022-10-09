@@ -13,9 +13,6 @@ export const ContainerComponent = chakra(Box, {
       base: 4,
       sm: 7.5,
     },
-    padding: {
-      base: '2.5%',
-      sm: 'unset',
-    },
+    padding: '2.5%',
   },
 })

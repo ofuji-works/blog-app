@@ -28,8 +28,8 @@ export interface BlogsQuery {
 }
 
 export const GET_BLOGS_QUERY = gql`
-  query GetBlogs($tags: [String!]) {
-    blogCollection(where: { contentfulMetadata: { tags_exists: true, tags: { id_contains_some: $tags } } }) {
+  query GetBlogs($tags: [String!], $tags_exists: Boolean) {
+    blogCollection(where: { contentfulMetadata: { tags_exists: $tags_exists, tags: { id_contains_some: $tags } } }) {
       items {
         sys {
           id
