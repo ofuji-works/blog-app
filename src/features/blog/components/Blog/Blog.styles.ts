@@ -74,6 +74,7 @@ export const P = chakra(Text, {
   baseStyle: {
     color: 'black',
     fontSize: 'p',
+    fontWeight: 500,
     lineHeight: 'p',
     marginTop: 0.5,
     marginBottom: 0.5,
@@ -137,6 +138,7 @@ export const Italic = chakra('span', {
 export const Underline = chakra('span', {
   baseStyle: {
     textDecorationLine: 'underline',
+    opacity: 0.5,
   },
 })
 
@@ -156,5 +158,6 @@ export const Code = chakra('code', {
     color: 'white',
     padding: 1,
     borderRadius: 'base',
+    fontSize: 1,
   },
 })

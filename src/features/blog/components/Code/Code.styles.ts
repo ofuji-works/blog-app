@@ -4,3 +4,14 @@ export const customStyle = {
   marginTop: '1rem',
   marginBottom: '1rem',
 }
+
+export const customCodeStyle = {
+  fontSize: '1rem',
+  letterSpacing: '0.05em',
+  lineHeight: '1.5rem',
+}
+
+export const lineNumberStyle = {
+  color: '#FFFFFF',
+  opacity: 0.5,
+}
