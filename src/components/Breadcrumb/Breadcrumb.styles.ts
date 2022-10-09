@@ -4,12 +4,14 @@ import NextLink from 'next/link'
 export const Ul = chakra(List, {
   baseStyle: {
     display: 'flex',
+    flexWrap: 'wrap',
   },
 })
 
 export const Li = chakra(ListItem, {
   baseStyle: {
     listStyle: 'none',
+    whiteSpace: 'nowrap',
   },
 })
 

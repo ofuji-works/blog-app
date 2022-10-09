@@ -26,7 +26,7 @@ export const Breadcrumb: FC<Props> = ({ currentPageTitle }) => {
       {pagePaths.map((path, index) => {
         if (pagePaths.length === index + 1 && currentPageTitle) {
           return (
-            <Li key={path}>
+            <Li key={path} whiteSpace="unset">
               <Span>/</Span>
               {currentPageTitle}
             </Li>
