@@ -27,50 +27,50 @@ export const SearchTagLinks: FC<Props> = ({ loading, categories, tags, onClick }
     <Bg id="search-tag-links">
       <VStack mb={{ base: 2, sm: 4 }} id="category-filters">
         <FilterBox>
-          <>
+          <FilterButton
+            key="btn-all"
+            aria-label="btn-all"
+            variants={framerVariant}
+            data-active={'All' === filterStatus ? 'true' : undefined}
+            _active={{
+              bgColor: 'gray.100',
+            }}
+            whileHover={!isTablet ? 'hover' : undefined}
+            whileTap={isTablet ? 'tap' : undefined}
+            onClick={() => {
+              setFilterStatus('All')
+            }}
+          >
+            ALL
+          </FilterButton>
+          {categories.map((filter) => (
             <FilterButton
-              key="btn-all"
-              aria-label="btn-all"
+              key={`btn-${filter}`}
+              aria-label={filter}
               variants={framerVariant}
-              data-active={'All' === filterStatus ? 'true' : undefined}
+              data-active={filter === filterStatus ? 'true' : undefined}
               _active={{
                 bgColor: 'gray.100',
               }}
               whileHover={!isTablet ? 'hover' : undefined}
               whileTap={isTablet ? 'tap' : undefined}
               onClick={() => {
-                setFilterStatus('All')
+                setFilterStatus(filter)
               }}
             >
-              ALL
+              {filter}
             </FilterButton>
-            {categories.map((filter) => (
-              <FilterButton
-                key={`btn-${filter}`}
-                aria-label={filter}
-                variants={framerVariant}
-                data-active={filter === filterStatus ? 'true' : undefined}
-                _active={{
-                  bgColor: 'gray.100',
-                }}
-                whileHover={!isTablet ? 'hover' : undefined}
-                whileTap={isTablet ? 'tap' : undefined}
-                onClick={() => {
-                  setFilterStatus(filter)
-                }}
-              >
-                {filter}
-              </FilterButton>
-            ))}
-          </>
+          ))}
         </FilterBox>
       </VStack>
-      <TagBox id="tag-links">
-        {tags &&
-          tags.tagCollection.items[0].contentfulMetadata.tags.map((tag, index) => (
-            <TagLink key={`tag-${tag.id}-${index}`} {...tag} onClick={onClick} />
-          ))}
-      </TagBox>
+      <VStack mb={{ base: 2, sm: 4 }}>
+        <TagBox id="tag-links">
+          {tags &&
+            tags.tagCollection.items[0].contentfulMetadata.tags.map((tag, index) => (
+              <TagLink key={`tag-${tag.id}-${index}`} {...tag} onClick={onClick} />
+            ))}
+        </TagBox>
+      </VStack>
     </Bg>
   )
 }
