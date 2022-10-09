@@ -23,7 +23,7 @@ export const Header = chakra(motion.header, {
     backdropFilter: 'blur(20px)',
     WebkitBackdropFilter: 'blur(20px)',
     display: 'flex',
-    alignItems: 'left',
+    alignItems: 'center',
     justifyContent: 'start',
     paddingLeft: 1,
   },
@@ -31,7 +31,7 @@ export const Header = chakra(motion.header, {
 
 export const Title = chakra('a', {
   baseStyle: {
-    fontSize: '2xl',
+    fontSize: 'xl',
     fontWeight: 700,
     letterSpacing: '-1px',
     lineHeight: '1.75em',

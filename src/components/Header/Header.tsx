@@ -28,7 +28,7 @@ export const Header: FC = () => {
     <Container animate={controls} ref={header}>
       <h1>
         <Link href="/" passHref>
-          <Title>Ofuji Portfolio</Title>
+          <Title>ofuji-works Blog</Title>
         </Link>
       </h1>
     </Container>
