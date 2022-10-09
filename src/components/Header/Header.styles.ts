@@ -11,10 +11,8 @@ export const Header = chakra(motion.header, {
     margin: '0 auto',
     marginTop: 0.5,
     height: '4rem',
-    width: {
-      base: '95vw',
-      sm: '960px',
-    },
+    width: '95vw',
+    maxWidth: '960px',
     borderWidth: 1,
     borderColor: 'gray.150',
     borderRadius: 'base',
