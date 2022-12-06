@@ -32,4 +32,7 @@ const sentryWebpackPluginOptions = {
 
 // Make sure adding Sentry options is the last code to run before exporting, to
 // ensure that your source maps include changes from all other Webpack plugins
-module.exports = withPlugins([[withSentryConfig, sentryWebpackPluginOptions], withBundleAnalyzer], moduleExports)
+module.exports = withPlugins(
+  [(nextConfig) => withSentryConfig(nextConfig, sentryWebpackPluginOptions), withBundleAnalyzer],
+  moduleExports,
+)
