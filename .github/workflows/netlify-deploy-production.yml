@@ -1,10 +1,8 @@
 name: netlify CI/CD
 
 on:
-  push:
-    branches:
-      - deploy
-
+  release:
+    types: [published]
 jobs:
   deploy:
     runs-on: ubuntu-latest
