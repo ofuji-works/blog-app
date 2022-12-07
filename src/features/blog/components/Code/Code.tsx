@@ -10,6 +10,7 @@ type Props = {
 }
 
 export const Code: FC<Props> = ({ code }) => {
+  if (!code) return null
   const formattedCode = code.split('\n')
   const language = formattedCode.shift()
   const text = formattedCode.join('\n')
