@@ -1,7 +1,7 @@
-import * as Sentry from '@sentry/nextjs'
 import { NextPageContext } from 'next'
 import NextErrorComponent, { ErrorProps } from 'next/error'
 
+import { captureExceptionForSentry, flushForSentry } from '@/libs'
 interface AppErrorProps extends ErrorProps {
   err?: Error
   hasGetInitialPropsRun?: boolean
@@ -12,7 +12,7 @@ const MyError = ({ statusCode, hasGetInitialPropsRun, err }: AppErrorProps) => {
     // getInitialProps is not called in case of
     // https://github.com/vercel/next.js/issues/8592. As a workaround, we pass
     // err via _app.js so it can be captured
-    Sentry.captureException(err)
+    captureExceptionForSentry(err)
     // Flushing is not required in this case as it only happens on the client
   }
 
@@ -47,11 +47,11 @@ MyError.getInitialProps = async (context: NextPageContext) => {
   //    Boundaries: https://reactjs.org/docs/error-boundaries.html
 
   if (err) {
-    Sentry.captureException(err)
+    captureExceptionForSentry(err)
 
     // Flushing before returning is necessary if deploying to Vercel, see
     // https://vercel.com/docs/platform/limits#streaming-responses
-    await Sentry.flush(2000)
+    await flushForSentry(2000)
 
     return errorInitialProps
   }
@@ -59,8 +59,8 @@ MyError.getInitialProps = async (context: NextPageContext) => {
   // If this point is reached, getInitialProps was called without any
   // information about what the error might be. This is unexpected and may
   // indicate a bug introduced in Next.js, so record it in Sentry
-  Sentry.captureException(new Error(`_error.js getInitialProps missing data at path: ${asPath}`))
-  await Sentry.flush(2000)
+  captureExceptionForSentry(new Error(`_error.js getInitialProps missing data at path: ${asPath}`))
+  await flushForSentry(2000)
 
   return errorInitialProps
 }
