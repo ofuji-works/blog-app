@@ -6,6 +6,7 @@ import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 import { customStyle, customCodeStyle } from './Code.styles'
 
 type Props = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   code: any
 }
 
