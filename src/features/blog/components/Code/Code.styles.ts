@@ -10,8 +10,3 @@ export const customCodeStyle = {
   letterSpacing: '0.05em',
   lineHeight: '1.5rem',
 }
-
-export const lineNumberStyle = {
-  color: '#FFFFFF',
-  opacity: 0.5,
-}
