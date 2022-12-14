@@ -1,7 +1,7 @@
 import React from 'react'
 import NextImage from 'next/image'
 import { ChakraProvider } from '@chakra-ui/react'
-import { theme } from '../src/assets/index.styles'
+import theme from '../src/theme'
 
 Object.defineProperty(NextImage, 'default', {
   configurable: true,

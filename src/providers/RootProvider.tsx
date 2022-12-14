@@ -4,10 +4,11 @@ import { RecoilRoot } from 'recoil'
 
 import { ApolloProvider } from './ApolloProvider'
 
-import { theme } from '@/assets/index.styles'
+import theme from '@/theme'
 
 type Props = {
   children: ReactNode
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   pageProps: any
 }
 
