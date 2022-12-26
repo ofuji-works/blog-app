@@ -13,7 +13,7 @@ export const documentMock: Document = {
       content: [
         {
           nodeType: 'text',
-          value: 'H1タイトル',
+          value: 'Heading1',
           marks: [],
           data: {},
         },
@@ -25,7 +25,7 @@ export const documentMock: Document = {
       content: [
         {
           nodeType: 'text',
-          value: 'H2タイトル',
+          value: 'Heading2',
           marks: [],
           data: {},
         },
@@ -37,17 +37,104 @@ export const documentMock: Document = {
       content: [
         {
           nodeType: 'text',
-          value: 'こちらはモックのテキストになります。',
+          value: 'この文書はHeading2直下のモノです。',
           marks: [],
           data: {},
         },
       ],
     },
     {
-      nodeType: BLOCKS.EMBEDDED_ENTRY,
-      data: { target: { sys: { id: '6ThQWAH7g829u0zgEHfJRT', type: 'Link', linkType: 'Entry' } } },
-      content: [],
+      nodeType: BLOCKS.HEADING_3,
+      data: {},
+      content: [
+        {
+          nodeType: 'text',
+          value: 'Heading3',
+          marks: [],
+          data: {},
+        },
+      ],
     },
+    {
+      nodeType: BLOCKS.PARAGRAPH,
+      data: {},
+      content: [
+        {
+          nodeType: 'text',
+          value:
+            'この文書はHeading3直下のモノです。この文書はHeading3直下のモノです。この文書はHeading3直下のモノです。この文書はHeading3直下のモノです。この文書はHeading3直下のモノです。',
+          marks: [],
+          data: {},
+        },
+      ],
+    },
+    {
+      nodeType: BLOCKS.HEADING_3,
+      data: {},
+      content: [
+        {
+          nodeType: 'text',
+          value: 'Heading3',
+          marks: [],
+          data: {},
+        },
+      ],
+    },
+    {
+      nodeType: BLOCKS.PARAGRAPH,
+      data: {},
+      content: [
+        {
+          nodeType: 'text',
+          value:
+            'この文書はHeading3直下のモノです。この文書はHeading3直下のモノです。この文書はHeading3直下のモノです。この文書はHeading3直下のモノです。この文書はHeading3直下のモノです。この文書はHeading3直下のモノです。この文書はHeading3直下のモノです。この文書はHeading3直下のモノです。この文書はHeading3直下のモノです。この文書はHeading3直下のモノです。',
+          marks: [],
+          data: {},
+        },
+      ],
+    },
+    {
+      nodeType: BLOCKS.PARAGRAPH,
+      data: {},
+      content: [
+        {
+          nodeType: 'text',
+          value:
+            'この文書はHeading3直下のモノです。この文書はHeading3直下のモノです。この文書はHeading3直下のモノです。この文書はHeading3直下のモノです。この文書はHeading3直下のモノです。',
+          marks: [],
+          data: {},
+        },
+      ],
+    },
+    {
+      nodeType: BLOCKS.HEADING_4,
+      data: {},
+      content: [
+        {
+          nodeType: 'text',
+          value: 'Heading4',
+          marks: [],
+          data: {},
+        },
+      ],
+    },
+    {
+      nodeType: BLOCKS.HEADING_5,
+      data: {},
+      content: [
+        {
+          nodeType: 'text',
+          value: 'Heading5',
+          marks: [],
+          data: {},
+        },
+      ],
+    },
+    // {
+    //   nodeType: BLOCKS.EMBEDDED_ENTRY,
+    //   data: { target: { sys: { id: '6ThQWAH7g829u0zgEHfJRT', type: 'Link', linkType: 'Entry' } } },
+    //   content: [],
+    // },
     {
       nodeType: BLOCKS.UL_LIST,
       data: {},

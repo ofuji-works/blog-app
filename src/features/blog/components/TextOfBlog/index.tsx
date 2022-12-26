@@ -1,0 +1,1 @@
+export { TextOfBlog } from './TextOfBlog'
