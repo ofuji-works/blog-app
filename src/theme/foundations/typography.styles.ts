@@ -1,6 +1,8 @@
 const typography = {
   /* typography */
-  fonts: {},
+  fonts: {
+    code: "'Space Mono', monospace;",
+  },
   fontSizes: {
     xs: '0.75rem',
     sm: '0.875rem',

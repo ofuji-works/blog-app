@@ -11,6 +11,9 @@ const moduleExports = {
   images: {
     domains: ['images.ctfassets.net'],
   },
+  experimental: {
+    optimizeFonts: true,
+  },
 }
 
 // This file sets a custom webpack configuration to use your Next.js app

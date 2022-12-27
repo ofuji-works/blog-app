@@ -1,9 +1,7 @@
 import React from 'react'
 import NextImage from 'next/image'
-import { ChakraProvider, Container } from '@chakra-ui/react'
+import { ChakraProvider } from '@chakra-ui/react'
 import theme from '../src/theme'
-
-import { Parameters } from '@storybook/react'
 
 Object.defineProperty(NextImage, 'default', {
   configurable: true,
@@ -24,11 +22,14 @@ export const parameters = {
 
 const withChakra = (StoryFn: Function) => {
   return (
-    <ChakraProvider theme={theme}>
-      <div id="story-wrapper">
-        <StoryFn />
-      </div>
-    </ChakraProvider>
+    <>
+      <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet" />
+      <ChakraProvider theme={theme}>
+        <div id="story-wrapper">
+          <StoryFn />
+        </div>
+      </ChakraProvider>
+    </>
   )
 }
 
