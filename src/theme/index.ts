@@ -14,7 +14,7 @@ const overrides = {
   breakpoints,
   radii: borderRadius,
   spacing,
-  typography,
+  ...typography,
   components: {
     Button,
   },
