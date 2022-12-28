@@ -1,6 +1,6 @@
 import { extendTheme } from '@chakra-ui/react'
 
-import styles from './styles'
+import global from './global.styles'
 import colors from './foundations/colors.styles'
 import breakpoints from './foundations/breakpoints.styles'
 import borderRadius from './foundations/borderRadius.styles'
@@ -10,7 +10,7 @@ import Button from './components/button.styles'
 import Text from './components/text.styles'
 
 const overrides = {
-  styles,
+  global,
   colors,
   breakpoints,
   radii: borderRadius,
