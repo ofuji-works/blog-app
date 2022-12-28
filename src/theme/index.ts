@@ -7,6 +7,7 @@ import borderRadius from './foundations/borderRadius.styles'
 import spacing from './foundations/spacing.styles'
 import typography from './foundations/typography.styles'
 import Button from './components/button.styles'
+import Text from './components/text.styles'
 
 const overrides = {
   styles,
@@ -17,6 +18,7 @@ const overrides = {
   ...typography,
   components: {
     Button,
+    Text,
   },
 }
 

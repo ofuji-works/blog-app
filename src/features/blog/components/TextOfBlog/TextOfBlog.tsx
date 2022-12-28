@@ -64,17 +64,7 @@ const options: Options = {
       ) {
         return <div>{children}</div>
       }
-      return (
-        <Text
-          color="gray.600"
-          fontSize={{ base: 'sm', sm: 'md' }}
-          lineHeight={{ base: '7', sm: '8' }}
-          letterSpacing={{ base: 'wider', sm: 'widest' }}
-          mb={{ base: '3', sm: '5' }}
-        >
-          {children}
-        </Text>
-      )
+      return <Text variant="p">{children}</Text>
     },
     [BLOCKS.UL_LIST]: (_, children) => <UnorderedList>{children}</UnorderedList>,
     [BLOCKS.OL_LIST]: (_, children) => <OrderedList>{children}</OrderedList>,
