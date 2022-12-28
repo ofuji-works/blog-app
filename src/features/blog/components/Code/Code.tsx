@@ -40,7 +40,7 @@ export const Code: FC<Props> = ({ code }) => {
       }}
       CodeTag={({ style, children }) => {
         return (
-          <Text style={style} fontFamily="code" fontSize={{ base: 'sm', sm: 'md' }}>
+          <Text style={style} fontFamily="mono" fontSize={{ base: 'sm', sm: 'md' }}>
             {children}
           </Text>
         )
