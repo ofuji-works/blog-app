@@ -24,7 +24,7 @@ const options: Options = {
     [BLOCKS.HEADING_1]: (_, children) => {
       return (
         <Box mb={{ base: '8', sm: '12' }}>
-          <Heading color="gray.700" as="h1" size={{ base: 'md', sm: 'lg' }}>
+          <Heading as="h1" size={{ base: 'md', sm: 'lg' }}>
             {children}
           </Heading>
           <Divider color="gray.300" />
@@ -32,30 +32,24 @@ const options: Options = {
       )
     },
     [BLOCKS.HEADING_2]: (_, children) => (
-      <Heading color="gray.700" as="h2" size={{ base: 'md', sm: 'lg' }} mb={{ base: '5', sm: '7' }}>
+      <Heading as="h2" variant="h2" size={{ base: 'md', sm: 'lg' }}>
         {children}
       </Heading>
     ),
     [BLOCKS.HEADING_3]: (_, children) => (
-      <Heading color="gray.700" as="h3" size={{ base: 'sm', sm: 'md' }} mb={{ base: '4', sm: '5' }}>
+      <Heading as="h3" variant="h3" size={{ base: 'sm', sm: 'md' }}>
         {children}
       </Heading>
     ),
     [BLOCKS.HEADING_4]: (_, children) => (
-      <Heading color="gray.700" as="h4" size={{ base: 'xs', sm: 'sm' }} mb={{ base: '3', sm: '5' }}>
+      <Heading as="h4" variant="h4" size={{ base: 'xs', sm: 'sm' }}>
         {children}
       </Heading>
     ),
     [BLOCKS.HEADING_5]: (_, children) => (
-      <Text
-        color="gray.700"
-        as="h5"
-        fontSize={{ base: 'sm', sm: 'md' }}
-        fontWeight="semibold"
-        mb={{ base: '3', sm: '5' }}
-      >
+      <Heading as="h5" variant="h5" size={{ base: 'xs', sm: 'sm' }}>
         {children}
-      </Text>
+      </Heading>
     ),
     [BLOCKS.PARAGRAPH]: (node, children) => {
       if (
