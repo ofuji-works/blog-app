@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types'
 import { documentToReactComponents, Options } from '@contentful/rich-text-react-renderer'
-import { Box, Divider, Heading, Text } from '@chakra-ui/react'
+import { Box, Divider, Heading, ListItem, OrderedList, Text, UnorderedList } from '@chakra-ui/react'
 
 import { ArticleTextLinks } from '../../queries'
 import { Code } from '../Code'
@@ -76,8 +76,9 @@ const options: Options = {
         </Text>
       )
     },
-    [BLOCKS.UL_LIST]: (_, children) => <ul>{children}</ul>,
-    // [BLOCKS.OL_LIST]: (_, children) => <Ol>{children}</Ol>,
+    [BLOCKS.UL_LIST]: (_, children) => <UnorderedList>{children}</UnorderedList>,
+    [BLOCKS.OL_LIST]: (_, children) => <OrderedList>{children}</OrderedList>,
+    [BLOCKS.LIST_ITEM]: (_, children) => <ListItem>{children}</ListItem>,
     // [BLOCKS.QUOTE]: (_, children) => <BlockQuote>{children}</BlockQuote>,
     // [BLOCKS.HR]: () => <Hr />,
     // /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
@@ -111,6 +112,7 @@ export const TextOfBlog: FC<Props> = ({ document, links }) => {
         base: '16',
         sm: '12',
       }}
+      borderRadius="base"
     >
       {documentToReactComponents(document, options)}
     </Box>
