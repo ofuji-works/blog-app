@@ -1,10 +1,7 @@
 export * from './Breadcrumb'
-export * from './VStackContainer'
 export * from './Pager'
 export * from './Footer'
 export * from './Container'
-export * from './SNSArea'
-export * from './KeyVisual'
 export * from './Header'
 export * from './Layout'
 
