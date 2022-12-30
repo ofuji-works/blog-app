@@ -8,6 +8,7 @@ import spacing from './foundations/spacing.styles'
 import typography from './foundations/typography.styles'
 import Button from './components/button.styles'
 import Heading from './components/heading.styles'
+import Tag from './components/tag.styles'
 import Text from './components/text.styles'
 
 const overrides = {
@@ -20,6 +21,7 @@ const overrides = {
   components: {
     Button,
     Heading,
+    Tag,
     Text,
   },
 }

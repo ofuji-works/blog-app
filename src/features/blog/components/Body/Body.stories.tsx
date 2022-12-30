@@ -1,15 +1,15 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import { TextOfBlog } from '.'
+import { Body } from '.'
 
 import { documentMock, articleTextLinksMock } from '@/mock/blog'
 
-const meta: ComponentMeta<typeof TextOfBlog> = {
-  title: 'features/blogs/TextOfBlog',
-  component: TextOfBlog,
+const meta: ComponentMeta<typeof Body> = {
+  title: 'features/blog/Body',
+  component: Body,
 }
 
-const Template: ComponentStory<typeof TextOfBlog> = (args) => <TextOfBlog {...args} />
+const Template: ComponentStory<typeof Body> = (args) => <Body {...args} />
 
 export const Default = Template.bind({})
 

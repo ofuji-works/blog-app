@@ -1,8 +1,8 @@
 import { FC } from 'react'
-import NextImage from 'next/image'
 import { chakra, Heading, VStack, Text } from '@chakra-ui/react'
 
 import { getDayjs } from '@/libs'
+import { Image } from '@/components'
 
 type Props = {
   title: string
@@ -15,7 +15,7 @@ type Props = {
 
 const dayjs = getDayjs()
 
-export const TitleOfBlog: FC<Props> = ({ title, date, thumnail }) => {
+export const TitleBlock: FC<Props> = ({ title, date, thumnail }) => {
   return (
     <VStack
       gap={{
@@ -23,22 +23,22 @@ export const TitleOfBlog: FC<Props> = ({ title, date, thumnail }) => {
         sm: '4',
       }}
     >
-      <Figure
-        as="figure"
+      <Image
+        style={{
+          aspectRatio: '4 /3',
+        }}
         width={{
           base: '50%',
           sm: '30%',
         }}
-      >
-        <Image
-          src={thumnail.url}
-          alt={thumnail.title}
-          layout="fill"
-          objectFit="contain"
-          placeholder="blur"
-          blurDataURL={`${thumnail.url}?q=1`}
-        />
-      </Figure>
+        boxShadow={{
+          base: '0 0.05rem 0.075rem rgba(0, 0, 0, 0.25)',
+          sm: '0 0.15rem 0.075rem rgba(0, 0, 0, 0.25)',
+        }}
+        src={thumnail.url}
+        alt={thumnail.title}
+        blurDataURL={`${thumnail.url}?q=1`}
+      />
       <Heading as="h1" size={{ base: 'sm', sm: 'lg' }} fontSize={{ base: 'sm', sm: 'lg' }} mt={0}>
         {title}
       </Heading>
@@ -49,27 +49,6 @@ export const TitleOfBlog: FC<Props> = ({ title, date, thumnail }) => {
   )
 }
 
-const Figure = chakra('figure', {
-  baseStyle: {
-    position: 'relative',
-    width: {
-      base: '80%',
-      sm: '20%',
-    },
-    aspectRatio: '4 / 3',
-    boxShadow: {
-      base: '0 0.05rem 0.075rem rgba(0, 0, 0, 0.25)',
-      sm: '0 0.15rem 0.075rem rgba(0, 0, 0, 0.25)',
-    },
-    borderRadius: 'base',
-  },
-})
-const Image = chakra(NextImage, {
-  baseStyle: {
-    borderRadius: 'base',
-  },
-  shouldForwardProp: () => true,
-})
 const Date = chakra('time', {
   baseStyle: {
     color: 'gray.600',

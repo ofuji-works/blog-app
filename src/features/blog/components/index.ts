@@ -1,5 +1,3 @@
-export * from './Blog'
 export * from './BlogList'
 export * from './BlogListItem'
-export * from './BlogTitleBlock'
 export * from './Code'

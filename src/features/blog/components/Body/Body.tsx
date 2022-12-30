@@ -80,7 +80,7 @@ const options: Options = {
   },
 }
 
-export const TextOfBlog: FC<Props> = ({ document, links }) => {
+export const Body: FC<Props> = ({ document, links }) => {
   const assets = links.assets.block
   const embeddedEntryBlock = links.entries.block
   const embeddedEntryInline = links.entries.inline
