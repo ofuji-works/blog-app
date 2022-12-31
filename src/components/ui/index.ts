@@ -1,2 +1,3 @@
-export { Image } from './Image'
-export { Tag } from './Tag'
+export * from './Button'
+export * from './Image'
+export * from './Tag'
