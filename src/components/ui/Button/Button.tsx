@@ -1,27 +1,17 @@
-import { ComponentProps, FC, ReactNode } from 'react'
+import { ComponentProps, FC } from 'react'
 import { Button as ChakraButton } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 
 import { useBreakPoints } from '@/hooks'
 
-type Props = {
-  // Required
-  children: ReactNode
-  // Options
-  isLoading?: boolean
-  onClick?: () => void
-  type?: 'button' | 'reset' | 'submit'
-} & Pick<ComponentProps<typeof ChakraButton>, 'leftIcon' | 'variant'>
+type Props = ComponentProps<typeof ChakraButton>
 
-export const Button: FC<Props> = ({ children, leftIcon, isLoading, onClick, type, variant }) => {
+export const Button: FC<Props> = (props) => {
   const { isTablet } = useBreakPoints()
 
   return (
     <ChakraButton
       as={motion.button}
-      variant={variant}
-      leftIcon={leftIcon}
-      isLoading={isLoading}
       whileHover={
         !isTablet
           ? {
@@ -36,10 +26,7 @@ export const Button: FC<Props> = ({ children, leftIcon, isLoading, onClick, type
             }
           : undefined
       }
-      type={type}
-      onClick={onClick}
-    >
-      {children}
-    </ChakraButton>
+      {...props}
+    />
   )
 }
