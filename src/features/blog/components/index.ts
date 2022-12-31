@@ -1,4 +1,5 @@
 export * from './Body'
 export * from './Code'
 export * from './List'
+export * from './TagList'
 export * from './TitleBlock'
