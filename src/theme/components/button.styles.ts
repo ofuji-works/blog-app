@@ -2,7 +2,6 @@ import type { ComponentStyleConfig } from '@chakra-ui/react'
 
 const componentStyleConfig: ComponentStyleConfig = {
   baseStyle: {
-    margin: 0,
     borderRadius: 'base',
     WebkitTapHighlightColor: 'transparent',
   },
