@@ -8,19 +8,21 @@ import { useBreakPoints } from '@/hooks'
 import { Image, Tag } from '@/components'
 
 type Props = {
-  thumnail: {
+  items: {
+    thumnail: {
+      title: string
+      url: string
+    }
     title: string
-    url: string
-  }
-  title: string
-  tags: {
-    id: string
-    name: string
+    tags: {
+      id: string
+      name: string
+    }[]
+    href: string
   }[]
-  href: string
 }
 
-export const List: FC<Props> = ({ thumnail, title, tags }) => {
+export const List: FC<Props> = ({ items }) => {
   const { isSP } = useBreakPoints()
   return (
     <Stack
@@ -35,39 +37,45 @@ export const List: FC<Props> = ({ thumnail, title, tags }) => {
         base: 'unset',
         sm: 'wrap',
       }}
+      gap={{
+        base: '4',
+        sm: '6',
+      }}
     >
-      <VStack width={{ base: '100%', sm: 'calc(100% / 3)' }}>
-        <Stack
-          width="100%"
-          direction={{
-            base: 'row',
-            sm: 'column',
-          }}
-        >
-          <Image
-            style={{
-              aspectRatio: '4 / 3',
+      {items.map(({ thumnail, title, tags }) => (
+        <VStack key={title} style={{ margin: 0 }} width={{ base: '100%', sm: 'calc(100% / 3)' }}>
+          <Stack
+            width="100%"
+            direction={{
+              base: 'row',
+              sm: 'column',
             }}
-            width={{
-              base: '25%',
-              sm: '100%',
-            }}
-            src={thumnail.url}
-            alt={thumnail.title}
-            blurDataURL={`${thumnail.url}?q=1`}
-          />
-          <Link as="a" href="/">
-            <Heading size="xs">{title}</Heading>
-          </Link>
-        </Stack>
-        <HStack width="100%" justify="flex-start" flexWrap="wrap">
-          {tags.map((tag) => (
-            <Tag key={tag.id} variant="forBlog" LeftIcon={MdCode} size="sm">
-              {tag.name}
-            </Tag>
-          ))}
-        </HStack>
-      </VStack>
+          >
+            <Image
+              style={{
+                aspectRatio: '4 / 3',
+              }}
+              width={{
+                base: '25%',
+                sm: '100%',
+              }}
+              src={thumnail.url}
+              alt={thumnail.title}
+              blurDataURL={`${thumnail.url}?q=1`}
+            />
+            <Link as="a" href="/">
+              <Heading size="xs">{title}</Heading>
+            </Link>
+          </Stack>
+          <HStack width="100%" justify="flex-start" flexWrap="wrap">
+            {tags.map((tag) => (
+              <Tag key={tag.id} variant="forBlog" LeftIcon={MdCode} size="sm">
+                {tag.name}
+              </Tag>
+            ))}
+          </HStack>
+        </VStack>
+      ))}
     </Stack>
   )
 }
