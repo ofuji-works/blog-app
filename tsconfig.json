@@ -6,6 +6,7 @@
       "@/components": ["components"],
       "@/features": ["features"],
       "@/features/*": ["features/*"],
+      "@/layouts": ["layouts"],
       "@/theme": ["theme"],
       "@/config": ["config"],
       "@/hooks": ["hooks"],

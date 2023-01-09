@@ -17,6 +17,7 @@ const customJestConfig = {
     '^@/components$': '<rootDir>/src/components',
     '^@/pages/(.*)$': '<rootDir>/src/pages/$1',
     '^@/features$': '<rootDir>/src/features',
+    '^@/layouts$': '<rootDir>/src/layouts',
     '^@/theme$': '<rootDir>/src/theme',
     '^@/config$': '<rootDir>/src/config',
     '^@/hooks$': '<rootDir>/src/hooks',
