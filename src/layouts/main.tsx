@@ -1,9 +1,10 @@
 import type { FC, ReactNode } from 'react'
 
 import { useRouter } from 'next/router'
-import { Container, Tab, Tabs, TabList, TabPanels, TabPanel, VStack } from '@chakra-ui/react'
+import { Box, Container, Tab, Tabs, TabList, VStack } from '@chakra-ui/react'
 import map from 'lodash/map'
 
+import { Profile } from '@/features/profile'
 import { ROUTES } from '@/config'
 
 type Props = {
@@ -16,17 +17,56 @@ export const MainLayout: FC<Props> = ({ children }) => {
     router.push(url)
   }
   return (
-    <Container>
-      <VStack>
-        <Tabs>
-          <TabList>
-            {map(ROUTES, (route) => {
-              return <Tab onClick={() => linkHandler(route.path)}>Blogs</Tab>
-            })}
-          </TabList>
-        </Tabs>
-        {children}
-      </VStack>
-    </Container>
+    <VStack backgroundColor="gray.50">
+      <Box backgroundColor="white" width="100%" boxShadow="base">
+        <Container maxW="900px">
+          <Profile />
+          <Tabs variant="unstyled">
+            <TabList
+              justifyContent="center"
+              padding={{
+                base: '1',
+                sm: '3',
+              }}
+            >
+              {map(ROUTES, (route) => {
+                return (
+                  <Tab
+                    key={`key-${route.path}`}
+                    onClick={() => linkHandler(route.path)}
+                    borderRadius="full"
+                    fontWeight="semibold"
+                    fontSize={{
+                      base: 'sm',
+                      sm: 'md',
+                    }}
+                    paddingY={{
+                      base: '1',
+                      sm: '2',
+                    }}
+                    _selected={{
+                      bg: 'black',
+                      color: 'white',
+                    }}
+                  >
+                    Blogs
+                  </Tab>
+                )
+              })}
+            </TabList>
+          </Tabs>
+        </Container>
+      </Box>
+      <Container maxW="900px">
+        <Box
+          paddingY={{
+            base: '8',
+            sm: '16',
+          }}
+        >
+          {children}
+        </Box>
+      </Container>
+    </VStack>
   )
 }

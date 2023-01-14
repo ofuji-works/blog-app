@@ -1,27 +1,24 @@
 import dynamic from 'next/dynamic'
-import { Suspense } from 'react'
+import { ReactElement, Suspense } from 'react'
 
-import type { NextPage } from 'next'
+import type { NextPageWithLayout } from '../_app'
 
 import { initializeApollo, addApolloState } from '@/libs'
-import { GET_BLOGS_QUERY, GET_TAGS_QUERY } from '@/features'
-import { Breadcrumb, Container, Layout } from '@/components'
+import { GET_BLOGS_QUERY, GET_TAGS_QUERY } from '@/features/blog'
+import { MainLayout } from '@/layouts'
 
-const BlogList = dynamic(() => import('@/features/blog/BlogList'))
-const TagLinks = dynamic(() => import('@/features/tag_links/TagLinks'))
+const Template = dynamic(() => import('./template'))
 
-const Page: NextPage<{ tag: string }> = ({ tag }) => {
+const Page: NextPageWithLayout<{ tag: string }> = ({ tag }) => {
   return (
-    <Layout title="blog" mainMargin={'4rem 0 0 0'}>
-      <Container>
-        <Breadcrumb />
-        <Suspense fallback={<div>...loading</div>}>
-          <BlogList tag={tag} />
-        </Suspense>
-      </Container>
-      <TagLinks />
-    </Layout>
+    <Suspense fallback={<p>...loading</p>}>
+      <Template />
+    </Suspense>
   )
+}
+
+Page.getLayout = (page: ReactElement) => {
+  return <MainLayout>{page}</MainLayout>
 }
 
 export const getServerSideProps = async (ctx: { query: { tag: string } }) => {

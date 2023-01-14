@@ -1,14 +1,16 @@
+import { Suspense } from 'react'
+import dynamic from 'next/dynamic'
 import { NextPage, GetStaticProps, GetStaticPaths } from 'next'
 import { useQuery } from '@apollo/client'
 
+import { GET_BLOG_QUERY, GET_BLOGS_QUERY, BlogQuery, BlogsQuery } from 'features/blog'
 import { initializeApollo, addApolloState } from '@/libs'
-import { GET_BLOG_QUERY, GET_BLOGS_QUERY, BlogQuery, BlogsQuery, BlogTitleBlock, Blog } from 'features'
-import { Breadcrumb, Container, Layout } from '@/components'
+
+const Template = dynamic(() => import('./template'))
 
 type Props = {
   id: string
 }
-
 const Page: NextPage<Props> = ({ id }) => {
   const { data, loading, error } = useQuery<BlogQuery>(GET_BLOG_QUERY, {
     variables: {
@@ -31,13 +33,15 @@ const Page: NextPage<Props> = ({ id }) => {
   }
 
   return (
-    <Layout title={data.blog.title} og={og} mainMargin="-4.5rem 0 0 0">
-      <BlogTitleBlock title={data.blog.title} date={data.blog.sys.publishedAt} thumnail={data.blog.thumnail} />
-      <Container>
-        <Breadcrumb currentPageTitle={data.blog.title} />
-        <Blog document={data.blog.body.json} links={data.blog.body.links} />
-      </Container>
-    </Layout>
+    <Suspense fallback={<p>...loading</p>}>
+      <Template
+        title={data.blog.title}
+        thumnail={data.blog.thumnail}
+        date={data.blog.sys.publishedAt}
+        document={data.blog.body.json}
+        links={data.blog.body.links}
+      />
+    </Suspense>
   )
 }
 

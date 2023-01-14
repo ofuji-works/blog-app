@@ -7,6 +7,7 @@ const styles = {
       fontSize: '16px',
       margin: 0,
       padding: 0,
+      backgroundColor: 'gray.50',
     },
     '*': {
       margin: 0,
