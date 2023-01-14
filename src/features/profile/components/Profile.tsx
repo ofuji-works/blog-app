@@ -1,77 +1,52 @@
 import { FC } from 'react'
+import { Avatar, Heading, HStack, Text, VStack } from '@chakra-ui/react'
 import { FaGithub, FaTwitter } from 'react-icons/fa'
 
-import { Avatar, Card, Name, Description, Role, SNS, SNSArea } from './Profile.styles'
+import { Button } from '@/components'
 
-/**
- * @typedef {object} SNS
- * @property {string} icon icon font
- * @property {string} url link url
- */
-type SNS = {
-  icon: string
-  url: string
-}
-
-/**
- * @typedef {object} Props
- * @property {string} src プロフィール画像
- * @property {string} name 名前
- * @property {string} role 肩書き
- * @property {string} description 説明
- * @property {SNS} sns SNSアイコン
- */
-type Props = {
-  src?: string
-  name?: string
-  role?: string
-  description?: string
-  sns?: SNS[]
-}
-
-export const Profile: FC<Props> = ({ src, name, role, description, sns }) => {
-  const snsLinkHandler = () => {
-    console.log('profile')
-  }
-
+export const Profile: FC = () => {
   return (
-    <Card src={src}>
-      <Avatar size="xl" name={''} />
-      <Name>{name}</Name>
-      <Role>{role}</Role>
-      <Description>{description}</Description>
-      <SNSArea>
-        {sns?.map(({ icon, url }) => {
-          let as = FaTwitter
-          switch (icon) {
-            case 'twitter':
-              as = FaTwitter
-              break
-            case 'github':
-              as = FaGithub
-              break
-          }
-          return <SNS key={`sns-${icon}`} aria-label={icon} onClick={snsLinkHandler} as={as} />
-        })}
-      </SNSArea>
-    </Card>
+    <VStack
+      width="100%"
+      alignItems="flex-start"
+      gap={{ base: '4', sm: '6' }}
+      paddingY={{
+        base: '5',
+        sm: '6',
+      }}
+    >
+      <HStack
+        alignItems="flex-start"
+        gap={{
+          base: '4',
+          sm: '6',
+        }}
+      >
+        <Avatar size={{ base: 'lg', sm: 'xl' }}></Avatar>
+        <VStack alignItems="flex-start" gap={{ base: '2', sm: '4' }}>
+          <Heading size={{ base: 'md', sm: 'xl' }}>Yuta Okafuji</Heading>
+          <Text fontSize={{ base: 'xs', sm: 'md' }} style={{ marginTop: 0 }}>
+            Frontend Developer
+          </Text>
+          <HStack justifyContent="flex-start" style={{ marginTop: 0 }}>
+            <Button leftIcon={<FaTwitter />} backgroundColor="blue.500" size={{ base: 'xs', sm: 'sm' }}>
+              Twitter
+            </Button>
+            <Button leftIcon={<FaGithub />} size={{ base: 'xs', sm: 'sm' }}>
+              GitHub
+            </Button>
+          </HStack>
+        </VStack>
+      </HStack>
+      <Text
+        fontSize={{
+          base: 'xs',
+          sm: 'md',
+        }}
+        style={{ marginTop: 0 }}
+      >
+        最近はRustを触るのがマイブーム
+      </Text>
+    </VStack>
   )
-}
-
-Profile.defaultProps = {
-  src: undefined,
-  name: 'Yuta Okafuji',
-  role: 'Frontend developer',
-  description: `神戸Sier会社勤務。フロントエンド領域を中心に活動しています。
-    React / React Native / Vue / TypeScript / PHP`,
-  sns: [
-    {
-      icon: 'twitter',
-      url: '',
-    },
-    {
-      icon: 'github',
-      url: 'https://github.com/ofuji-works',
-    },
-  ],
 }
