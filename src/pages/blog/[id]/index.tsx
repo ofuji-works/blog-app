@@ -1,9 +1,12 @@
-import { Suspense } from 'react'
+import { ReactElement, Suspense } from 'react'
 import dynamic from 'next/dynamic'
-import { NextPage, GetStaticProps, GetStaticPaths } from 'next'
+import { GetStaticProps, GetStaticPaths } from 'next'
 import { useQuery } from '@apollo/client'
 
-import { GET_BLOG_QUERY, GET_BLOGS_QUERY, BlogQuery, BlogsQuery } from 'features/blog'
+import type { NextPageWithLayout } from '../../_app'
+
+import { GET_BLOG_QUERY, GET_BLOGS_QUERY, BlogQuery, BlogsQuery } from '@/features/blog'
+import { UnstyledLayout } from '@/layouts'
 import { initializeApollo, addApolloState } from '@/libs'
 
 const Template = dynamic(() => import('./template'))
@@ -11,7 +14,7 @@ const Template = dynamic(() => import('./template'))
 type Props = {
   id: string
 }
-const Page: NextPage<Props> = ({ id }) => {
+const Page: NextPageWithLayout<Props> = ({ id }) => {
   const { data, loading, error } = useQuery<BlogQuery>(GET_BLOG_QUERY, {
     variables: {
       id,
@@ -43,6 +46,10 @@ const Page: NextPage<Props> = ({ id }) => {
       />
     </Suspense>
   )
+}
+
+Page.getLayout = (page: ReactElement) => {
+  return <UnstyledLayout>{page}</UnstyledLayout>
 }
 
 export const getStaticProps: GetStaticProps<Props, { id: string }> = async ({ params }) => {

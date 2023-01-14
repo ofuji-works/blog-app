@@ -18,6 +18,19 @@ const dayjs = getDayjs()
 export const TitleBlock: FC<Props> = ({ title, date, thumnail }) => {
   return (
     <VStack
+      width="100%"
+      paddingTop={{
+        base: '8',
+        sm: '12',
+      }}
+      paddingBottom={{
+        base: '8',
+        sm: '6',
+      }}
+      paddingX={{
+        base: '6',
+        sm: '8',
+      }}
       gap={{
         base: '3',
         sm: '4',
@@ -25,7 +38,7 @@ export const TitleBlock: FC<Props> = ({ title, date, thumnail }) => {
     >
       <Image
         style={{
-          aspectRatio: '4 /3',
+          aspectRatio: '4 / 3',
         }}
         width={{
           base: '50%',

@@ -18,7 +18,7 @@ const options: Options = {
     // [MARKS.BOLD]: (text) => <Bold>{text}</Bold>,
     // [MARKS.ITALIC]: (text) => <Italic>{text}</Italic>,
     // [MARKS.UNDERLINE]: (text) => <Underline>{text}</Underline>,
-    // [MARKS.CODE]: (text) => <Code code={text} />,
+    [MARKS.CODE]: (text) => <Code code={text} />,
   },
   renderNode: {
     [BLOCKS.HEADING_1]: (_, children) => {
@@ -87,6 +87,7 @@ export const Body: FC<Props> = ({ document, links }) => {
 
   return (
     <Box
+      width="100%"
       backgroundColor="white"
       paddingX={{
         base: '5',
