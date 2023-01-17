@@ -5,14 +5,25 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
 
+/**
+ * @type {import("next").NextConfig}
+ */
 const moduleExports = {
   // Your existing module.exports
   reactStrictMode: true,
   images: {
     domains: ['images.ctfassets.net'],
   },
-  experimental: {
-    optimizeFonts: true,
+  optimizeFonts: true,
+  pageExtensions: ['page.tsx'],
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/blog',
+        permanent: true,
+      },
+    ]
   },
 }
 

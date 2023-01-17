@@ -1,15 +1,17 @@
-import { ReactElement, Suspense } from 'react'
+import { ReactElement } from 'react'
 import dynamic from 'next/dynamic'
 import { GetStaticProps, GetStaticPaths } from 'next'
 import { useQuery } from '@apollo/client'
 
-import type { NextPageWithLayout } from '../../_app'
+import type { NextPageWithLayout } from '../../_app.page'
 
 import { GET_BLOG_QUERY, GET_BLOGS_QUERY, BlogQuery, BlogsQuery } from '@/features/blog'
 import { UnstyledLayout } from '@/layouts'
 import { initializeApollo, addApolloState } from '@/libs'
 
-const Template = dynamic(() => import('./template'))
+const Template = dynamic(() => import('./template'), {
+  loading: () => <>...Loading</>,
+})
 
 type Props = {
   id: string
@@ -36,15 +38,13 @@ const Page: NextPageWithLayout<Props> = ({ id }) => {
   }
 
   return (
-    <Suspense fallback={<p>...loading</p>}>
-      <Template
-        title={data.blog.title}
-        thumnail={data.blog.thumnail}
-        date={data.blog.sys.publishedAt}
-        document={data.blog.body.json}
-        links={data.blog.body.links}
-      />
-    </Suspense>
+    <Template
+      title={data.blog.title}
+      thumnail={data.blog.thumnail}
+      date={data.blog.sys.publishedAt}
+      document={data.blog.body.json}
+      links={data.blog.body.links}
+    />
   )
 }
 

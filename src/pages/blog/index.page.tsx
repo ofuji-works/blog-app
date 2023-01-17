@@ -1,20 +1,18 @@
 import dynamic from 'next/dynamic'
-import { ReactElement, Suspense } from 'react'
+import { ReactElement } from 'react'
 
-import type { NextPageWithLayout } from '../_app'
+import type { NextPageWithLayout } from '../_app.page'
 
 import { initializeApollo, addApolloState } from '@/libs'
 import { GET_BLOGS_QUERY, GET_TAGS_QUERY } from '@/features/blog'
 import { MainLayout } from '@/layouts'
 
-const Template = dynamic(() => import('./template'))
+const Template = dynamic(() => import('./template'), {
+  loading: () => <>Loading...</>,
+})
 
-const Page: NextPageWithLayout<{ tag: string }> = ({ tag }) => {
-  return (
-    <Suspense fallback={<p>...loading</p>}>
-      <Template />
-    </Suspense>
-  )
+const Page: NextPageWithLayout<{ tag: string }> = () => {
+  return <Template />
 }
 
 Page.getLayout = (page: ReactElement) => {
