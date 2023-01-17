@@ -45,7 +45,7 @@
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "react-hook-form": "^7.29.0",
-    "react-icons": "^4.3.1",
+    "react-icons": "^4.7.1",
     "react-syntax-highlighter": "^15.5.0",
     "recoil": "^0.7.0",
     "web-vitals": "^2.1.4",
@@ -54,6 +54,7 @@
   "devDependencies": {
     "@babel/core": "^7.17.9",
     "@storybook/addon-actions": "^6.5.3",
+    "@storybook/addon-backgrounds": "^6.5.15",
     "@storybook/addon-docs": "^6.5.10",
     "@storybook/addon-essentials": "^6.5.3",
     "@storybook/addon-interactions": "^6.5.10",

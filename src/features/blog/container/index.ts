@@ -1,1 +1,1 @@
-export * from './EnhancedBlogList'
+export * from './BlogList'

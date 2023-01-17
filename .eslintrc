@@ -31,7 +31,7 @@
       "error",
       {
         // features, ../のimport禁止
-        "patterns": ["@/features/*/*", "@/features"]
+        "patterns": ["@/features/*/*"]
       }
     ],
     "import/no-duplicates": "error"
@@ -76,7 +76,7 @@
         "no-restricted-imports": [
           "off",
           {
-            "patterns": ["@/features"]
+            "patterns": ["@/features/*/*"]
           }
         ]
       }

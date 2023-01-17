@@ -1,7 +1,7 @@
 import { BLOCKS } from '@contentful/rich-text-types'
 
 import type { Document } from '@contentful/rich-text-types'
-import type { BlogType, BlogQuery, ArticleTextAsset, ArticleTextLinks } from '@/features'
+import type { BlogType, BlogQuery, ArticleTextAsset, ArticleTextLinks } from '@/features/blog'
 
 export const documentMock: Document = {
   nodeType: BLOCKS.DOCUMENT,
@@ -13,7 +13,7 @@ export const documentMock: Document = {
       content: [
         {
           nodeType: 'text',
-          value: 'H1タイトル',
+          value: 'Heading1',
           marks: [],
           data: {},
         },
@@ -25,7 +25,7 @@ export const documentMock: Document = {
       content: [
         {
           nodeType: 'text',
-          value: 'H2タイトル',
+          value: 'Heading2',
           marks: [],
           data: {},
         },
@@ -37,17 +37,104 @@ export const documentMock: Document = {
       content: [
         {
           nodeType: 'text',
-          value: 'こちらはモックのテキストになります。',
+          value: 'この文書はHeading2直下のモノです。',
           marks: [],
           data: {},
         },
       ],
     },
     {
-      nodeType: BLOCKS.EMBEDDED_ENTRY,
-      data: { target: { sys: { id: '6ThQWAH7g829u0zgEHfJRT', type: 'Link', linkType: 'Entry' } } },
-      content: [],
+      nodeType: BLOCKS.HEADING_3,
+      data: {},
+      content: [
+        {
+          nodeType: 'text',
+          value: 'Heading3',
+          marks: [],
+          data: {},
+        },
+      ],
     },
+    {
+      nodeType: BLOCKS.PARAGRAPH,
+      data: {},
+      content: [
+        {
+          nodeType: 'text',
+          value:
+            'この文書はHeading3直下のモノです。この文書はHeading3直下のモノです。この文書はHeading3直下のモノです。この文書はHeading3直下のモノです。この文書はHeading3直下のモノです。',
+          marks: [],
+          data: {},
+        },
+      ],
+    },
+    {
+      nodeType: BLOCKS.HEADING_3,
+      data: {},
+      content: [
+        {
+          nodeType: 'text',
+          value: 'Heading3',
+          marks: [],
+          data: {},
+        },
+      ],
+    },
+    {
+      nodeType: BLOCKS.PARAGRAPH,
+      data: {},
+      content: [
+        {
+          nodeType: 'text',
+          value:
+            'この文書はHeading3直下のモノです。この文書はHeading3直下のモノです。この文書はHeading3直下のモノです。この文書はHeading3直下のモノです。この文書はHeading3直下のモノです。この文書はHeading3直下のモノです。この文書はHeading3直下のモノです。この文書はHeading3直下のモノです。この文書はHeading3直下のモノです。この文書はHeading3直下のモノです。',
+          marks: [],
+          data: {},
+        },
+      ],
+    },
+    {
+      nodeType: BLOCKS.PARAGRAPH,
+      data: {},
+      content: [
+        {
+          nodeType: 'text',
+          value:
+            'この文書はHeading3直下のモノです。この文書はHeading3直下のモノです。この文書はHeading3直下のモノです。この文書はHeading3直下のモノです。この文書はHeading3直下のモノです。',
+          marks: [],
+          data: {},
+        },
+      ],
+    },
+    {
+      nodeType: BLOCKS.HEADING_4,
+      data: {},
+      content: [
+        {
+          nodeType: 'text',
+          value: 'Heading4',
+          marks: [],
+          data: {},
+        },
+      ],
+    },
+    {
+      nodeType: BLOCKS.HEADING_5,
+      data: {},
+      content: [
+        {
+          nodeType: 'text',
+          value: 'Heading5',
+          marks: [],
+          data: {},
+        },
+      ],
+    },
+    // {
+    //   nodeType: BLOCKS.EMBEDDED_ENTRY,
+    //   data: { target: { sys: { id: '6ThQWAH7g829u0zgEHfJRT', type: 'Link', linkType: 'Entry' } } },
+    //   content: [],
+    // },
     {
       nodeType: BLOCKS.UL_LIST,
       data: {},
@@ -67,6 +154,48 @@ export const documentMock: Document = {
               ],
               data: {},
               nodeType: BLOCKS.PARAGRAPH,
+            },
+            {
+              nodeType: BLOCKS.UL_LIST,
+              data: {},
+              content: [
+                {
+                  nodeType: BLOCKS.LIST_ITEM,
+                  data: {},
+                  content: [
+                    {
+                      content: [
+                        {
+                          nodeType: 'text',
+                          value: 'list1',
+                          marks: [],
+                          data: {},
+                        },
+                      ],
+                      data: {},
+                      nodeType: BLOCKS.PARAGRAPH,
+                    },
+                  ],
+                },
+                {
+                  nodeType: BLOCKS.LIST_ITEM,
+                  data: {},
+                  content: [
+                    {
+                      content: [
+                        {
+                          nodeType: 'text',
+                          value: 'list2',
+                          marks: [],
+                          data: {},
+                        },
+                      ],
+                      data: {},
+                      nodeType: BLOCKS.PARAGRAPH,
+                    },
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -151,3 +280,5 @@ export const blogListItemMock = {
   datetime: '2022.08.22',
   href: '#',
 }
+
+export const blogListMock = new Array(12).fill(blogListItemMock)

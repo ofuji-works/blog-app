@@ -9,6 +9,7 @@ module.exports = {
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
     '@storybook/addon-docs',
+    '@storybook/addon-backgrounds',
     {
       name: 'storybook-addon-next',
       options: {
