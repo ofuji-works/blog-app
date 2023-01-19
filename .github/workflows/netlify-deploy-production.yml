@@ -26,7 +26,7 @@ jobs:
         id: create-production-env
         run: |
           ls -al
-          touch .env.production.local
+          touch .env.production
           echo "NEXT_PUBLIC_GA_ID=${{ secrets.PRODUCTION_GA_ID }}" >> .env.production
           echo "NEXT_PUBLIC_SENTRY_DSN=${{ secrets.PRODUCTION_SENTRY_DSN }}" >> .env.production
           echo "NEXT_PUBLIC_APP_DOMAIN=${{ secrets.NEXT_PUBLIC_APP_DOMAIN }}" >> .env.production
@@ -66,7 +66,7 @@ jobs:
       - name: Deploy
         uses: netlify/actions/cli@master
         with:
-          args: deploy --dir=./out --prod
+          args: deploy --dir=./.next --prod
         env:
           NETLIFY_SITE_ID: ${{ secrets.PRODUCTION_NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.PRODUCTION_NETLIFY_AUTH_TOKEN }}
