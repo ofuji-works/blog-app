@@ -1,0 +1,9 @@
+{
+    "root": true,
+    "extends": ["@packages/base"],
+    "settings": {
+        "blog": {
+            "rootDir": ["apps/*/"]
+        }
+    }
+}

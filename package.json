@@ -1,0 +1,20 @@
+{
+  "name": "blog-app",
+  "version": "1.0.2",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build"
+  },
+  "dependencies": {
+    "turbo": "^1.7.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.32.0",
+    "@packages/eslint-config-base": "workspace:*",
+    "prettier": "^2.8.3"
+  }
+}
