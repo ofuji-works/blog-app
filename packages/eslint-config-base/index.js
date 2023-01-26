@@ -3,13 +3,10 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  plugins: ['@typescript-eslint', 'import', 'jsx-a11y', 'react', 'import'],
+  plugins: ['@typescript-eslint', 'import', 'jsx-a11y', 'react'],
   extends: [
-    'next',
-    'next/core-web-vitals',
     'plugin:react/recommended',
     'plugin:jsx-a11y/recommended',
-    'plugin:storybook/recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:import/errors',
     'eslint-config-prettier',
@@ -19,7 +16,6 @@ module.exports = {
     ecmaFeatures: { jsx: true },
     ecmaVersion: 2021,
     sourceType: 'module',
-    project: './tsconfig.json',
   },
   rules: {
     'react/react-in-jsx-scope': 'off',
@@ -27,13 +23,6 @@ module.exports = {
     'react/display-name': 'off',
     'import/order': [2, { alphabetize: { order: 'asc' } }],
     'sort-imports': 'off',
-    'no-restricted-imports': [
-      'error',
-      {
-        // features, ../のimport禁止
-        patterns: ['@/features/*/*'],
-      },
-    ],
     'import/no-duplicates': 'error',
   },
   overrides: [
@@ -58,25 +47,6 @@ module.exports = {
               },
             ],
             'newlines-between': 'always',
-          },
-        ],
-      },
-    },
-    // pages、__tests__以下のみでfeaturesのimportを許可
-    {
-      files: [
-        '__tests__/*',
-        '__tests__/**/*',
-        'src/pages/*.stories.*',
-        'src/pages/*/*.stories.*',
-        'src/pages/*.tsx',
-        'src/pages/*/*.tsx',
-      ],
-      rules: {
-        'no-restricted-imports': [
-          'off',
-          {
-            patterns: ['@/features/*/*'],
           },
         ],
       },
