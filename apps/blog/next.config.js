@@ -5,6 +5,8 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
 
+const withT = require('next-transpile-modules')(['@packages/ui'])
+
 /**
  * @type {import("next").NextConfig}
  */
@@ -47,6 +49,10 @@ const sentryWebpackPluginOptions = {
 // Make sure adding Sentry options is the last code to run before exporting, to
 // ensure that your source maps include changes from all other Webpack plugins
 module.exports = withPlugins(
-  [(nextConfig) => withSentryConfig(nextConfig, sentryWebpackPluginOptions), withBundleAnalyzer],
+  [
+    (nextConfig) => withSentryConfig(nextConfig, sentryWebpackPluginOptions),
+    (nextConfig) => withT(nextConfig),
+    withBundleAnalyzer,
+  ],
   moduleExports,
 )
