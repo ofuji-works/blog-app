@@ -1,5 +1,7 @@
 import type { FC } from 'react'
+
 import { Tab as ChakraTab, Tabs as ChakraTabs, TabList as ChakraTabList } from '@chakra-ui/react'
+
 import type { TabProps, TabsProps, TabListProps } from '@chakra-ui/react'
 
 export const Tabs: FC<TabsProps> = (props) => <ChakraTabs variant="unstyled" {...props} />

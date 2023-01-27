@@ -4,7 +4,8 @@ import Link from 'next/link'
 import { Heading, Stack, VStack, Wrap, WrapItem } from '@chakra-ui/react'
 import { MdCode } from 'react-icons/md'
 
-import { Image, Tag } from '@/components'
+import { Image } from '@/components'
+import { Tag } from '@packages/ui'
 
 type Props = {
   items: {

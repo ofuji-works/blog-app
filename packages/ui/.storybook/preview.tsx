@@ -1,5 +1,8 @@
+import { StoryFn } from '@storybook/react'
 import React from 'react'
-import { UIProvider } from '../src'
+import { ChakraProvider } from '@chakra-ui/react'
+
+import { theme } from '../src/theme'
 
 export const parameters = {
   backgrounds: {
@@ -13,15 +16,15 @@ export const parameters = {
   },
 }
 
-const withChakra = (StoryFn: Function) => {
+const withChakra = (StoryFn: StoryFn) => {
   return (
     <>
       <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet" />
-      <UIProvider>
+      <ChakraProvider theme={theme}>
         <div id="story-wrapper">
           <StoryFn />
         </div>
-      </UIProvider>
+      </ChakraProvider>
     </>
   )
 }

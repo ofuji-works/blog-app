@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { Avatar, Heading, HStack, Text, VStack } from '@chakra-ui/react'
 import { FaGithub, FaTwitter } from 'react-icons/fa'
 
-import { Button } from '@/components'
+import { Button } from '@packages/ui'
 
 export const Profile: FC = () => {
   return (

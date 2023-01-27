@@ -1,7 +1,7 @@
 import { ColorModeScript } from '@chakra-ui/react'
 import { Head, Html, Main, NextScript } from 'next/document'
 
-import theme from '@/theme'
+import { theme } from '@packages/ui'
 
 const Document = () => (
   <Html lang="en">

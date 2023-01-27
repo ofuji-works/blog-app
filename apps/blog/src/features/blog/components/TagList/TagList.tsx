@@ -5,7 +5,7 @@ import { MdCode } from 'react-icons/md'
 
 import type { Tag } from '../../types'
 
-import { Button } from '@/components'
+import { Button } from '@packages/ui'
 
 type Props = {
   items: Tag[]
