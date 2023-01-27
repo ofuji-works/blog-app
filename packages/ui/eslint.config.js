@@ -1,12 +1,3 @@
-const configs = [
-  {
-    extends: ['@packages/base'],
-  },
-  {
-    parserOptions: {
-      project: './tsconfig.json',
-    },
-  },
-]
+import baseConfig from '@packages/eslint-config-base'
 
-export default configs
+export default [...baseConfig]
