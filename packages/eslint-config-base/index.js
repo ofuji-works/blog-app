@@ -1,18 +1,17 @@
-import { FlatCompat } from '@eslint/eslintrc'
+const { FlatCompat } = require('@eslint/eslintrc')
 
-import typescriptPlugin from '@typescript-eslint/eslint-plugin'
-import importPlugin from 'eslint-plugin-import'
-import a11yPlugin from 'eslint-plugin-jsx-a11y'
-import reactPlugin from 'eslint-plugin-react'
-import reactHooksPlugin from 'eslint-plugin-react-hooks'
+const typescriptPlugin = require('@typescript-eslint/eslint-plugin')
+const importPlugin = require('eslint-plugin-import')
+const a11yPlugin = require('eslint-plugin-jsx-a11y')
+const reactPlugin = require('eslint-plugin-react')
+const reactHooksPlugin = require('eslint-plugin-react-hooks')
 
-import tsParser from '@typescript-eslint/parser'
+const tsParser = require('@typescript-eslint/parser')
 
 const compat = new FlatCompat()
 
-export default [
+module.exports = [
   {
-    ignores: ['eslint.config.js'],
     plugins: {
       typescriptPlugin,
       importPlugin,
@@ -26,7 +25,6 @@ export default [
         ecmaFeatures: { jsx: true },
         ecmaVersion: 2021,
         sourceType: 'module',
-        // project: './tsconfig.json',
       },
     },
     settings: {
@@ -45,6 +43,9 @@ export default [
     es2021: true,
   }),
   {
+    ignores: ['eslint.config.js'],
+  },
+  {
     rules: {
       'react/react-in-jsx-scope': 'off',
       'react/prop-types': 'off',
@@ -53,6 +54,7 @@ export default [
       'sort-imports': 'off',
       'import/no-duplicates': 'error',
       'import/namespace': 'off',
+      'import/named': 'off',
       'import/default': 'off',
     },
   },

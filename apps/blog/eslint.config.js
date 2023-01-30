@@ -1,9 +1,9 @@
-import { FlatCompat } from '@eslint/eslintrc'
-import baseConfig from '@packages/eslint-config-base'
+const { FlatCompat } = require('@eslint/eslintrc')
+const baseConfig = require('@packages/eslint-config-base')
 
 const compat = new FlatCompat()
 
-export default [
+module.exports = [
   ...baseConfig,
   ...compat.extends('next'),
   ...compat.extends('next/core-web-vitals'),
