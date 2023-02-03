@@ -74,9 +74,8 @@ jobs:
 
       - name: Deploy
         uses: netlify/actions/cli@master
-        working-directory: ./apps/blog
         with:
-          args: deploy --dir=./.next --prod
+          args: deploy --dir=./apps/blog/.next --prod
         env:
           NETLIFY_SITE_ID: ${{ secrets.PRODUCTION_NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.PRODUCTION_NETLIFY_AUTH_TOKEN }}
