@@ -7,7 +7,9 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
+    defaults:
+      run:
+        working-directory: ./
     strategy:
       matrix:
         node-version: [16.x]
@@ -18,7 +20,10 @@ jobs:
         with:
           ref: main
 
-      - uses: pnpm/action-setup@v2
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
@@ -72,9 +77,8 @@ jobs:
 
       - name: Deploy
         uses: netlify/actions/cli@master
-        working-directory: ./apps/blog
         with:
-          args: deploy --dir=./.next --prod
+          args: deploy --dir=./apps/blog/.next --prod
         env:
           NETLIFY_SITE_ID: ${{ secrets.PRODUCTION_NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.PRODUCTION_NETLIFY_AUTH_TOKEN }}
