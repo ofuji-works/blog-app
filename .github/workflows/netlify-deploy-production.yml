@@ -60,11 +60,12 @@ jobs:
           key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm.lock') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-
+
       - run: echo '${{ toJSON(steps.cache-node-modules.outputs) }}'
 
       - name: Install
         if: ${{ steps.cache-node-modules.outputs.cache-hit != 'true' }}
-          run: pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
 
       - name: Build
         run: pnpm build
