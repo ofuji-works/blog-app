@@ -17,7 +17,6 @@
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook",
     "storybook:test": "test-storybook",
-    "prepare": "husky install",
     "chromatic": "npx chromatic --exit-zero-on-changes",
     "cypress": "cypress open",
     "cypress:headless": "cypress run",
