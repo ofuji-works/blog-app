@@ -1,6 +1,7 @@
 name: netlify CI/CD
 
 on:
+  workflow_dispatch:
   release:
     types: [published]
 jobs:
@@ -13,9 +14,11 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           ref: main
+
+      - uses: pnpm/action-setup@v2
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
@@ -24,6 +27,7 @@ jobs:
 
       - name: Create production env file
         id: create-production-env
+        working-directory: ./apps/blog
         run: |
           ls -al
           touch .env.production
@@ -45,26 +49,29 @@ jobs:
             echo "token=${{ secrets.PRODUCTION_SENTRY_TOKEN }}"
           } >> .sentryclirc
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
       - name: Cache dependencies
+        id: cache-node-modules
         uses: actions/cache@v2
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+          path: |
+            node_modules
+            apps/blog/node_modules
+            packages/ui/node_modules
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm.lock') }}
           restore-keys: |
-            ${{ runner.os }}-yarn-
+            ${{ runner.os }}-pnpm-
+      - run: echo '${{ toJSON(steps.cache-node-modules.outputs) }}'
 
       - name: Install
-        run: yarn install --frozen-lockfile
+        if: ${{ steps.cache-node-modules.outputs.cache-hit != 'true' }}
+          run: pnpm install --frozen-lockfile
 
       - name: Build
-        run: yarn build
+        run: pnpm build
 
       - name: Deploy
         uses: netlify/actions/cli@master
+        working-directory: ./apps/blog
         with:
           args: deploy --dir=./.next --prod
         env:
