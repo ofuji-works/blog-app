@@ -49,6 +49,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.17.9",
+    "@netlify/plugin-nextjs": "^4.30.3",
     "@packages/eslint-config-base": "workspace:*",
     "@packages/tsconfig": "workspace:*",
     "@storybook/addon-actions": "^6.5.3",
