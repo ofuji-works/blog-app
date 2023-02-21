@@ -70,7 +70,7 @@ jobs:
 
       - name: Install
         if: ${{ steps.cache-node-modules.outputs.cache-hit != 'true' }}
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --shamefully-hoist --frozen-lockfile
 
       - name: Build
         run: pnpm build
@@ -78,7 +78,7 @@ jobs:
       - name: Deploy
         uses: netlify/actions/cli@master
         with:
-          args: deploy --dir=./apps/blog/.next --prod
+          args: deploy --dir=./apps/blog/.next --build --prod
         env:
           NETLIFY_SITE_ID: ${{ secrets.PRODUCTION_NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.PRODUCTION_NETLIFY_AUTH_TOKEN }}
