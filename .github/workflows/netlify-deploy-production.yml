@@ -72,10 +72,7 @@ jobs:
         if: ${{ steps.cache-node-modules.outputs.cache-hit != 'true' }}
         run: pnpm install --shamefully-hoist --frozen-lockfile
 
-      - name: Build
-        run: pnpm build
-
-      - name: Deploy
+      - name: Build & Deploy
         uses: netlify/actions/cli@master
         with:
           args: deploy --build --prod
