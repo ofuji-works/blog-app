@@ -38,7 +38,6 @@
     "graphql": "^16.5.0",
     "msw": "^0.42.1",
     "next": "^12.1.6",
-    "next-compose-plugins": "^2.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.29.0",

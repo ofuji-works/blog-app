@@ -94,7 +94,6 @@ importers:
       graphql: ^16.5.0
       msw: ^0.42.1
       next: ^12.1.6
-      next-compose-plugins: ^2.2.1
       next-transpile-modules: ^10.0.0
       react: ^18.2.0
       react-dom: ^18.2.0
@@ -120,7 +119,6 @@ importers:
       graphql: 16.6.0
       msw: 0.42.3
       next: 12.3.4_pjwopsidmaokadturxaafygjp4
-      next-compose-plugins: 2.2.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-hook-form: 7.42.1_react@18.2.0
@@ -10696,7 +10694,7 @@ packages:
       mississippi: 3.0.0
       mkdirp: 0.5.6
       move-concurrently: 1.0.1
-      promise-inflight: 1.0.1_bluebird@3.7.2
+      promise-inflight: 1.0.1
       rimraf: 2.7.1
       ssri: 6.0.2
       unique-filename: 1.1.1
@@ -19362,10 +19360,6 @@ packages:
       qs: 6.11.0
     dev: true
 
-  /next-compose-plugins/2.2.1:
-    resolution: {integrity: sha512-OjJ+fV15FXO2uQXQagLD4C0abYErBjyjE0I0FHpOEIB8upw0hg1ldFP6cqHTJBH1cZqy96OeR3u1dJ+Ez2D4Bg==}
-    dev: false
-
   /next-transpile-modules/10.0.0:
     resolution: {integrity: sha512-FyeJ++Lm2Fq31gbThiRCrJlYpIY9QaI7A3TjuhQLzOix8ChQrvn5ny4MhfIthS5cy6+uK1AhDRvxVdW17y3Xdw==}
     deprecated: All features of next-transpile-modules are now natively built-in Next.js 13.1. Please use Next's transpilePackages option :)
@@ -21004,17 +20998,6 @@ packages:
     peerDependenciesMeta:
       bluebird:
         optional: true
-    dev: true
-
-  /promise-inflight/1.0.1_bluebird@3.7.2:
-    resolution: {integrity: sha512-6zWPyEOFaQBJYcGMHBKTKJ3u6TBsnMFOIZSa6ce1e/ZrrsOlnHRHbabMjLiBYKp+n44X9eUI6VUPaukCXHuG4g==}
-    peerDependencies:
-      bluebird: '*'
-    peerDependenciesMeta:
-      bluebird:
-        optional: true
-    dependencies:
-      bluebird: 3.7.2
 
   /promise.allsettled/1.0.6:
     resolution: {integrity: sha512-22wJUOD3zswWFqgwjNHa1965LvqTX87WPu/lreY2KSd7SVcERfuZ4GfUaOnJNnvtoIv2yXT/W00YIGMetXtFXg==}
