@@ -1,6 +1,7 @@
 {
   "extends": "@packages/tsconfig/base.json",
   "compilerOptions": {
-    "baseUrl": "./"
-  }
+    "baseUrl": "./",
+  },
+  "tsconfigRootDir": "__dirname",
 }
