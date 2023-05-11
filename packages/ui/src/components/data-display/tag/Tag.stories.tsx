@@ -1,22 +1,43 @@
+import { Meta, StoryObj } from '@storybook/react'
 import { MdCode } from 'react-icons/md'
 
 import { Tag } from './Tag'
 
-import type { ComponentMeta, ComponentStoryObj } from '@storybook/react'
-const meta: ComponentMeta<typeof Tag> = {
-  title: 'Tag',
-  component: Tag,
+const meta: Meta = {
+  title: 'data-display/Tag',
+  render: (args) => {
+    return (
+      <Tag.TagProvider variant="forBlog" {...args}>
+        <Tag.TagLabel>Icon</Tag.TagLabel>
+      </Tag.TagProvider>
+    )
+  },
 }
 
 export default meta
 
-type Story = ComponentStoryObj<typeof Tag>
+type Story = StoryObj
 
-export const WithIcon: Story = {
+export const WithLeftIcon: Story = {
   name: 'with left Icon',
-  args: {
-    variant: 'forBlog',
-    children: 'tag with left icon',
-    LeftIcon: MdCode,
+  render: (args) => {
+    return (
+      <Tag.TagProvider variant="forBlog" {...args}>
+        <Tag.LeftIcon as={MdCode} />
+        <Tag.TagLabel>with left Icon</Tag.TagLabel>
+      </Tag.TagProvider>
+    )
+  },
+}
+
+export const WithRightIcon: Story = {
+  name: 'with right Icon',
+  render: (args) => {
+    return (
+      <Tag.TagProvider variant="forBlog" {...args}>
+        <Tag.TagLabel>with right Icon</Tag.TagLabel>
+        <Tag.RightIcon as={MdCode} />
+      </Tag.TagProvider>
+    )
   },
 }
