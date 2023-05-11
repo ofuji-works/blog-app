@@ -4,7 +4,7 @@ import { MdCode } from 'react-icons/md'
 import { Button } from './Button'
 
 const meta: ComponentMeta<typeof Button> = {
-  title: 'Button',
+  title: 'form/Button',
   component: Button,
 }
 

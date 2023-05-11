@@ -9,6 +9,11 @@ const componentStyleConfig: ComponentStyleConfig = {
     primary: {
       bgColor: 'black',
       color: 'white',
+      _hover: {
+        _disabled: {
+          background: 'black',
+        },
+      },
     },
   },
   defaultProps: {
