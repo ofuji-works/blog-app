@@ -12,7 +12,9 @@ import Tag from './components/tag.styles'
 import Text from './components/text.styles'
 
 const overrides = {
-  global,
+  styles: {
+    global,
+  },
   colors,
   breakpoints,
   radii: borderRadius,

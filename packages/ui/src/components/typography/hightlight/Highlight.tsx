@@ -1,5 +1,11 @@
-import type { FC } from 'react'
+import React from 'react'
+import { Highlight as ChakraHighlight } from '@chakra-ui/react'
 
-import { Highlight as ChakraHighlight, HighlightProps } from '@chakra-ui/react'
-
-export const Highlight: FC<HighlightProps> = (props) => <ChakraHighlight {...props} />
+type Props = { children: string; query: string[] }
+export const Highlight: React.FC<Props> = ({ children, query }) => {
+  return (
+    <ChakraHighlight query={query} styles={{ px: '1', py: '1', bg: 'cyan.200' }}>
+      {children}
+    </ChakraHighlight>
+  )
+}

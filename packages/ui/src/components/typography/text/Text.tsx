@@ -1,5 +1,9 @@
-import type { FC, ComponentProps } from 'react'
-
+import React from 'react'
 import { Text as ChakraText } from '@chakra-ui/react'
 
-export const Text: FC<ComponentProps<typeof ChakraText>> = (props) => <ChakraText {...props} />
+type Props = {
+  children: React.ReactNode
+}
+export const Text: React.FC<Props> = ({ children }) => {
+  return <ChakraText variant="p">{children}</ChakraText>
+}

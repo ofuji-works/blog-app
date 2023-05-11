@@ -18,14 +18,12 @@ export const parameters = {
 
 const withChakra = (StoryFn: StoryFn) => {
   return (
-    <>
+    <ChakraProvider theme={theme}>
       <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet" />
-      <ChakraProvider theme={theme}>
-        <div id="story-wrapper">
-          <StoryFn />
-        </div>
-      </ChakraProvider>
-    </>
+      <div id="story-wrapper">
+        <StoryFn />
+      </div>
+    </ChakraProvider>
   )
 }
 
