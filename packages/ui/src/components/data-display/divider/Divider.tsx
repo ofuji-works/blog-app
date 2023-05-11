@@ -1,5 +1,7 @@
 import type { FC } from 'react'
 
-import { Divider as ChakraDivider, DividerProps } from '@chakra-ui/react'
+import { Divider as ChakraDivider } from '@chakra-ui/react'
 
-export const Divider: FC<DividerProps> = (props) => <ChakraDivider {...props} />
+export const Divider: FC = () => {
+  return <ChakraDivider color="gray.300" />
+}
