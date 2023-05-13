@@ -20,9 +20,7 @@ const withChakra = (StoryFn: StoryFn) => {
   return (
     <ChakraProvider theme={theme}>
       <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet" />
-      <div id="story-wrapper">
-        <StoryFn />
-      </div>
+      <StoryFn />
     </ChakraProvider>
   )
 }
