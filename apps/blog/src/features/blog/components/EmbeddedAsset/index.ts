@@ -1,1 +1,0 @@
-export { EmbeddedAsset } from './EmbeddedAsset'
