@@ -1,5 +1,7 @@
-import type { FC } from 'react'
+import React from 'react'
+import { Container as ChakraContainer } from '@chakra-ui/react'
 
-import { Container as ChakraContainer, ContainerProps } from '@chakra-ui/react'
-
-export const Container: FC<ContainerProps> = (props) => <ChakraContainer {...props} />
+type Props = {
+  children: React.ReactNode
+}
+export const Container: React.FC<Props> = ({ children }) => <ChakraContainer maxWidth={900}>{children}</ChakraContainer>
