@@ -13,6 +13,7 @@
       "@/hooks": ["hooks"],
       "@/providers": ["providers"],
       "@/libs": ["libs"],
+      "@/graphql/*": ["graphql/*"],
       "@/mock/*": ["../__tests__/mock/*"]
     },
     "typeRoots": ["types"]

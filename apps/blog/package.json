@@ -21,7 +21,8 @@
     "cypress": "cypress open",
     "cypress:headless": "cypress run",
     "e2e": "start-server-and-test dev http://localhost:3000 cypress",
-    "e2e:headless": "start-server-and-test dev http://localhost:3000 cypress:headless"
+    "e2e:headless": "start-server-and-test dev http://localhost:3000 cypress:headless",
+    "codegen": "DOTENV_CONFIG_PATH=\"./.env.local\" graphql-codegen --require dotenv/config --config codegen.ts"
   },
   "dependencies": {
     "@apollo/client": "^3.6.6",
@@ -48,6 +49,11 @@
   },
   "devDependencies": {
     "@babel/core": "^7.17.9",
+    "@graphql-codegen/cli": "3.3.1",
+    "@graphql-codegen/client-preset": "3.0.1",
+    "@graphql-codegen/introspection": "3.0.1",
+    "@graphql-codegen/typescript-operations": "^3.0.4",
+    "@graphql-codegen/typescript-react-apollo": "^3.3.7",
     "@netlify/plugin-nextjs": "^4.30.3",
     "@packages/eslint-config-base": "workspace:*",
     "@packages/tsconfig": "workspace:*",
