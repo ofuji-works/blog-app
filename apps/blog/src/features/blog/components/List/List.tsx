@@ -10,11 +10,11 @@ import { Tag } from '@packages/ui'
 type Props = {
   items: {
     thumnail: {
-      title: string
-      url: string
+      title?: string
+      url?: string
     }
-    title: string
-    tags: {
+    title?: string
+    tags?: {
       id: string
       name: string
     }[]
@@ -56,7 +56,7 @@ export const List: FC<Props> = ({ items }) => {
                   base: '25%',
                   sm: '100%',
                 }}
-                src={thumnail.url}
+                src={thumnail.url ?? ''}
                 alt={thumnail.title}
                 blurDataURL={`${thumnail.url}?q=1`}
               />
@@ -65,13 +65,15 @@ export const List: FC<Props> = ({ items }) => {
               </Link>
             </Stack>
             <Wrap justify="flex-start" spacing="1">
-              {tags.map((tag) => (
-                <WrapItem key={tag.id}>
-                  <Tag variant="forBlog" LeftIcon={MdCode} size="sm">
-                    {tag.name}
-                  </Tag>
-                </WrapItem>
-              ))}
+              {tags &&
+                tags.map((tag) => (
+                  <WrapItem key={tag.id}>
+                    <Tag.TagProvider variant="forBlog">
+                      <Tag.LeftIcon as={MdCode} />
+                      <Tag.TagLabel>{tag.name}</Tag.TagLabel>
+                    </Tag.TagProvider>
+                  </WrapItem>
+                ))}
             </Wrap>
           </VStack>
         </WrapItem>

@@ -46,10 +46,11 @@ export const GET_BLOGS_QUERY = gql`
           url
         }
         title
-        body {
-          json
-        }
+        body
       }
+      limit
+      skip
+      total
     }
   }
 `
