@@ -17,46 +17,7 @@ export const GET_BLOG_QUERY = gql`
         url
       }
       title
-      body {
-        json
-        links {
-          assets {
-            block {
-              sys {
-                id
-              }
-              title
-              description
-              url
-            }
-          }
-          entries {
-            block {
-              sys {
-                id
-              }
-              ... on Blog {
-                thumnail {
-                  title
-                  url
-                }
-                title
-                body {
-                  json
-                }
-              }
-            }
-            inline {
-              sys {
-                id
-              }
-              ... on Blog {
-                title
-              }
-            }
-          }
-        }
-      }
+      body
     }
   }
 `

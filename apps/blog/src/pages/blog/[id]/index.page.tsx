@@ -1,51 +1,17 @@
 import { ReactElement } from 'react'
-import dynamic from 'next/dynamic'
 import { GetStaticProps, GetStaticPaths } from 'next'
-import { useQuery } from '@apollo/client'
 
-import type { NextPageWithLayout } from '../../_app.page'
+import type { NextPageWithLayout } from '@/pages/_app.page'
 
-import { GET_BLOG_QUERY, GET_BLOGS_QUERY, BlogQuery, BlogsQuery } from '@/features/blog'
+import { GET_BLOG_QUERY, GET_BLOGS_QUERY, BlogsQuery, BlogBody } from '@/features/blog'
 import { UnstyledLayout } from '@/layouts'
 import { initializeApollo, addApolloState } from '@/libs'
-
-const Template = dynamic(() => import('./template'), {
-  loading: () => <>...Loading</>,
-})
 
 type Props = {
   id: string
 }
 const Page: NextPageWithLayout<Props> = ({ id }) => {
-  const { data, loading, error } = useQuery<BlogQuery>(GET_BLOG_QUERY, {
-    variables: {
-      id,
-    },
-  })
-
-  if (loading) {
-    return <p>...loading</p>
-  }
-
-  if (!data || error) {
-    throw new Error()
-  }
-
-  const og = {
-    imgUrl: data.blog.thumnail.url,
-    imgWidth: 800,
-    imgHeight: 600,
-  }
-
-  return (
-    <Template
-      title={data.blog.title}
-      thumnail={data.blog.thumnail}
-      date={data.blog.sys.publishedAt}
-      document={data.blog.body.json}
-      links={data.blog.body.links}
-    />
-  )
+  return <BlogBody id={id} />
 }
 
 Page.getLayout = (page: ReactElement) => {
