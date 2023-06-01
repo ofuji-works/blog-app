@@ -30,6 +30,10 @@ const moduleExports = {
       },
     ]
   },
+  webpack: function (config, _) {
+    config.experiments = { asyncWebAssembly: true, syncWebAssembly: true }
+    return config
+  },
 }
 
 module.exports = () => {

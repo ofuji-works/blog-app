@@ -60,6 +60,7 @@ importers:
       '@netlify/plugin-nextjs': ^4.30.3
       '@next/bundle-analyzer': ^12.2.0
       '@packages/eslint-config-base': workspace:*
+      '@packages/markdown-parser': workspace:*
       '@packages/tsconfig': workspace:*
       '@packages/ui': workspace:*
       '@sentry/nextjs': ^6.19.6
@@ -115,6 +116,7 @@ importers:
       '@contentful/rich-text-react-renderer': 15.16.2_biqbaboplfbrettd7655fr4n2y
       '@contentful/rich-text-types': 16.0.2
       '@next/bundle-analyzer': 12.3.4
+      '@packages/markdown-parser': link:../../packages/markdown-parser
       '@packages/ui': link:../../packages/ui
       '@sentry/nextjs': 6.19.7_next@12.3.4+react@18.2.0
       clsx: 1.2.1
@@ -191,6 +193,9 @@ importers:
       eslint-plugin-jsx-a11y: 6.7.1
       eslint-plugin-react: 7.32.1
       eslint-plugin-react-hooks: 4.6.0
+
+  packages/markdown-parser:
+    specifiers: {}
 
   packages/tsconfig:
     specifiers: {}
