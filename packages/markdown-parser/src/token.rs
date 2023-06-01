@@ -1,4 +1,6 @@
-#[derive(Debug)]
+use serde::{Deserialize, Serialize};
+
+#[derive(Debug, Serialize, Deserialize)]
 pub enum TokenType {
     Text,
     Strong,
@@ -13,7 +15,7 @@ pub enum TokenType {
     Quotation,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct Token {
     id: i64,
     elm_type: TokenType,

@@ -1,6 +1,8 @@
 pub mod lexer;
 pub mod token;
 
+use wasm_bindgen::{prelude::wasm_bindgen, JsValue};
+
 use crate::token::Token;
 
 #[derive(Debug)]
@@ -11,7 +13,8 @@ pub enum State {
     Quotation,
 }
 
-pub fn md_string_to_token(md_string: &str) -> Vec<Token> {
+#[wasm_bindgen]
+pub fn md_string_to_token(md_string: &str) -> Result<JsValue, JsValue> {
     let mut tokens: Vec<Token> = Vec::new();
     let preprocessed_md_string = md_string.to_string() + "\n";
     let split: Vec<&str> = preprocessed_md_string.split("\n").collect();
@@ -92,19 +95,19 @@ pub fn md_string_to_token(md_string: &str) -> Vec<Token> {
         }
     }
 
-    tokens
+    Ok(serde_wasm_bindgen::to_value(&tokens)?)
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
 
-    #[test]
+    #[wasm_bindgen_test::wasm_bindgen_test]
     fn it_works() {
         let md_string =
             String::from("# Heading1\n\n## Heading2\n### Heading3\n#### Heading4\n\n- list1\n- list2\n##### Heading5\n\n```rust\nfn main() {\n  println!(\"Hello World\");\n}\n```\n\n> quotation text...\nquotaion text2...");
-        let tokens = md_string_to_token(&md_string);
+        let tokens = md_string_to_token(&md_string).unwrap();
 
-        println!("{:?}", tokens);
+        println!("{:?}", serde_wasm_bindgen::from_value::<Token>(tokens));
     }
 }

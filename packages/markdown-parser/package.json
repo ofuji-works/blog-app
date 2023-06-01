@@ -1,0 +1,11 @@
+{
+  "name": "@packages/markdown-parser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "pkg/markdown_parser.js",
+  "scripts": {
+    "test": "wasm-pack test --node"
+  },
+  "author": "",
+  "license": "ISC"
+}
