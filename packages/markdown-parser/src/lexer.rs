@@ -37,11 +37,11 @@ pub fn gen_list_element(id: i64, text: &str) -> Token {
 }
 
 pub fn gen_code(id: i64, text: &str) -> Token {
-    Token::new(id, TokenType::Code, None, Some(text.to_string()))
+    Token::new(id, TokenType::Code, None, Some(text[3..].to_string()))
 }
 
 pub fn gen_quotation(id: i64, text: &str) -> Token {
-    Token::new(id, TokenType::Quotation, None, Some(text.to_string()))
+    Token::new(id, TokenType::Quotation, None, Some(text[2..].to_string()))
 }
 
 pub fn match_with_strong_regxp(text: &str) -> bool {
