@@ -6,74 +6,75 @@ import { Box } from '@chakra-ui/react'
 import { Code } from 'features/blog/components/Code'
 
 const options = {
-  heading1: (children: React.ReactNode) => {
+  Heading1: (children: React.ReactNode) => {
     return () => {
       return <Heading variant="h1">{children}</Heading>
     }
   },
-  heading2: (children: React.ReactNode) => {
+  Heading2: (children: React.ReactNode) => {
     return () => {
       return <Heading variant="h2">{children}</Heading>
     }
   },
-  heading3: (children: React.ReactNode) => {
+  Heading3: (children: React.ReactNode) => {
     return () => {
       return <Heading variant="h3">{children}</Heading>
     }
   },
-  heading4: (children: React.ReactNode) => {
+  Heading4: (children: React.ReactNode) => {
     return () => {
       return <Heading variant="h4">{children}</Heading>
     }
   },
-  heading5: (children: React.ReactNode) => {
+  Heading5: (children: React.ReactNode) => {
     return () => {
       return <Heading variant="h5">{children}</Heading>
     }
   },
-  code: (children: React.ReactNode) => {
+  Code: (children: React.ReactNode) => {
     return () => {
       return <Code code={children === 'string' ? children : ''} />
     }
   },
-  paragraph: (children: React.ReactNode) => {
+  Text: (children: React.ReactNode) => {
     return () => <Text>{children}</Text>
   },
-  ul: (children: React.ReactNode) => {
+  UnorderList: (children: React.ReactNode) => {
     return () => <UnorderedList>{children}</UnorderedList>
   },
   ol: (children: React.ReactNode) => {
     return () => <OrderedList>{children}</OrderedList>
   },
-  li: (children: React.ReactNode) => {
+  List: (children: React.ReactNode) => {
     return () => <ListItem>{children}</ListItem>
   },
 }
 
-type Node = {
-  nodeType: keyof typeof options
-  contents?: Node[]
+type Token = {
+  contents?: Token[]
+  elm_type: keyof typeof options
+  id: number
   text?: string
 }
 
-const renderNodes = (nodes: Node[]) => {
-  return nodes.map((node) => {
-    if (node.nodeType === 'ul' || node.nodeType === 'ol') {
-      const listComponent = options[node.nodeType]
-      if (!node.contents) return listComponent('')
-      const children = node.contents.map((content, index) => {
-        return options.li(content.text)
+const renderNodes = (tokens: Token[]) => {
+  return tokens.map((token) => {
+    if (token.elm_type === 'UnorderList') {
+      const listComponent = options[token.elm_type]
+      if (!token.contents) return listComponent('')
+      const children = token.contents?.map((content) => {
+        return options.List(content.text)
       })
 
       return listComponent(children.map((Child) => <Child />))
     }
 
-    return options[node.nodeType](node.text)
+    return options[token.elm_type](token.text)
   })
 }
 
 type Props = {
-  nodes: Node[]
+  nodes: Token[]
 }
 export const Body: FC<Props> = ({ nodes }) => {
   return (

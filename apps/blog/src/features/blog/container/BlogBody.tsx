@@ -9,6 +9,7 @@ type Props = {
   id: string
 }
 export const BlogBody: React.FC<Props> = ({ id }) => {
+  const [nodes, setNodes] = React.useState([])
   const { data, loading, error } = useQuery<{ blog: Blog }>(GET_BLOG_QUERY, {
     variables: {
       id,
@@ -22,6 +23,12 @@ export const BlogBody: React.FC<Props> = ({ id }) => {
   if (!data || error) {
     throw new Error()
   }
+
+  React.useEffect(() => {
+    import('@packages/markdown-parser').then(({ md_string_to_token }) => {
+      setNodes(md_string_to_token(data.blog.body ?? ''))
+    })
+  }, [data.blog.body])
 
   return (
     <VStack
@@ -38,7 +45,7 @@ export const BlogBody: React.FC<Props> = ({ id }) => {
           url: data.blog.thumnail?.url ?? '',
         }}
       />
-      <Body nodes={[]} />
+      <Body nodes={nodes} />
     </VStack>
   )
 }
