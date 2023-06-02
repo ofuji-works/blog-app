@@ -32,6 +32,7 @@ export const BlogBody: React.FC<Props> = ({ id }) => {
 
   return (
     <VStack
+      minH="100vh"
       paddingBottom={{
         base: '8',
         sm: '12',

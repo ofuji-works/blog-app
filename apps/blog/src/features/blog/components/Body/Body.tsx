@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 
-import { Container, Heading, Text, ListItem, OrderedList, UnorderedList } from '@packages/ui'
+import { Heading, Text, ListItem, OrderedList, UnorderedList } from '@packages/ui'
 import { Box } from '@chakra-ui/react'
 
 import { Code } from 'features/blog/components/Code'
@@ -78,24 +78,22 @@ type Props = {
 }
 export const Body: FC<Props> = ({ nodes }) => {
   return (
-    <Container>
-      <Box
-        width="100%"
-        backgroundColor="white"
-        paddingX={{
-          base: '5',
-          sm: '8',
-        }}
-        paddingY={{
-          base: '16',
-          sm: '12',
-        }}
-        borderRadius="base"
-      >
-        {renderNodes(nodes).map((Node) => (
-          <Node />
-        ))}
-      </Box>
-    </Container>
+    <Box
+      width="100%"
+      backgroundColor="white"
+      paddingX={{
+        base: '5',
+        sm: '8',
+      }}
+      paddingY={{
+        base: '16',
+        sm: '12',
+      }}
+      borderRadius="base"
+    >
+      {renderNodes(nodes).map((Node, index) => (
+        <Node key={index.toString()} />
+      ))}
+    </Box>
   )
 }
