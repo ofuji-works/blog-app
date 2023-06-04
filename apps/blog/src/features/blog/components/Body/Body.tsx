@@ -77,7 +77,6 @@ type Props = {
   nodes: Token[]
 }
 export const Body: FC<Props> = ({ nodes }) => {
-  console.debug(nodes)
   return (
     <Box
       width="100%"

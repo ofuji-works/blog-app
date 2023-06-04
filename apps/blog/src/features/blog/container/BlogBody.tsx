@@ -50,10 +50,14 @@ export const BlogBody: React.FC<Props> = ({ id }) => {
         }}
       />
       <Breadcrumb.Separator marginY="16px">
-        <Breadcrumb.Item>
-          <Link href="/blog">ブログ一覧</Link>
+        <Breadcrumb.Item flexShrink={0}>
+          <Breadcrumb.Link href="/blog" as={Link}>
+            ブログ一覧
+          </Breadcrumb.Link>
         </Breadcrumb.Item>
-        <Breadcrumb.Item isCurrentPage>{data.blog.title}</Breadcrumb.Item>
+        <Breadcrumb.Item isCurrentPage>
+          <Breadcrumb.Link>{data.blog.title}</Breadcrumb.Link>
+        </Breadcrumb.Item>
       </Breadcrumb.Separator>
       <Body nodes={nodes} />
     </Box>
