@@ -72,5 +72,8 @@ jobs:
         if: ${{ steps.cache-node-modules.outputs.cache-hit != 'true' }}
         run: pnpm install --shamefully-hoist --frozen-lockfile
 
+      - name: code generate for graphql query type
+        run: pnpm generate
+
       - name: deploy
         run: pnpm --package=netlify-cli dlx netlify deploy --build --prod -a ${{ secrets.PRODUCTION_NETLIFY_AUTH_TOKEN }} -s ${{ secrets.PRODUCTION_NETLIFY_SITE_ID }}

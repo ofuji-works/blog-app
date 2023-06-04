@@ -21,6 +21,9 @@
     },
     "clean": {
       "cache": false
+    },
+    "codegen": {
+      "outputs": ["src/graphql/**/*."]
     }
   }
 }

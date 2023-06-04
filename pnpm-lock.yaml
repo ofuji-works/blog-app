@@ -57,6 +57,7 @@ importers:
       '@graphql-codegen/introspection': 3.0.1
       '@graphql-codegen/typescript-operations': ^3.0.4
       '@graphql-codegen/typescript-react-apollo': ^3.3.7
+      '@graphql-typed-document-node/core': ^3.2.0
       '@netlify/plugin-nextjs': ^4.30.3
       '@next/bundle-analyzer': ^12.2.0
       '@packages/eslint-config-base': workspace:*
@@ -115,6 +116,7 @@ importers:
       '@contentful/rich-text-plain-text-renderer': 15.15.1
       '@contentful/rich-text-react-renderer': 15.16.2_biqbaboplfbrettd7655fr4n2y
       '@contentful/rich-text-types': 16.0.2
+      '@graphql-typed-document-node/core': 3.2.0_graphql@16.6.0
       '@next/bundle-analyzer': 12.3.4
       '@packages/markdown-parser': link:../../packages/markdown-parser
       '@packages/ui': link:../../packages/ui
@@ -270,7 +272,7 @@ packages:
       subscriptions-transport-ws:
         optional: true
     dependencies:
-      '@graphql-typed-document-node/core': 3.1.1_graphql@16.6.0
+      '@graphql-typed-document-node/core': 3.2.0_graphql@16.6.0
       '@wry/context': 0.7.0
       '@wry/equality': 0.5.3
       '@wry/trie': 0.3.2
@@ -3779,21 +3781,12 @@ packages:
       value-or-promise: 1.0.12
     dev: true
 
-  /@graphql-typed-document-node/core/3.1.1_graphql@16.6.0:
-    resolution: {integrity: sha512-NQ17ii0rK1b34VZonlmT2QMJFI70m0TRwbknO/ihlbatXyaktDhN/98vBiUU6kNBPljqGqyIrl2T4nY2RpFANg==}
-    peerDependencies:
-      graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
-    dependencies:
-      graphql: 16.6.0
-    dev: false
-
   /@graphql-typed-document-node/core/3.2.0_graphql@16.6.0:
     resolution: {integrity: sha512-mB9oAsNCm9aM3/SOv4YtBMqZbYj10R7dkq8byBqxGY/ncFwhf2oQzMV+LCRlWoDSEBJ3COiR1yeDvMtsoOsuFQ==}
     peerDependencies:
       graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
     dependencies:
       graphql: 16.6.0
-    dev: true
 
   /@hapi/hoek/9.3.0:
     resolution: {integrity: sha512-/c6rf4UJlmHlC9b5BaNvzAcFv7HZ2QHaV0D4/HNlBdvFnvQq8RI4kYdhyPCl7Xj+oWvTWQ8ujhqS53LIgAe6KQ==}

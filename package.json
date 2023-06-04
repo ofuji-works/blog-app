@@ -13,7 +13,8 @@
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
     "clean": "turbo run clean",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "codegen": "turbo run codegen"
   },
   "dependencies": {
     "@chakra-ui/react": "^2.2.1",
