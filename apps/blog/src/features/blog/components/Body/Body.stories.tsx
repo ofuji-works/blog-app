@@ -15,32 +15,39 @@ export const Base: Story = {
   args: {
     nodes: [
       {
-        nodeType: 'heading1',
+        id: 1,
+        elm_type: 'Heading1',
         text: 'ここにタイトルが入ります',
       },
       {
-        nodeType: 'heading2',
+        id: 2,
+        elm_type: 'Heading2',
         text: 'ここにタイトルが入ります',
       },
       {
-        nodeType: 'ul',
+        id: 3,
+        elm_type: 'UnorderList',
         contents: [
           {
-            nodeType: 'li',
+            id: 4,
+            elm_type: 'List',
             text: 'リスト1',
           },
           {
-            nodeType: 'li',
+            id: 5,
+            elm_type: 'List',
             text: 'リスト2',
           },
           {
-            nodeType: 'li',
+            id: 6,
+            elm_type: 'List',
             text: 'リスト3',
           },
         ],
       },
       {
-        nodeType: 'ul',
+        id: 7,
+        elm_type: 'UnorderList',
         contents: [],
       },
     ],
