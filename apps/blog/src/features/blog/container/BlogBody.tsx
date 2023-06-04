@@ -1,9 +1,12 @@
+import Link from 'next/link'
 import React from 'react'
 import { useQuery } from '@apollo/client'
-import { VStack } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 
 import { Body, GET_BLOG_QUERY, TitleBlock } from '@/features/blog'
 import { Blog } from '@/graphql/graphql'
+
+import { Breadcrumb } from '@packages/ui'
 
 type Props = {
   id: string
@@ -31,7 +34,7 @@ export const BlogBody: React.FC<Props> = ({ id }) => {
   }, [data.blog.body])
 
   return (
-    <VStack
+    <Box
       minH="100vh"
       paddingBottom={{
         base: '8',
@@ -46,7 +49,13 @@ export const BlogBody: React.FC<Props> = ({ id }) => {
           url: data.blog.thumnail?.url ?? '',
         }}
       />
+      <Breadcrumb.Separator marginY="16px">
+        <Breadcrumb.Item>
+          <Link href="/blog">ブログ一覧</Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item isCurrentPage>{data.blog.title}</Breadcrumb.Item>
+      </Breadcrumb.Separator>
       <Body nodes={nodes} />
-    </VStack>
+    </Box>
   )
 }
