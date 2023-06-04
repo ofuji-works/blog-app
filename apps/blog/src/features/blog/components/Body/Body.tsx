@@ -33,7 +33,7 @@ const options = {
   },
   Code: (children: React.ReactNode) => {
     return () => {
-      return <Code code={children === 'string' ? children : ''} />
+      return <Code code={typeof children === 'string' ? children : ''} />
     }
   },
   Text: (children: React.ReactNode) => {
@@ -77,6 +77,7 @@ type Props = {
   nodes: Token[]
 }
 export const Body: FC<Props> = ({ nodes }) => {
+  console.debug(nodes)
   return (
     <Box
       width="100%"
