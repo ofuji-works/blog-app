@@ -3,12 +3,12 @@ import type { FC } from 'react'
 import { HStack } from '@chakra-ui/react'
 import { MdCode } from 'react-icons/md'
 
-import type { Tag } from '../../types'
+import { ContentfulTag } from '@/graphql/graphql'
 
 import { Button } from '@packages/ui'
 
 type Props = {
-  items: Tag[]
+  items: ContentfulTag[]
 }
 export const TagList: FC<Props> = ({ items }) => (
   <HStack flexWrap="wrap" justifyContent="flex-start" gap="4px">

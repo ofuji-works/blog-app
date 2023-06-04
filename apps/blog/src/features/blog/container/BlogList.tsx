@@ -3,8 +3,7 @@ import { useQuery } from '@apollo/client'
 
 import { BlogCollection } from '@/graphql/graphql'
 
-import { List } from '../components'
-import { GET_BLOGS_QUERY } from '../queries'
+import { List, GET_BLOGS_QUERY } from '@/features/blog'
 
 type Props = {
   tag?: string
