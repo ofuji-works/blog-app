@@ -7,9 +7,15 @@ const meta: ComponentMeta<typeof Breadcrumb.Separator> = {
   render({ separator }) {
     return (
       <Breadcrumb.Separator separator={separator}>
-        <Breadcrumb.Item>Home</Breadcrumb.Item>
-        <Breadcrumb.Item>Blog</Breadcrumb.Item>
-        <Breadcrumb.Item isCurrentPage>技術記事タイトル</Breadcrumb.Item>
+        <Breadcrumb.Item>
+          <Breadcrumb.Link>Home</Breadcrumb.Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item>
+          <Breadcrumb.Link>Blog</Breadcrumb.Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item isCurrentPage>
+          <Breadcrumb.Link>技術記事タイトル</Breadcrumb.Link>
+        </Breadcrumb.Item>
       </Breadcrumb.Separator>
     )
   },
