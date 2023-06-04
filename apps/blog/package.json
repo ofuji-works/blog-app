@@ -22,7 +22,8 @@
     "cypress:headless": "cypress run",
     "e2e": "start-server-and-test dev http://localhost:3000 cypress",
     "e2e:headless": "start-server-and-test dev http://localhost:3000 cypress:headless",
-    "codegen": "DOTENV_CONFIG_PATH=\"./.env.local\" graphql-codegen --require dotenv/config --config codegen.ts"
+    "codegen": "graphql-codegen --require dotenv/config --config codegen.ts",
+    "codegen:local": "DOTENV_CONFIG_PATH=\"./.env.local\" pnpm codegen"
   },
   "dependencies": {
     "@apollo/client": "^3.6.6",

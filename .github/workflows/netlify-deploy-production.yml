@@ -73,7 +73,7 @@ jobs:
         run: pnpm install --shamefully-hoist --frozen-lockfile
 
       - name: code generate for graphql query type
-        run: pnpm codegen
+        run: DOTENV_CONFIG_PATH=\"./.env.production\" pnpm codegen
 
       - name: deploy
         run: pnpm --package=netlify-cli dlx netlify deploy --build --prod -a ${{ secrets.PRODUCTION_NETLIFY_AUTH_TOKEN }} -s ${{ secrets.PRODUCTION_NETLIFY_SITE_ID }}
