@@ -52,7 +52,7 @@ export const TitleBlock: FC<Props> = ({ title, date, thumnail }) => {
         alt={thumnail.title}
         blurDataURL={`${thumnail.url}?q=1`}
       />
-      <Heading as="h1" size={{ base: 'sm', sm: 'lg' }} fontSize={{ base: 'sm', sm: 'lg' }} mt={0}>
+      <Heading as="h1" size={{ base: 'md', sm: 'lg' }} fontSize={{ base: 'md', sm: 'lg' }} mt={0}>
         {title}
       </Heading>
       <Text fontSize={{ base: 'xs', sm: 'md' }}>
