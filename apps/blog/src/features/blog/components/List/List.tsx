@@ -1,7 +1,7 @@
 import type { FC } from 'react'
 
 import Link from 'next/link'
-import { Heading, Stack, VStack, Wrap, WrapItem } from '@chakra-ui/react'
+import { Box, Heading, Stack, VStack, Wrap, WrapItem } from '@chakra-ui/react'
 import { MdCode } from 'react-icons/md'
 
 import { Image } from '@/components'
@@ -53,7 +53,7 @@ export const List: FC<Props> = ({ items }) => {
                   aspectRatio: '4 / 3',
                 }}
                 minWidth={{
-                  base: '25%',
+                  base: '40%',
                   sm: '100%',
                 }}
                 src={thumnail.url ?? ''}
@@ -61,7 +61,7 @@ export const List: FC<Props> = ({ items }) => {
                 blurDataURL={`${thumnail.url}?q=1`}
               />
               <Link href={href}>
-                <Heading size="xs">{title}</Heading>
+                <Heading size="sm">{title}</Heading>
               </Link>
             </Stack>
             <Wrap justify="flex-start" spacing="1">
@@ -69,7 +69,9 @@ export const List: FC<Props> = ({ items }) => {
                 tags.map((tag) => (
                   <WrapItem key={tag.id}>
                     <Tag.TagProvider variant="forBlog">
-                      <Tag.LeftIcon as={MdCode} />
+                      <Box bg="white" borderRadius="full" mr="2">
+                        <MdCode color="black" />
+                      </Box>
                       <Tag.TagLabel>{tag.name}</Tag.TagLabel>
                     </Tag.TagProvider>
                   </WrapItem>
