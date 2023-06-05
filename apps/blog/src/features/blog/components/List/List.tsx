@@ -61,7 +61,9 @@ export const List: FC<Props> = ({ items }) => {
                 blurDataURL={`${thumnail.url}?q=1`}
               />
               <Link href={href}>
-                <Heading size="sm">{title}</Heading>
+                <Heading size="sm" textDecorationLine="underline">
+                  {title}
+                </Heading>
               </Link>
             </Stack>
             <Wrap justify="flex-start" spacing="1">
