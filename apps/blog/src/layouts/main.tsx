@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { Box, Container, VStack } from '@chakra-ui/react'
 import map from 'lodash/map'
 
-import { Profile } from '@/features/profile'
+import { ProfileArea } from '@/features/profile'
 import { ROUTES } from '@/config'
 
 import { Tab } from '@packages/ui'
@@ -22,7 +22,7 @@ export const MainLayout: FC<Props> = ({ children }) => {
     <VStack backgroundColor="gray.50">
       <Box backgroundColor="white" width="100%" boxShadow="base">
         <Container maxW="900px">
-          <Profile />
+          <ProfileArea />
           <Tab.Provider>
             <Tab.Lists
               justifyContent="flex-start"
