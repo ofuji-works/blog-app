@@ -5,32 +5,44 @@ import {
   TabList as ChakraTabList,
   TabPanel as ChakraTabPanel,
   TabPanels as ChakraTabPanels,
+  TabIndicator as ChakraTabIndicator,
+  TabProps,
+  TabListProps,
+  TabsProps,
+  TabPanelProps,
+  TabPanelsProps,
+  TabIndicatorProps,
 } from '@chakra-ui/react'
 
-type Props = {
-  children: React.ReactNode
-}
-export const Tabs: React.FC<Props> = (props) => <ChakraTabs variant="unstyled" {...props} />
+export const Provider: React.FC<TabsProps> = (props) => <ChakraTabs variant="unstyled" {...props} />
 
-export const TabList: React.FC<Props> = (props) => <ChakraTabList justifyContent="center" gap="8px" {...props} />
+export const Lists: React.FC<TabListProps> = (props) => <ChakraTabList justifyContent="center" gap="8px" {...props} />
 
-export const Tab: React.FC<Props> = (props) => (
+export const List: React.FC<TabProps> = (props) => (
   <ChakraTab
-    borderRadius="full"
     fontWeight="semibold"
     fontSize={{
       base: 'sm',
       sm: 'md',
     }}
     paddingY={1}
-    _selected={{
-      bg: 'black',
-      color: 'white',
-    }}
     {...props}
   />
 )
 
-export const TabPanel: React.FC<Props> = (props) => <ChakraTabPanel {...props} />
+export const Indicator: React.FC<TabIndicatorProps> = (props) => (
+  <ChakraTabIndicator height="2px" bg="gray.700" mt="-2px" {...props} />
+)
 
-export const TabPanels: React.FC<Props> = (props) => <ChakraTabPanels {...props} />
+export const Panel: React.FC<TabPanelProps> = (props) => <ChakraTabPanel {...props} />
+
+export const Panels: React.FC<TabPanelsProps> = (props) => <ChakraTabPanels {...props} />
+
+export const Tab = {
+  Provider,
+  Lists,
+  List,
+  Indicator,
+  Panels,
+  Panel,
+}

@@ -1,20 +1,20 @@
-import { TabPanel, TabPanels } from '@chakra-ui/react'
 import { ComponentStoryObj, ComponentMeta } from '@storybook/react'
 
-import { Tabs, TabList, Tab } from './Tab'
+import { Tab } from './Tab'
 
 const TabTemplate = () => {
   return (
-    <Tabs>
-      <TabList>
-        <Tab>タブ1</Tab>
-        <Tab>タブ2</Tab>
-        <Tab>タブ3</Tab>
-      </TabList>
-      <TabPanels>
-        <TabPanel></TabPanel>
-      </TabPanels>
-    </Tabs>
+    <Tab.Provider>
+      <Tab.Lists>
+        <Tab.List>タブ1</Tab.List>
+        <Tab.List>タブ2</Tab.List>
+        <Tab.List>タブ3</Tab.List>
+      </Tab.Lists>
+      <Tab.Indicator height="2px" bg="blue.500" />
+      <Tab.Panels>
+        <Tab.Panel></Tab.Panel>
+      </Tab.Panels>
+    </Tab.Provider>
   )
 }
 
