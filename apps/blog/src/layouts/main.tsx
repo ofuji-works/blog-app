@@ -19,7 +19,7 @@ export const MainLayout: FC<Props> = ({ children }) => {
     router.push(url)
   }
   return (
-    <VStack backgroundColor="gray.50">
+    <VStack backgroundColor="gray.50" minH="100vh">
       <Box backgroundColor="white" width="100%" boxShadow="base">
         <Container maxW="900px">
           <ProfileArea />
