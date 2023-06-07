@@ -9,7 +9,6 @@ const componentStyleConfig: ComponentStyleConfig = {
       fontSize: { base: 'sm', sm: 'md' },
       lineHeight: { base: '7', sm: '8' },
       letterSpacing: { base: 'wider', sm: 'widest' },
-      mb: { base: '3', sm: '5' },
     },
   },
 }

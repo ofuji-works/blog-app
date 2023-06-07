@@ -4,6 +4,7 @@ import { Heading, Text, ListItem, OrderedList, UnorderedList } from '@packages/u
 import { Box } from '@chakra-ui/react'
 
 import { Code } from 'features/blog/components/Code'
+import { Quotation } from 'features/blog/components/Quotation'
 
 const options = {
   Heading1: (children: React.ReactNode) => {
@@ -37,7 +38,7 @@ const options = {
     }
   },
   Text: (children: React.ReactNode) => {
-    return () => <Text>{children}</Text>
+    return () => <Text mb={{ base: '3', sm: '5' }}>{children}</Text>
   },
   UnorderList: (children: React.ReactNode) => {
     return () => <UnorderedList>{children}</UnorderedList>
@@ -47,6 +48,9 @@ const options = {
   },
   List: (children: React.ReactNode) => {
     return () => <ListItem>{children}</ListItem>
+  },
+  Quotation: (children: React.ReactNode) => {
+    return () => <Quotation>{children}</Quotation>
   },
 }
 
@@ -68,6 +72,8 @@ const renderNodes = (tokens: Token[]) => {
 
       return listComponent(children.map((Child) => <Child />))
     }
+
+    console.log(token.elm_type)
 
     return options[token.elm_type](token.text)
   })
