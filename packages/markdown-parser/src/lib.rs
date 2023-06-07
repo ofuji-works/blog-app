@@ -76,22 +76,31 @@ pub fn md_string_to_token(md_string: &str) -> Result<JsValue, JsValue> {
 
         if lexer::match_with_heading1_element_regxp(line) {
             tokens.push(lexer::gen_heading1_element(index, line));
+            continue;
         }
 
         if lexer::match_with_heading2_element_regxp(line) {
             tokens.push(lexer::gen_heading2_element(index, line));
+            continue;
         }
 
         if lexer::match_with_heading3_element_regxp(line) {
             tokens.push(lexer::gen_heading3_element(index, line));
+            continue;
         }
 
         if lexer::match_with_heading4_element_regxp(line) {
             tokens.push(lexer::gen_heading4_element(index, line));
+            continue;
         }
 
         if lexer::match_with_heading5_element_regxp(line) {
             tokens.push(lexer::gen_heading5_element(index, line));
+            continue;
+        }
+
+        if lexer::match_with_text_regexp(line) {
+            tokens.push(lexer::gen_text_element(index, None, Some(line.to_string())));
         }
     }
 
@@ -105,7 +114,7 @@ mod tests {
     #[wasm_bindgen_test::wasm_bindgen_test]
     fn it_works() {
         let md_string =
-            String::from("# Heading1\n\n## Heading2\n### Heading3\n#### Heading4\n\n- list1\n- list2\n##### Heading5\n\n```rust\nfn main() {\n  println!(\"Hello World\");\n}\n```\n\n> quotation text...\nquotaion text2...");
+            String::from("# Heading1\n\nnormal text\n## Heading2\n### Heading3\nnormal text\n#### Heading4\n\nnormal text\n- list1\n- list2\n##### Heading5\n\n```rust\nfn main() {\n  println!(\"Hello World\");\n}\n```\n\n> quotation text...\nquotaion text2...");
         let tokens = md_string_to_token(&md_string).unwrap();
 
         println!("{:?}", serde_wasm_bindgen::from_value::<Token>(tokens));

@@ -83,3 +83,7 @@ pub fn match_with_quotation_regexp(text: &str) -> bool {
 pub fn match_with_indention_regexp(text: &str) -> bool {
     text.trim().len() == 0
 }
+
+pub fn match_with_text_regexp(text: &str) -> bool {
+    text.trim().len() > 0
+}
