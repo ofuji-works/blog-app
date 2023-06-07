@@ -4,6 +4,7 @@
   "description": "",
   "main": "pkg/markdown_parser.js",
   "scripts": {
+    "build": "wasm-pack build",
     "test": "wasm-pack test --node"
   },
   "author": "",
