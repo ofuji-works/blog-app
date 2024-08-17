@@ -20,7 +20,6 @@ export const PrimaryWithLeftIcon: ComponentStoryObj<typeof Button> = {
   args: {
     rightIcon: <MdCode />,
     children: 'primary',
-    leftIcon: <MdCode />,
   },
 }
 
