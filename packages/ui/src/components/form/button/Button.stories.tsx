@@ -18,6 +18,7 @@ export const Primary: ComponentStoryObj<typeof Button> = {
 export const PrimaryWithLeftIcon: ComponentStoryObj<typeof Button> = {
   name: 'primary button with left icon',
   args: {
+    rightIcon: <MdCode />,
     children: 'primary',
     leftIcon: <MdCode />,
   },
